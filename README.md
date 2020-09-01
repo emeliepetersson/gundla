@@ -10,9 +10,9 @@ $ git clone https://github.com/emeliepetersson/gundla
 2. In the project directory, run the development server:
 
 ```bash
-npm run dev
+$ npm run dev
 # or
-yarn dev
+$ yarn dev
 ```
 
 3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
