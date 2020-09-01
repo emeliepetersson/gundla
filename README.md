@@ -7,7 +7,7 @@ This is a webbsite for Gundla Gårdscafé built with [Next.js](https://nextjs.or
 $ git clone https://github.com/emeliepetersson/gundla
 ```
 
-2. run the development server:
+2. In the project directory, run the development server:
 
 ```bash
 npm run dev
