@@ -1,10 +1,10 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
-import styled from "styled-components";
 
-const Nav = () => (
-  <Navigation>
+import Menu from "./Menu";
+
+const Layout = ({ children, title }) => (
+  <main>
     <Head>
       <meta charset="utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,7 +14,7 @@ const Nav = () => (
       />
       <meta name="description" content="Description" />
       <meta name="keywords" content="Keywords" />
-      <title>Gundla Gårdscafé</title>
+      <title>{title || "Gundla Gårdscafé"}</title>
 
       <link rel="manifest" href="/manifest.json" />
       <link
@@ -32,25 +32,9 @@ const Nav = () => (
       <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
-
-    <Link href="/">
-      <a>Hem</a>
-    </Link>
-    <Link href="/about">
-      <a>Om oss</a>
-    </Link>
-    <Link href="/contact">
-      <a>Kontakt</a>
-    </Link>
-  </Navigation>
+    <Menu />
+    <div className="content">{children}</div>
+  </main>
 );
 
-const Navigation = styled.nav`
-  margin-top: 20px;
-
-  a {
-    margin: 10px;
-  }
-`;
-
-export default Nav;
+export default Layout;
