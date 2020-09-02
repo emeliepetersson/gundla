@@ -7,13 +7,13 @@ export default function Home() {
   return (
     <Layout>
       <Container>
-        <main className="main">
+        <div className="main">
           <h1 className="title">Gundla Gårdscafé</h1>
 
           <p className="description">
             Get started by editing <code className="code">pages/index.js</code>
           </p>
-        </main>
+        </div>
 
         <footer>
           <a
