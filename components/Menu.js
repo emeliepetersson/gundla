@@ -29,6 +29,7 @@ const Navigation = styled.nav`
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 2;
 
   a {
     margin: 10px;

@@ -8,7 +8,11 @@ export default function Home() {
   return (
     <Layout>
       <Container>
-        <Hero fullScreen={true} text="Genuin enkelhet i ranchanda" />
+        <Hero
+          fullScreen={true}
+          text="Genuin enkelhet i ranchanda"
+          showIcon={true}
+        />
         <div className="main">
           <h1 className="title">Gundla Gårdscafé</h1>
 
