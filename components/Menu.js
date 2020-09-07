@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -27,6 +26,10 @@ const Menu = () => (
 
 const Navigation = styled.nav`
   margin-top: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
 
   a {
     margin: 10px;
