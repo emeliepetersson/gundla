@@ -13,6 +13,15 @@ const Menu = () => (
     <Link href="/contact">
       <a>Kontakt</a>
     </Link>
+    <Link href="/event">
+      <a>Evenemang</a>
+    </Link>
+    <Link href="/catering">
+      <a>Catering</a>
+    </Link>
+    <Link href="/menu">
+      <a>Meny</a>
+    </Link>
   </Navigation>
 );
 
