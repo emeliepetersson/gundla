@@ -1,15 +1,8 @@
 import styled from "styled-components";
 import colors from "../config/colors";
 
-const Hero = ({
-  altText,
-  fullScreen = false,
-  imageUrl,
-  showIcon = false,
-  text,
-}) => (
-  <Container fullScreen={fullScreen}>
-    <img src={imageUrl} alt={altText} />
+const Hero = ({ fullScreen = false, imageUrl, showIcon = false, text }) => (
+  <Container fullScreen={fullScreen} imageUrl={imageUrl}>
     {text && <h1>{text}</h1>}
     {showIcon && (
       <img
@@ -28,11 +21,16 @@ const Container = styled.div`
   flex-direction: column;
   height: ${(props) => (props.fullScreen ? "100vh" : "50vh")};
   width: 100vw;
-  background-color: cornflowerblue;
   position: relative;
+  color: ${colors.white};
+  background-image: url(${(props) => props.imageUrl || "none"});
+  background-size: cover;
+  background-repeat: none;
+  background-position: bottom;
 
   h1 {
     text-align: center;
+    margin-bottom: 100px;
   }
 
   .icon {

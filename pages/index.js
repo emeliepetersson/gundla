@@ -10,8 +10,10 @@ export default function Home() {
       <Container>
         <Hero
           fullScreen={true}
-          text="Genuin enkelhet i ranchanda"
+          imageUrl="/images/hero-test.jpg"
           showIcon={true}
+          text="Genuin enkelhet
+          i ranchanda"
         />
         <div className="main">
           <h1 className="title">Gundla Gårdscafé</h1>
