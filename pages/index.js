@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 import Layout from "../components/Layout";
 import colors from "../config/colors";
+import Hero from "../components/Hero";
 
 export default function Home() {
   return (
     <Layout>
       <Container>
+        <Hero fullScreen={true} text="Genuin enkelhet i ranchanda" />
         <div className="main">
           <h1 className="title">Gundla Gårdscafé</h1>
 
