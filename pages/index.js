@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import colors from "../config/colors";
 import Hero from "../components/Hero";
+import VisitInfo from "../components/VisitInfo";
 import SocialMedia from "../components/SocialMedia";
 
 export default function Home() {
@@ -18,6 +19,8 @@ export default function Home() {
         />
         <div className="main">
           <h1 className="title">Gundla Gårdscafé</h1>
+
+          <VisitInfo />
 
           <SocialMedia
             icons={[
