@@ -1,4 +1,5 @@
 import Head from "next/head";
+import PropTypes from "prop-types";
 
 import Menu from "./Menu";
 
@@ -35,5 +36,9 @@ const Layout = ({ children, title }) => (
     <div className="content">{children}</div>
   </main>
 );
+
+Layout.propTypes = {
+  title: PropTypes.string,
+};
 
 export default Layout;
