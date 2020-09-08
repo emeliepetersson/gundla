@@ -1,6 +1,5 @@
 import Head from "next/head";
-
-import Menu from "./Menu";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Layout = ({ children, title }) => (
   <main>
@@ -31,7 +30,7 @@ const Layout = ({ children, title }) => (
       <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
-    <Menu />
+    <HamburgerMenu/>
     <div className="content">{children}</div>
   </main>
 );
