@@ -1,22 +1,15 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import colors from "../config/colors";
-//if there is going to be more than "for the yngre"
-const age =(num)=>{
-    if(num <14){   
-     return "För de yngre" 
-    }
-    return;
-    
-}
 
 
 
-const InfoBadge =(props)=>{
+const InfoBadge =({text})=>{
 
     return(
-    <BadgeContainer age={num}>
+    <BadgeContainer>
         <p>
-        {age(num)}
+         {text}
         </p>
     </BadgeContainer>
     )
@@ -25,16 +18,27 @@ const BadgeContainer = styled.div`
     position:absolute;
     width:100px;
     height:100px;
-    color:${props.color}
     border-radius:50%;
     font-size:12px;
     font-weight:bold;
     display:flex;
     justify-content:center;
     align-items:center;
-    right:16px;
+    align-self:center;
+ 
+    color:${props =>props.color || colors.white};
+    background:${props => props.bg || colors.infoGreen};
+    top:${props => props.top || 47}vh;
+    right:${props => props.right|| 16}px;
     
     }
 `
+InfoBadge.propTypes ={
+    color:PropTypes.string,
+    bg:PropTypes.string,
+    top:PropTypes.any,
+    right:PropTypes.any,
+    text:PropTypes.string
+}
 
 export default InfoBadge;
