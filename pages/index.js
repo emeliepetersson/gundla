@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import colors from "../config/colors";
 import Hero from "../components/Hero";
+import SocialMedia from "../components/SocialMedia";
 
 export default function Home() {
   return (
@@ -23,6 +24,13 @@ export default function Home() {
           </p>
         </div>
 
+        <SocialMedia
+          icons={[
+            { url: "/icons/instagram-black.png", altText: "Instagram icon" },
+          ]}
+          text="Följ oss på Instagram!"
+        />
+
         <footer>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -40,7 +48,6 @@ export default function Home() {
 
 const Container = styled.div`
   min-height: 100vh;
-  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
