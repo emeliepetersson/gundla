@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Layout from "../components/Layout";
@@ -7,6 +8,24 @@ import SocialMedia from "../components/SocialMedia";
 import client from "../api/Contentful";
 
 export default function Home() {
+  async function fetchEntries() {
+    const entries = await client.getEntries();
+    if (entries.items) return entries.items;
+    console.log(`Error getting Entries for ${contentType.name}.`);
+  }
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    async function getPosts() {
+      const allPosts = await fetchEntries();
+      setPosts([...allPosts]);
+    }
+    getPosts();
+  }, []);
+
+  console.log(posts);
+
   return (
     <Layout>
       <Container>
