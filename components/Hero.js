@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
 import colors from "../config/colors";
 
 const Hero = ({ fullScreen = false, imageUrl, showIcon = false, text }) => (
@@ -52,5 +54,12 @@ const Container = styled.div`
     }
   }
 `;
+
+Hero.propTypes = {
+  fullScreen: PropTypes.bool,
+  imageUrl: PropTypes.string,
+  showIcon: PropTypes.bool,
+  text: PropTypes.string,
+};
 
 export default Hero;

@@ -19,17 +19,13 @@ export default function Home() {
         <div className="main">
           <h1 className="title">Gundla Gårdscafé</h1>
 
-          <p className="description">
-            Get started by editing <code className="code">pages/index.js</code>
-          </p>
+          <SocialMedia
+            icons={[
+              { url: "/icons/instagram-black.png", altText: "Instagram icon" },
+            ]}
+            text="Följ oss på Instagram!"
+          />
         </div>
-
-        <SocialMedia
-          icons={[
-            { url: "/icons/instagram-black.png", altText: "Instagram icon" },
-          ]}
-          text="Följ oss på Instagram!"
-        />
 
         <footer>
           <a
@@ -66,25 +62,7 @@ const Container = styled.div`
       line-height: 1.15;
       font-size: 4rem;
       color: ${colors.primary};
-    }
-
-    .title,
-    .description {
       text-align: center;
-    }
-
-    .description {
-      line-height: 1.5;
-      font-size: 1.5rem;
-
-      .code {
-        background: ${colors.white};
-        border-radius: 5px;
-        padding: 0.75rem;
-        font-size: 1.1rem;
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
     }
   }
 
