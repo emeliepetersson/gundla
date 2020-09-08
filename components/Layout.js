@@ -35,4 +35,8 @@ const Layout = ({ children, title }) => (
   </main>
 );
 
+Layout.propTypes = {
+  title: PropTypes.string,
+};
+
 export default Layout;
