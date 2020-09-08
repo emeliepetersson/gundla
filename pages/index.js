@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import colors from "../config/colors";
 import Hero from "../components/Hero";
 import SocialMedia from "../components/SocialMedia";
+import client from "../api/Contentful";
 
 export default function Home() {
   return (
