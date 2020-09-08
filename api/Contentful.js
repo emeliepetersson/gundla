@@ -1,4 +1,4 @@
-const contentful = require("./node_modules/contentful");
+const contentful = require("contentful");
 
 const client = contentful.createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
