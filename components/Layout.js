@@ -1,6 +1,7 @@
 import Head from "next/head";
 import HamburgerMenu from "./HamburgerMenu";
 import PropTypes from "prop-types";
+import Footer from "./Footer"
 
 const Layout = ({ children, title }) => (
   <main>
@@ -33,7 +34,11 @@ const Layout = ({ children, title }) => (
     </Head>
     <HamburgerMenu />
     <div className="content">{children}</div>
+     <Footer>
+
+     </Footer>
   </main>
+  
 );
 
 Layout.propTypes = {
