@@ -21,7 +21,11 @@ export default function Home({ contactInfo }) {
         <div className="main">
           <h1 className="title">Gundla Gårdscafé</h1>
 
-          <ContactInfo info={contactInfo} />
+          <ContactInfo
+            adress={contactInfo.adress}
+            postcode={contactInfo.postcode}
+            openingHours={contactInfo.openingHours}
+          />
 
           <SocialMedia
             icons={[
@@ -48,9 +52,10 @@ export default function Home({ contactInfo }) {
 
 export const getStaticProps = async () => {
   const res = await fetchEntries("visitingInfo");
-  const contactInfo = await res.map((i) => {
+  const response = await res.map((i) => {
     return i.fields;
   });
+  const contactInfo = response[0];
   return {
     props: {
       contactInfo,
