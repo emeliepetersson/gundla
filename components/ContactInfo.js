@@ -35,7 +35,6 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  background-color: cornflowerblue;
   padding: 30px 0;
   text-align: center;
 
