@@ -2,6 +2,8 @@ import { Spin as Hamburger } from 'hamburger-react';
 import Menu from './Menu';
 import styled from "styled-components";
 
+import PropTypes from "prop-types";
+
 const HamburgerMenu = () => {
     const [sidebar, setSidebar] = React.useState(null);
     return (
