@@ -1,6 +1,8 @@
 import Head from "next/head";
 import HamburgerMenu from "./HamburgerMenu";
 import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import Footer from "./Footer"
 
 const Layout = ({ children, title }) => (
   <main>
@@ -31,9 +33,13 @@ const Layout = ({ children, title }) => (
       <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
-    <HamburgerMenu/>
+    <HamburgerMenu />
     <div className="content">{children}</div>
+     <Footer>
+
+     </Footer>
   </main>
+  
 );
 
 Layout.propTypes = {
