@@ -1,5 +1,6 @@
 import Head from "next/head";
 import HamburgerMenu from "./HamburgerMenu";
+import PropTypes from 'prop-types';
 
 const Layout = ({ children, title }) => (
   <main>
