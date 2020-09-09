@@ -3,11 +3,13 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import colors from "../config/colors";
 import Hero from "../components/Hero";
+import ContactInfo from "../components/ContactInfo";
 import SocialMedia from "../components/SocialMedia";
+import { fetchEntries } from "../pages/api/Contentful";
 
-export default function Home() {
+export default function Home({ contactInfo }) {
   return (
-    <Layout>
+  
       <Container>
         <Hero
           fullScreen={true}
@@ -18,6 +20,12 @@ export default function Home() {
         />
         <div className="main">
           <h1 className="title">Gundla Gårdscafé</h1>
+
+          <ContactInfo
+            adress={contactInfo.adress}
+            postcode={contactInfo.postcode}
+            openingHours={contactInfo.openingHours}
+          />
 
           <SocialMedia
             icons={[
@@ -38,9 +46,22 @@ export default function Home() {
           </a>
         </footer>
       </Container>
-    </Layout>
+    
   );
 }
+
+export const getStaticProps = async () => {
+  const res = await fetchEntries("visitingInfo");
+  const response = await res.map((i) => {
+    return i.fields;
+  });
+  const contactInfo = response[0];
+  return {
+    props: {
+      contactInfo,
+    },
+  };
+};
 
 const Container = styled.div`
   min-height: 100vh;

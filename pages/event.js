@@ -2,13 +2,13 @@ import styled from "styled-components";
 import colors from "../config/colors";
 import Layout from "../components/Layout";
 
-function Event() {
+const Event =()=> {
     return (
-      <Layout>
+     
         <Container>
           <h1>Event</h1>
         </Container>
-      </Layout>
+      
     )
   }
   
