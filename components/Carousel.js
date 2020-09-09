@@ -2,6 +2,7 @@ import ImageGallery from 'react-image-gallery';
 import styled from "styled-components";
 import PropTypes from 'prop-types';
 
+
 const Carousel = props => {
 
   let filledArray = new Array();
