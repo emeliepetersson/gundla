@@ -5,12 +5,12 @@ import Hero from "../components/Hero";
 
 function About() {
   return (
-    <Layout>
+ 
       <Container>
         <Hero imageUrl="/images/hero-test-portrait.jpg" />
         <h1>About</h1>
       </Container>
-    </Layout>
+    
   );
 }
 
