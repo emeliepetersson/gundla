@@ -9,7 +9,7 @@ import { fetchEntries } from "../pages/api/Contentful";
 
 export default function Home({ contactInfo }) {
   return (
-    <Layout>
+  
       <Container>
         <Hero
           fullScreen={true}
@@ -46,7 +46,7 @@ export default function Home({ contactInfo }) {
           </a>
         </footer>
       </Container>
-    </Layout>
+    
   );
 }
 
