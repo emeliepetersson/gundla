@@ -4,11 +4,11 @@ import Layout from "../components/Layout";
 
 function Catering() {
     return (
-      <Layout>
+   
         <Container>
           <h1>Catering</h1>
         </Container>
-      </Layout>
+
     )
   }
   
