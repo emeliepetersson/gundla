@@ -1,52 +1,58 @@
 import styled from "styled-components";
 
-import Layout from "../components/Layout";
 import colors from "../config/colors";
 import Hero from "../components/Hero";
 import ContactInfo from "../components/ContactInfo";
 import SocialMedia from "../components/SocialMedia";
+import Post from "../components/Post";
 import { fetchEntries } from "../pages/api/Contentful";
 
 export default function Home({ contactInfo }) {
   return (
-  
-      <Container>
-        <Hero
-          fullScreen={true}
-          imageUrl="/images/hero-test.jpg"
-          showIcon={true}
-          text="Genuin enkelhet
+    <Container>
+      <Hero
+        fullScreen={true}
+        imageUrl="/images/hero-test.jpg"
+        showIcon={true}
+        text="Genuin enkelhet
           i ranchanda"
+      />
+      <div className="main">
+        <h1 className="title">Gundla Gårdscafé</h1>
+
+        <Post
+          buttonText="Till vår meny"
+          imageUrl="/images/hero-test.jpg"
+          altText="example picture"
+          title="Välkommen till Gundla Gårdscafé"
+          text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
         />
-        <div className="main">
-          <h1 className="title">Gundla Gårdscafé</h1>
 
-          <ContactInfo
-            adress={contactInfo.adress}
-            postcode={contactInfo.postcode}
-            openingHours={contactInfo.openingHours}
-          />
+        <ContactInfo
+          adress={contactInfo.adress}
+          postcode={contactInfo.postcode}
+          openingHours={contactInfo.openingHours}
+        />
 
-          <SocialMedia
-            icons={[
-              { url: "/icons/instagram-black.png", altText: "Instagram icon" },
-            ]}
-            text="Följ oss på Instagram!"
-          />
-        </div>
+        <SocialMedia
+          icons={[
+            { url: "/icons/instagram-black.png", altText: "Instagram icon" },
+          ]}
+          text="Följ oss på Instagram!"
+        />
+      </div>
 
-        <footer>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{" "}
-            <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-          </a>
-        </footer>
-      </Container>
-    
+      <footer>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{" "}
+          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+        </a>
+      </footer>
+    </Container>
   );
 }
 
