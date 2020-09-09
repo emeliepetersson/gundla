@@ -21,8 +21,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  p {
+  p, h3 {
     margin: 0;
+    font-size: 16px;
   }
 `;
 
