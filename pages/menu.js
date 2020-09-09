@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import colors from "../config/colors";
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import * as contentful from 'contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 // temp img url 
-const Menu =({page})=> {
-  console.log(page)
+
+const Menu =()=> {
+    
     return (
-      <Layout>
+      
         <Container>
         
           <Hero imageUrl="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"/> 
@@ -24,10 +24,11 @@ const Menu =({page})=> {
           </MenuContainer>
 
         </Container>
-      </Layout>
+
     )
   }
 export default Menu
+
 export const getStaticProps = async () => {
   const res = await fetchEntries("menySida");
   const page = await res.map((i)=>{

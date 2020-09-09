@@ -1,12 +1,19 @@
-import { Fragment } from "react";
+import { Fragment, lazy } from "react";
 import GlobalStyles from "../config/globalStyles.js";
+import Layout from "../components/Layout";
+import colors from "../config/globalStyles"
+const MyApp=({ Component, pageProps })=> {
 
-function MyApp({ Component, pageProps }) {
   return (
+   
     <Fragment>
-      <GlobalStyles />
-      <Component {...pageProps} />
+      <Layout>
+        
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </Layout>
     </Fragment>
+
   );
 }
 
