@@ -7,21 +7,22 @@ import SocialMedia from "../components/SocialMedia";
 import Post from "../components/Post";
 import { fetchEntries } from "../pages/api/Contentful";
 
-export default function Home({ contactInfo }) {
+export default function Home({ contactInfo, landingPage }) {
+  console.log(landingPage);
+
   return (
     <Container>
       <Hero
         fullScreen={true}
         imageUrl="/images/hero-test.jpg"
         showIcon={true}
-        text="Genuin enkelhet
-          i ranchanda"
+        text={landingPage.mainTitle}
       />
       <Post
         buttonText="Till vår meny"
-        imageUrl="/images/hero-test.jpg"
-        altText="example picture"
-        title="Välkommen till Gundla Gårdscafé"
+        imageUrl={landingPage.image1.fields.file.url}
+        altText={landingPage.image1.fields.description}
+        title={landingPage.title1}
         text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
       />
 
@@ -47,9 +48,18 @@ export const getStaticProps = async () => {
     return i.fields;
   });
   const contactInfo = response[0];
+
+  const landingPageRes = await fetchEntries("landingpage");
+  const landingPageResponse = await landingPageRes.map((i) => {
+    return i.fields;
+  });
+
+  const landingPage = landingPageResponse[0];
+
   return {
     props: {
       contactInfo,
+      landingPage,
     },
   };
 };
