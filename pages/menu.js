@@ -1,27 +1,32 @@
 import styled from "styled-components";
-import Layout from "../components/Layout";
 import Hero from "../components/Hero";
-import * as contentful from 'contentful';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-// temp img url 
+import colors from "../config/colors";
+import { fetchEntries } from "../pages/api/Contentful";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-const Menu =()=> {
-    
+const Menu =(content)=> {
+  let menyPage;
+ 
+  content.page.map(i=>{
+    menyPage = i;
+  })
+ 
     return (
       
         <Container>
         
           <Hero imageUrl="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"/> 
-          <MenuContainer>
-            <MenuInfo>
-           
+            <h1>{menyPage.title}</h1>
+    
+            <MenyCard>
+            {menyPage.meny.content.map((c)=>{
               
-            </MenuInfo>
-            <hr></hr>
-            <Food>
+              return (
+                        documentToReactComponents(c)
+                      )
+            })}
 
-            </Food>
-          </MenuContainer>
+            </MenyCard>
 
         </Container>
 
@@ -31,14 +36,20 @@ export default Menu
 
 export const getStaticProps = async () => {
   const res = await fetchEntries("menySida");
-  const page = await res.map((i)=>{
-    return i.fields
-  });
+ 
+  const content = await res.map((i)=>{
+        
+       return i.fields
+     
+  })
+
   return {
+
     props:{
-      page,
+      page:content,
     }
   };
+  
 }
   
  
@@ -56,17 +67,14 @@ export const getStaticProps = async () => {
   }
   div{
     width:100%;
-    padding:48px 36px;
+    padding:0px 36px;
   }
   `;
 
- const MenuContainer = styled.div`
+ const MenyCard= styled.div`
   min-height:100vh;
 
+
   `
-const MenuInfo = styled.div`
+
   
-  `
-const Food = styled.div`
-  
-  `
