@@ -2,13 +2,14 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import Button from "./Button";
+import Image from "./Image";
 
 const ContactInfo = ({ altText, buttonText, imageUrl, title, text }) => {
   return (
     <Container>
       {imageUrl && (
         <div className="image-container">
-          <img src={imageUrl} alt={altText} />
+          <Image imageUrl={imageUrl} altText={altText} />
         </div>
       )}
       <div className="content">
@@ -28,7 +29,6 @@ const Container = styled.div`
   text-align: center;
   overflow: hidden;
   width: 100%;
-  background-color: cornflowerblue;
   padding-bottom: 80px;
 
   .image-container {
