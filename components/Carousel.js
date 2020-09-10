@@ -1,6 +1,7 @@
 import ImageGallery from 'react-image-gallery';
 import styled from "styled-components";
 import PropTypes from 'prop-types';
+import Device from "../config/device";
 
 
 const Carousel = props => {
@@ -32,6 +33,10 @@ const Carousel = props => {
     height: 100%;
     width: 100vw;
     object-fit: cover;
+  }
+
+  @media ${Device.laptop} { 
+    
   }
   `;
 
