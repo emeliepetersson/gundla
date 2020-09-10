@@ -1,11 +1,10 @@
 import Link from "next/link";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 
-
-const Menu = props => {
-console.log(props.show);
+const Menu = ({show = false}) => {
   return (
-    <Navigation show={props.show} > 
+    <Navigation show={show} > 
         <Link href="/">
           <a>Hem</a>
         </Link>
@@ -64,7 +63,10 @@ const Navigation = styled.nav`
   a:hover {
       color: rgba(255, 255, 255, .5);
   }
-
 `;
+
+Menu.propTypes = {
+  show: PropTypes.bool,
+};
 
 export default Menu;
