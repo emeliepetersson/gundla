@@ -22,8 +22,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p, h3 {
-    margin: 0;
     font-size: 16px;
+  }
+
+  h2, p, h3 {
+    margin: 0;
   }
 `;
 

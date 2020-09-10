@@ -1,7 +1,9 @@
 import { Fragment, lazy } from "react";
 import GlobalStyles from "../config/globalStyles.js";
+import "react-image-gallery/styles/css/image-gallery.css";
 import Layout from "../components/Layout";
-import colors from "../config/globalStyles"
+import colors from "../config/globalStyles";
+
 const MyApp=({ Component, pageProps })=> {
 
   return (
