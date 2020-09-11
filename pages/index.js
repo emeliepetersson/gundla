@@ -9,9 +9,7 @@ import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-export default function Home({ contactInfo, landingPage }) {
-  console.log(landingPage.text1);
-
+const Home = ({ contactInfo, landingPage }) => {
   return (
     <Container>
       <Hero
@@ -65,7 +63,7 @@ export default function Home({ contactInfo, landingPage }) {
       />
     </Container>
   );
-}
+};
 
 export const getStaticProps = async () => {
   const contactInfoRes = await fetchEntries("visitingInfo");
@@ -95,3 +93,5 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export default Home;
