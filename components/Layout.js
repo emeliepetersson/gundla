@@ -41,7 +41,6 @@ const Layout = ({ children, title }) => (
 
      </Footer>
   </main>
-  
 );
 
 Layout.propTypes = {
