@@ -25,7 +25,7 @@ const Container = styled.div`
   }
 
   .icon {
-    margin: 8px;
+    margin: 24px 8px 8px;
     width: 44px;
   }
 `;

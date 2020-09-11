@@ -20,6 +20,7 @@ const Home = ({ contactInfo, landingPage }) => {
       />
 
       <Post
+        className="intro"
         title={landingPage.title1}
         text={landingPage.text1}
         buttonText="Till vår meny!"
@@ -27,17 +28,20 @@ const Home = ({ contactInfo, landingPage }) => {
         altText={landingPage.image1.fields.description}
       />
 
-      <Post title={landingPage.title2} text={landingPage.text2} />
+      <div className="contact">
+        <Post title={landingPage.title2} text={landingPage.text2} />
 
-      <ContactInfo
-        adress={contactInfo.adress}
-        postcode={contactInfo.postcode}
-        openingHours={contactInfo.openingHours}
-      />
+        <ContactInfo
+          adress={contactInfo.adress}
+          postcode={contactInfo.postcode}
+          openingHours={contactInfo.openingHours}
+        />
 
-      <Button>Hitta hit</Button>
+        <Button>Hitta hit</Button>
+      </div>
 
       <Post
+        className="event"
         buttonText="Se alla evenemang"
         imageUrl={landingPage.image3.fields.file.url}
         altText={landingPage.image3.fields.description}
@@ -46,6 +50,7 @@ const Home = ({ contactInfo, landingPage }) => {
       />
 
       <Post
+        className="catering"
         buttonText="Till catering"
         imageUrl={landingPage.image4.fields.file.url}
         altText={landingPage.image4.fields.description}
@@ -54,6 +59,7 @@ const Home = ({ contactInfo, landingPage }) => {
       />
 
       <SocialMedia
+        className="social-media"
         icons={[
           { url: "/icons/instagram-black.png", altText: "Instagram icon" },
         ]}
@@ -90,6 +96,34 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .intro {
+    background-color: cornflowerblue;
+    padding-bottom: 120px;
+  }
+
+  .contact {
+    background-color: palevioletred;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 16px 0 170px;
+  }
+
+  .event {
+    background-color: goldenrod;
+    padding-bottom: 120px;
+  }
+
+  .catering {
+    background-color: blanchedalmond;
+    padding-bottom: 120px;
+  }
+
+  .social-media {
+    padding: 64px 0;
+    background-color: peachpuff;
+  }
 `;
 
 export default Home;
