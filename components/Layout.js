@@ -2,6 +2,7 @@ import Head from "next/head";
 import HamburgerMenu from "./HamburgerMenu";
 import PropTypes from 'prop-types';
 import Footer from "./Footer"
+import { StaticKitProvider } from '@statickit/react'
 
 const Layout = ({ children, title }) => (
   <main>
@@ -33,7 +34,9 @@ const Layout = ({ children, title }) => (
       <meta name="theme-color" content="#317EFB" />
     </Head>
     <HamburgerMenu />
-    <div className="content">{children}</div>
+    <StaticKitProvider site={process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}>
+      <div className="content">{children}</div>
+    </StaticKitProvider>
      <Footer>
 
      </Footer>

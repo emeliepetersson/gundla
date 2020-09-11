@@ -15,7 +15,9 @@
     "react-dom": "16.13.1",
     "react-image-gallery": "^1.0.8",
     "styled-components": "^5.1.1",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "@statickit/functions": "github:unstacked/statickit-functions#d9d07a3c-625d-4104-bd67-654570e76609",
+    "@statickit/react": "^2.1.1"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.11.1"

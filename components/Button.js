@@ -24,7 +24,6 @@ const Button = styled.button`
           background-color:${colors.white};
           border-color:${colors.black};
           box-shadow:inset 0px 0px 100px 10px ${colors.black};
-            
    }
 `
 Button.propTypes = {
