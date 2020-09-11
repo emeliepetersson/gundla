@@ -7,7 +7,6 @@ import SocialMedia from "../components/SocialMedia";
 import Post from "../components/Post";
 import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const Home = ({ contactInfo, landingPage }) => {
   return (
@@ -23,13 +22,10 @@ const Home = ({ contactInfo, landingPage }) => {
         imageUrl={landingPage.image1.fields.file.url}
         altText={landingPage.image1.fields.description}
         title={landingPage.title1}
-        text={documentToReactComponents(landingPage.text1)}
+        text={landingPage.text1}
       />
 
-      <Post
-        title={landingPage.title2}
-        text={documentToReactComponents(landingPage.text2)}
-      />
+      <Post title={landingPage.title2} text={landingPage.text2} />
 
       <ContactInfo
         adress={contactInfo.adress}
@@ -44,7 +40,7 @@ const Home = ({ contactInfo, landingPage }) => {
         imageUrl={landingPage.image3.fields.file.url}
         altText={landingPage.image3.fields.description}
         title={landingPage.title3}
-        text={documentToReactComponents(landingPage.text3)}
+        text={landingPage.text3}
       />
 
       <Post
@@ -52,7 +48,7 @@ const Home = ({ contactInfo, landingPage }) => {
         imageUrl={landingPage.image4.fields.file.url}
         altText={landingPage.image4.fields.description}
         title={landingPage.title4}
-        text={documentToReactComponents(landingPage.text4)}
+        text={landingPage.text4}
       />
 
       <SocialMedia
