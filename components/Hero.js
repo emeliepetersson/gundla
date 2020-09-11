@@ -2,16 +2,26 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import colors from "../config/colors";
+import Image from "./Image";
 
-const Hero = ({ fullScreen = false, imageUrl, showIcon = false, text }) => (
-  <Container fullScreen={fullScreen} imageUrl={imageUrl}>
+const Hero = ({
+  fullScreen = false,
+  imageUrl,
+  showIcon = false,
+  text,
+  altText,
+}) => (
+  <Container fullScreen={fullScreen}>
+    <Image className="background-image" imageUrl={imageUrl} altText={altText} />
     {text && <h1>{text}</h1>}
     {showIcon && (
-      <img
-        className="icon"
-        src="/icons/down-arrow.png"
-        alt="Arrow pointing down"
-      />
+      <a href="#scroll">
+        <img
+          className="icon"
+          src="/icons/down-arrow.png"
+          alt="Arrow pointing down"
+        />
+      </a>
     )}
   </Container>
 );
@@ -25,10 +35,16 @@ const Container = styled.div`
   width: 100vw;
   position: relative;
   color: ${colors.white};
-  background-image: url(${(props) => props.imageUrl || "none"});
-  background-size: cover;
-  background-repeat: none;
-  background-position: bottom;
+
+  .background-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
 
   h1 {
     text-align: center;
@@ -57,7 +73,7 @@ const Container = styled.div`
 
 Hero.propTypes = {
   fullScreen: PropTypes.bool,
-  imageUrl: PropTypes.string,
+  imageUrl: PropTypes.string.isRequired,
   showIcon: PropTypes.bool,
   text: PropTypes.string,
 };
