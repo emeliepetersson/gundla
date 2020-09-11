@@ -7,8 +7,11 @@ import SocialMedia from "../components/SocialMedia";
 import Post from "../components/Post";
 import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export default function Home({ contactInfo, landingPage }) {
+  console.log(landingPage.text1);
+
   return (
     <Container>
       <Hero
@@ -22,12 +25,12 @@ export default function Home({ contactInfo, landingPage }) {
         imageUrl={landingPage.image1.fields.file.url}
         altText={landingPage.image1.fields.description}
         title={landingPage.title1}
-        text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
+        text={documentToReactComponents(landingPage.text1)}
       />
 
       <Post
         title={landingPage.title2}
-        text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
+        text={documentToReactComponents(landingPage.text2)}
       />
 
       <ContactInfo
@@ -43,7 +46,7 @@ export default function Home({ contactInfo, landingPage }) {
         imageUrl={landingPage.image3.fields.file.url}
         altText={landingPage.image3.fields.description}
         title={landingPage.title3}
-        text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
+        text={documentToReactComponents(landingPage.text3)}
       />
 
       <Post
@@ -51,7 +54,7 @@ export default function Home({ contactInfo, landingPage }) {
         imageUrl={landingPage.image4.fields.file.url}
         altText={landingPage.image4.fields.description}
         title={landingPage.title4}
-        text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
+        text={documentToReactComponents(landingPage.text4)}
       />
 
       <SocialMedia

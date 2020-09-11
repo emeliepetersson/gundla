@@ -14,7 +14,7 @@ const ContactInfo = ({ altText, buttonText, imageUrl, title, text }) => {
       )}
       <div className="content">
         <h2>{title}</h2>
-        {text && <p>{text}</p>}
+        {text}
         {buttonText && <Button>{buttonText}</Button>}
       </div>
     </Container>
@@ -64,7 +64,7 @@ ContactInfo.propTypes = {
   altText: PropTypes.string,
   imageUrl: PropTypes.string,
   title: PropTypes.string,
-  text: PropTypes.string,
+  // text: PropTypes.string,
   buttonText: PropTypes.string,
 };
 
