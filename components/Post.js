@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import Button from "./Button";
 import Image from "./Image";
 
-const ContactInfo = ({ altText, buttonText, imageUrl, title, text }) => {
+const Post = ({ altText, buttonText, imageUrl, title, text }) => {
   return (
     <Container>
       {imageUrl && (
@@ -14,7 +15,7 @@ const ContactInfo = ({ altText, buttonText, imageUrl, title, text }) => {
       )}
       <div className="content">
         <h2>{title}</h2>
-        {text}
+        {documentToReactComponents(text)}
         {buttonText && <Button>{buttonText}</Button>}
       </div>
     </Container>
@@ -60,12 +61,12 @@ const Container = styled.div`
   }
 `;
 
-ContactInfo.propTypes = {
+Post.propTypes = {
   altText: PropTypes.string,
   imageUrl: PropTypes.string,
   title: PropTypes.string,
-  // text: PropTypes.string,
+  text: PropTypes.object,
   buttonText: PropTypes.string,
 };
 
-export default ContactInfo;
+export default Post;
