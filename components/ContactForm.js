@@ -20,14 +20,14 @@ function ContactForm() {
     <Container>
     <h1>Kontakta oss</h1>
     <div className="form-buttons-container"> 
-      <Button onClick={() => handleClick('Hålla i evenemang')} height="33" width="182" >Hålla i evenemang</Button>
-      <Button onClick={() => handleClick('Överigt')} height="33" width="88">Överigt</Button>
+      <Button onClick={() => handleClick('Hålla i evenemang')} height={33} width={182} >Hålla i evenemang</Button>
+      <Button onClick={() => handleClick('Överigt')} height={33} width={88}>Överigt</Button>
     </div>
     <div className="form-buttons-container"> 
-      <Button onClick={() => handleClick('Boka biljett')} height="33" width="110">Boka biljett</Button>
-      <Button onClick={() => handleClick('Beställa catering')} height="33" width="160">Beställa catering</Button>
+      <Button onClick={() => handleClick('Boka biljett')} height={33} width={110}>Boka biljett</Button>
+      <Button onClick={() => handleClick('Beställa catering')} height={33} width={160}>Beställa catering</Button>
     </div>
-    <form onSubmit={handleSubmit} autocomplete="off">
+    <form onSubmit={handleSubmit} autoComplete="off">
       <div>
         <label htmlFor="name">
           Name 
@@ -37,7 +37,7 @@ function ContactForm() {
           type="name" 
           name="name"
           required
-          autocomplete="autocomplete_off_hack_xfr4!k"
+          autoComplete="autocomplete_off_hack_xfr4!k"
         />
         <ValidationError 
           prefix="Name" 
@@ -55,7 +55,7 @@ function ContactForm() {
           type="email" 
           name="email"
           required
-          autocomplete="autocomplete_No_More_yesyes"
+          autoComplete="autocomplete_No_More_yesyes"
         />
         <ValidationError 
           prefix="Email" 
@@ -84,7 +84,7 @@ function ContactForm() {
         <label htmlFor="text">
             Vad gäller det?
           </label>
-      <input id="text" type="text" name="text" value={hiddenInputValue} readonly required/>
+      <input id="text" type="text" name="text" value={hiddenInputValue} readOnly required/>
           <ValidationError 
             prefix="Text" 
             field="text"
