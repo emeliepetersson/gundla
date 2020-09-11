@@ -8,5 +8,6 @@ export default {
   dark: "#0c0c0c",
 
   infoGreen:"#4E633A",
-  buttonColor: "#D7D7D7"
+  buttonColor: "#D7D7D7",
+  inputBorderColor: "#AAAAAA"
 };
