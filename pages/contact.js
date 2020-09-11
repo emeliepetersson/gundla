@@ -11,9 +11,7 @@ import ContactInfo from "../components/ContactInfo";
 import Map from "../components/Map";
 
 
-export default function Contact({contactPage, contactInfo}) {
-
-  console.log(contactPage);
+function Contact({contactPage, contactInfo}) {
 
   const images = ['/images/hero-test-portrait.jpg', '/images/jos4.jpg','/images/hero-test.jpg',];
 
@@ -39,6 +37,8 @@ export default function Contact({contactPage, contactInfo}) {
         </Container>
     );
   };
+
+  export default Contact;
   
   export const getStaticProps = async () => {
 

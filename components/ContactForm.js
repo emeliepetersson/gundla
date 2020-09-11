@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm, ValidationError } from '@statickit/react';
 import styled from "styled-components";
 import colors from "../config/colors";
+import ResponseContainer from "../components/ContactFormRes";
 import Button from "../components/Button";
 
 function ContactForm() {
@@ -14,7 +15,7 @@ function ContactForm() {
     setHiddenInputValue(value);
   }
   if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
+    return <ResponseContainer/>;
   }
   return (
     <Container>
@@ -202,7 +203,6 @@ form {
     button {
       margin: 0 auto;
     }
+  }
 }
-}
-
 `;
