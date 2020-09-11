@@ -1,109 +1,94 @@
 import styled from "styled-components";
 
-import Layout from "../components/Layout";
 import colors from "../config/colors";
 import Hero from "../components/Hero";
 import ContactInfo from "../components/ContactInfo";
 import SocialMedia from "../components/SocialMedia";
+import Post from "../components/Post";
+import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
 
-export default function Home({ contactInfo }) {
+export default function Home({ contactInfo, landingPage }) {
   return (
-  
-      <Container>
-        <Hero
-          fullScreen={true}
-          imageUrl="/images/hero-test.jpg"
-          showIcon={true}
-          text="Genuin enkelhet
-          i ranchanda"
-        />
-        <div className="main">
-          <h1 className="title">Gundla Gårdscafé</h1>
+    <Container>
+      <Hero
+        fullScreen={true}
+        imageUrl="/images/hero-test.jpg"
+        showIcon={true}
+        text={landingPage.mainTitle}
+      />
+      <Post
+        buttonText="Till vår meny"
+        imageUrl={landingPage.image1.fields.file.url}
+        altText={landingPage.image1.fields.description}
+        title={landingPage.title1}
+        text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
+      />
 
-          <ContactInfo
-            adress={contactInfo.adress}
-            postcode={contactInfo.postcode}
-            openingHours={contactInfo.openingHours}
-          />
+      <Post
+        title={landingPage.title2}
+        text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
+      />
 
-          <SocialMedia
-            icons={[
-              { url: "/icons/instagram-black.png", altText: "Instagram icon" },
-            ]}
-            text="Följ oss på Instagram!"
-          />
-        </div>
+      <ContactInfo
+        adress={contactInfo.adress}
+        postcode={contactInfo.postcode}
+        openingHours={contactInfo.openingHours}
+      />
 
-        <footer>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{" "}
-            <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-          </a>
-        </footer>
-      </Container>
-    
+      <Button>Hitta hit</Button>
+
+      <Post
+        buttonText="Se alla evenemang"
+        imageUrl={landingPage.image3.fields.file.url}
+        altText={landingPage.image3.fields.description}
+        title={landingPage.title3}
+        text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
+      />
+
+      <Post
+        buttonText="Till catering"
+        imageUrl={landingPage.image4.fields.file.url}
+        altText={landingPage.image4.fields.description}
+        title={landingPage.title4}
+        text="Här kan du avnjuta härlig mat eller fika, eller bara ha en skön stund."
+      />
+
+      <SocialMedia
+        icons={[
+          { url: "/icons/instagram-black.png", altText: "Instagram icon" },
+        ]}
+        text="Följ oss på Instagram!"
+      />
+    </Container>
   );
 }
 
 export const getStaticProps = async () => {
-  const res = await fetchEntries("visitingInfo");
-  const response = await res.map((i) => {
+  const contactInfoRes = await fetchEntries("visitingInfo");
+  const contactInfoResponse = await contactInfoRes.map((i) => {
     return i.fields;
   });
-  const contactInfo = response[0];
+  const contactInfo = contactInfoResponse[0];
+
+  const landingPageRes = await fetchEntries("landingpage");
+  const landingPageResponse = await landingPageRes.map((i) => {
+    return i.fields;
+  });
+
+  const landingPage = landingPageResponse[0];
+
   return {
     props: {
       contactInfo,
+      landingPage,
     },
   };
 };
 
 const Container = styled.div`
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  .main {
-    padding: 5rem 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .title {
-      margin: 0;
-      line-height: 1.15;
-      font-size: 4rem;
-      color: ${colors.primary};
-      text-align: center;
-    }
-  }
-
-  footer {
-    width: 100%;
-    height: 100px;
-    border-top: 1px solid ${colors.light};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .logo {
-        margin-left: 0.5rem;
-        height: 1em;
-      }
-    }
-  }
 `;
