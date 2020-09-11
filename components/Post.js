@@ -5,9 +5,9 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Button from "./Button";
 import Image from "./Image";
 
-const Post = ({ altText, buttonText, imageUrl, title, text }) => {
+const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
   return (
-    <Container>
+    <Container className={className}>
       {imageUrl && (
         <div className="image-container">
           <Image imageUrl={imageUrl} altText={altText} />
@@ -15,7 +15,7 @@ const Post = ({ altText, buttonText, imageUrl, title, text }) => {
       )}
       <div className="content">
         <h2>{title}</h2>
-        {documentToReactComponents(text)}
+        {text && documentToReactComponents(text)}
         {buttonText && <Button>{buttonText}</Button>}
       </div>
     </Container>
@@ -25,7 +25,6 @@ const Post = ({ altText, buttonText, imageUrl, title, text }) => {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   text-align: center;
   overflow: hidden;
