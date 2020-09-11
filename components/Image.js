@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import device from "../config/device";
 
-const Image = ({ imageUrl, altText }) => (
+const Image = ({ imageUrl, altText, className }) => (
   <Img
-    className="lazyload"
+    className={`lazyload ${className}`}
     data-src={imageUrl}
     alt={altText}
     data-srcset={`${imageUrl}?w=450&h=450 450w, ${imageUrl}?w=750&h=750 750w, ${imageUrl}?w=1050&h=1050 1050w, ${imageUrl}?w=2050&h=2050 2050w`}

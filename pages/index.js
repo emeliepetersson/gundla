@@ -9,24 +9,26 @@ import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
 
 const Home = ({ contactInfo, landingPage }) => {
-  console.log(landingPage.title1);
   return (
     <Container>
       <Hero
         fullScreen={true}
         imageUrl={landingPage.hero.fields.file.url}
+        altText={landingPage.hero.fields.description}
         showIcon={true}
         text={landingPage.mainTitle}
       />
 
-      <Post
-        className="intro"
-        title={landingPage.title1}
-        text={landingPage.text1}
-        buttonText="Till vår meny!"
-        imageUrl={landingPage.image1.fields.file.url}
-        altText={landingPage.image1.fields.description}
-      />
+      <div id="scroll">
+        <Post
+          className="intro"
+          title={landingPage.title1}
+          text={landingPage.text1}
+          buttonText="Till vår meny!"
+          imageUrl={landingPage.image1.fields.file.url}
+          altText={landingPage.image1.fields.description}
+        />
+      </div>
 
       <div className="contact">
         <Post title={landingPage.title2} text={landingPage.text2} />
