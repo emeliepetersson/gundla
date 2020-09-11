@@ -4,24 +4,45 @@ import colors from "../config/colors";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
 import { fetchEntries } from "../pages/api/Contentful";
+import SocialMedia from "../components/SocialMedia";
 
 const About = ({ aboutPage }) => {
   return (
     <Container>
-      <Hero imageUrl="/images/hero-test-portrait.jpg" />
+      <Hero imageUrl={aboutPage.hero.fields.file.url} />
 
-      <Post title={aboutPage.title1} text={aboutPage.text1} />
+      <Post className="intro" title={aboutPage.title1} text={aboutPage.text1} />
 
       <Post
+        className="who-we-are"
         imageUrl={aboutPage.image2.fields.file.url}
         altText={aboutPage.image2.fields.description}
         title={aboutPage.title2}
         text={aboutPage.text2}
       />
 
-      <Post title={aboutPage.title3} text={aboutPage.text3} />
+      <Post
+        className="location"
+        title={aboutPage.title3}
+        text={aboutPage.text3}
+        buttonText="Hitta hit"
+      />
 
-      <Post title={aboutPage.title4} text={aboutPage.text4} />
+      <Post
+        className="questions"
+        title={aboutPage.title4}
+        text={aboutPage.text4}
+        buttonText="Kontakta oss"
+      />
+
+      <SocialMedia
+        className="social-media"
+        icons={[
+          { url: "/icons/instagram-black.png", altText: "Instagram icon" },
+          { url: "/icons/facebook-black.png", altText: "Facebook icon" },
+        ]}
+        text="Följ oss på Instagram och Facebook för fler bilder och uppdateringar!"
+      />
     </Container>
   );
 };
@@ -40,6 +61,29 @@ export const getStaticProps = async () => {
   };
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  .intro {
+    padding-bottom: 150px;
+  }
+
+  .who-we-are {
+    padding-bottom: 260px;
+    background-color: cornflowerblue;
+  }
+
+  .location {
+    background-color: palevioletred;
+    padding-bottom: 150px;
+  }
+
+  .questions {
+    background-color: goldenrod;
+    padding-bottom: 150px;
+  }
+
+  .social-media {
+    padding: 80px 50px;
+  }
+`;
 
 export default About;
