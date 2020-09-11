@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const SocialMedia = ({ text, icons }) => (
-  <Container>
+const SocialMedia = ({ text, icons, className }) => (
+  <Container className={className}>
     <p>{text}</p>
     <div>
       {icons.map((icon, index) => (
