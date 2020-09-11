@@ -3,7 +3,6 @@ import styled from "styled-components";
 import PropTypes from 'prop-types';
 import Device from "../config/device";
 
-
 const Carousel = props => {
 
   let filledArray = new Array();
