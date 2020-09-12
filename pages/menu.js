@@ -2,32 +2,43 @@ import styled from "styled-components";
 import Hero from "../components/Hero";
 import colors from "../config/colors";
 import { fetchEntries } from "../pages/api/Contentful";
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Post from "../components/Post";
+import FoodMenu from "../components/FoodMeny";
 
-const Menu =(content)=> {
-  let menyPage;
- 
-  content.page.map(i=>{
-    menyPage = i;
-  })
+
+
+const Menu =({menuPage})=> {
+  console.log(menuPage)
  
     return (
-      
-        <Container>
         
-          <Hero imageUrl="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"/> 
-            <h1>{menyPage.title}</h1>
+        <Container>
+        <Hero 
+              imageUrl={menuPage.hero.fields.file.url}
+              altText={menuPage.hero.fields.description}
+        /> 
+
+           <FoodMenu
+            theMenu={documentToReactComponents(menuPage.meny)}
+           />
+          <Post
+            className="menu-req" 
+            title={menuPage.titleRequests}
+            text={menuPage.textRequests}
+            buttonText={"Kontakta"}
+          /> 
+        <Post
+         
+          imageUrl={menuPage.ImageLuxury.fields.file.url}
+          altText={menuPage.ImageLuxury.fields.description}
+          title={menuPage.titleLuxury}
+          text={menuPage.textLuxury}
+          buttonText={"Till catering"}
+        /> 
+
+
     
-            <MenyCard>
-            {menyPage.meny.content.map((c)=>{
-              
-              return (
-                        documentToReactComponents(c)
-                      )
-            })}
-
-            </MenyCard>
-
         </Container>
 
     )
@@ -37,20 +48,20 @@ export default Menu
 export const getStaticProps = async () => {
   const res = await fetchEntries("menySida");
  
-  const content = await res.map((i)=>{
-        
+  const resp = await res.map((i)=>{
        return i.fields
-     
   })
-
+  const menuPage = resp[0];
+  
   return {
 
     props:{
-      page:content,
+      menuPage,
     }
   };
   
 }
+
   
  
 
@@ -60,21 +71,18 @@ export const getStaticProps = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background:white;
   hr{
     width:100%;
     border:1px solid ${colors.black};
     background:${colors.black};
   }
-  div{
-    width:100%;
-    padding:0px 36px;
+  .menu-req{
+    background:${colors.lightGrey};
+  }
+  .background-image{
+    z-index:0;
   }
   `;
-
- const MenyCard= styled.div`
-  min-height:100vh;
-
-
-  `
 
   
