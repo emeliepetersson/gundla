@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Nav from "./Nav";
 import PropTypes from 'prop-types';
-import Footer from "./Footer"
-import { StaticKitProvider } from '@statickit/react'
+import Footer from "./Footer";
+
 
 const Layout = ({ children, title }) => (
   <main>
@@ -33,13 +33,9 @@ const Layout = ({ children, title }) => (
       <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
-    <Nav />
-    <StaticKitProvider site={process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}>
+    <Nav/>
       <div className="content">{children}</div>
-    </StaticKitProvider>
-     <Footer>
-
-     </Footer>
+    <Footer/>
   </main>
 );
 

@@ -2,28 +2,6 @@
     "forms": {
         "contactForm": {
             "name": "Contact Form",
-            "fields": {
-                "name": {
-                    "type": "name",
-                    "required": true
-                },
-                "email": {
-                    "type": "email",
-                    "required": true
-                },
-                "phone": {
-                    "type": "tel",
-                    "required": true
-                },
-                "text": {
-                    "type": "text",
-                    "required": true
-                },
-                "message": {
-                    "type": "text",
-                    "required": true
-                }
-            },
             "actions": [
                 {
                     "type": "email",
