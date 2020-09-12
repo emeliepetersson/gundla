@@ -2,6 +2,7 @@ import styled from "styled-components";
 import colors from "../config/colors";
 import PropTypes from "prop-types";
 
+
 //How to use the button https://styled-components.com/docs/basics#adapting-based-on-props
 
 const Button = styled.button`
