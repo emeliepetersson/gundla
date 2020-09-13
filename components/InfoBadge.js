@@ -15,22 +15,24 @@ const InfoBadge =({text})=>{
     )
 }
 const BadgeContainer = styled.div`
-    position:absolute;
+    position:relative;
     width:100px;
     height:100px;
     border-radius:50%;
-    font-size:12px;
+  
     font-weight:bold;
     display:flex;
     justify-content:center;
     align-items:center;
     align-self:center;
- 
+    
     color:${props =>props.color || colors.white};
     background:${props => props.bg || colors.infoGreen};
-    top:${props => props.top || 47}vh;
+    top:${props => props.top || -54}px;
     right:${props => props.right|| 16}px;
-    
+    margin-left:auto;
+    p{
+        font-size:12px;
     }
 `
 InfoBadge.propTypes ={
@@ -38,7 +40,8 @@ InfoBadge.propTypes ={
     bg:PropTypes.string,
     top:PropTypes.any,
     right:PropTypes.any,
-    text:PropTypes.string
+    text:PropTypes.string,
+   
 }
 
 export default InfoBadge;

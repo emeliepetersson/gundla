@@ -9,7 +9,7 @@ import FoodMenu from "../components/FoodMeny";
 
 
 const Menu =({menuPage})=> {
-  console.log(menuPage)
+
  
     return (
         
@@ -36,9 +36,6 @@ const Menu =({menuPage})=> {
           text={menuPage.textLuxury}
           buttonText={"Till catering"}
         /> 
-
-
-    
         </Container>
 
     )
