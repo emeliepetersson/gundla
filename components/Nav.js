@@ -36,6 +36,7 @@ const HamburgerMenu = () => {
 
 const Container = styled.div`
     width: 100%;
+    pointer-events: none;
     display: flex;
     justify-content: flex-end;
     position: fixed;
@@ -45,6 +46,7 @@ const Container = styled.div`
     .hamburger-wrapper {
         margin-right: 20px;
         margin-top: 30px;
+        pointer-events: auto;
     }
 
     .hamburger-react {
@@ -52,6 +54,7 @@ const Container = styled.div`
     }
 
     nav {
+        pointer-events: auto;
         background-color: #ffffff;
         z-index: 100;
         position: fixed;
