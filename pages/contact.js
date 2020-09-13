@@ -5,15 +5,12 @@ import colors from "../config/colors";
 
 import Hero from "../components/Hero";
 import Post from "../components/Post";
-import Carousel from "../components/Carousel";
 import ContactForm  from '../components/ContactForm';
 import ContactInfo from "../components/ContactInfo";
 import Map from "../components/Map";
 
 
 function Contact({contactPage, contactInfo}) {
-
-  const images = ['/images/hero-test-portrait.jpg', '/images/jos4.jpg','/images/hero-test.jpg',];
 
     return (
         <Container>
@@ -33,7 +30,6 @@ function Contact({contactPage, contactInfo}) {
             postcode={contactInfo.postcode}
           />
           <Map/>
-          {/* <Carousel images={images} /> */}
         </Container>
     );
   };

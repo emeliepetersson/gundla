@@ -3,19 +3,17 @@ import styled from "styled-components";
 import PropTypes from 'prop-types';
 import Device from "../config/device";
 
-const Carousel = props => {
+const Carousel = ({images,className}) => {
 
-  let filledArray = new Array();
-
-  props.images.map(item => {
-    let obj = {
-      'original': item
-    }
-    filledArray.push(obj);
+  const filledArray = images.map(image => {
+    const obj = {
+      'original': image.fields.file.url
+    };
+    return obj;
   });
-      
+    
     return (
-        <Container>
+        <Container className={className}>
             <ImageGallery showNav={false} showBullets={true} showThumbnails={false} showPlayButton={false} showFullscreenButton={false} items={filledArray} />
         </Container>
     );
