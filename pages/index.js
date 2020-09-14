@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
 import colors from "../config/colors";
@@ -9,6 +10,19 @@ import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
 
 const Home = ({ contactInfo, landingPage }) => {
+  useEffect(() => {
+    !(function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://weatherwidget.io/js/widget.min.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    })(document, "script", "weatherwidget-io-js");
+  }, []);
+
   return (
     <Container>
       <Hero
@@ -31,9 +45,27 @@ const Home = ({ contactInfo, landingPage }) => {
       />
 
       <div className="contact">
-        <Post title={landingPage.title2} text={landingPage.text2} />
+        <Post
+          className="text"
+          title={landingPage.title2}
+          text={landingPage.text2}
+        />
+
+        <a
+          className="weatherwidget-io"
+          href="https://forecast7.com/sv/57d7111d97/gothenburg/"
+          data-font="Roboto"
+          data-icons="Climacons Animated"
+          data-mode="Current"
+          data-days="3"
+          data-theme="original"
+          data-basecolor="rgba(255, 255, 255, 0)"
+          data-textcolor="#000000"
+          data-mooncolor="#febc2f"
+        ></a>
 
         <ContactInfo
+          className="contact-info"
           adress={contactInfo.adress}
           postcode={contactInfo.postcode}
           openingHours={contactInfo.openingHours}
@@ -111,6 +143,14 @@ const Container = styled.div`
     flex-direction: column;
     padding: 16px 0 170px;
     width: 100%;
+
+    .text {
+      padding: 0;
+    }
+
+    .contact-info {
+      padding-bottom: 80px;
+    }
   }
 
   .event {
@@ -126,6 +166,11 @@ const Container = styled.div`
   .social-media {
     padding: 64px 0;
     background-color: peachpuff;
+  }
+
+  .weatherwidget-io {
+    width: 200px;
+    margin: 30px 0%;
   }
 `;
 
