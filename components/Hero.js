@@ -15,8 +15,14 @@ const Hero = ({
   <Container fullScreen={fullScreen}>
     <picture>
       <source media={device.laptop} srcSet={imageLandscapeUrl} />
-      <source media={device.tablet} srcSet={imageLandscapeUrl} />
-      <source media={device.mobileL} srcSet={imagePortraitUrl} />
+      <source
+        media={device.tablet}
+        srcSet={`${imageLandscapeUrl}?w=1050&h=1050`}
+      />
+      <source
+        media={device.mobileL}
+        srcSet={`${imagePortraitUrl}?w=550&h=550`}
+      />
       <img className="background-image" src={imagePortraitUrl} alt={altText} />
     </picture>
     {text && <h1>{text}</h1>}
