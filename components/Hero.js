@@ -2,25 +2,27 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import colors from "../config/colors";
-import Image from "./Image";
+import device from "../config/device";
 
 const Hero = ({
   fullScreen = false,
-  imageUrl,
+  imagePortraitUrl,
+  imageLandscapeUrl,
   showIcon = false,
   text,
   altText,
 }) => (
   <Container fullScreen={fullScreen}>
-    <Image className="background-image" imageUrl={imageUrl} altText={altText} />
+    <picture>
+      <source media={device.laptop} srcSet={imageLandscapeUrl} />
+      <source media={device.tablet} srcSet={imageLandscapeUrl} />
+      <source media={device.mobileL} srcSet={imagePortraitUrl} />
+      <img className="background-image" src={imagePortraitUrl} alt={altText} />
+    </picture>
     {text && <h1>{text}</h1>}
     {showIcon && (
-      <a href="#scroll">
-        <img
-          className="icon"
-          src="/icons/down-arrow.png"
-          alt="Arrow pointing down"
-        />
+      <a className="icon" href="#scroll">
+        <img src="/icons/down-arrow.png" alt="Arrow pointing down" />
       </a>
     )}
   </Container>
@@ -52,10 +54,13 @@ const Container = styled.div`
   }
 
   .icon {
-    width: 50px;
     position: absolute;
     bottom: 50px;
     animation: bounce 1500ms infinite ease-out;
+
+    img {
+      width: 50px;
+    }
   }
 
   @keyframes bounce {
@@ -73,7 +78,8 @@ const Container = styled.div`
 
 Hero.propTypes = {
   fullScreen: PropTypes.bool,
-  imageUrl: PropTypes.string.isRequired,
+  imagePortraitUrl: PropTypes.string.isRequired,
+  imageLandscapeUrl: PropTypes.string.isRequired,
   showIcon: PropTypes.bool,
   text: PropTypes.string,
 };
