@@ -9,7 +9,11 @@ import SocialMedia from "../components/SocialMedia";
 const About = ({ aboutPage }) => {
   return (
     <Container>
-      <Hero imageUrl={aboutPage.hero.fields.file.url} />
+      <Hero
+        imageLandscapeUrl={aboutPage.heroLandscape.fields.file.url}
+        imagePortraitUrl={aboutPage.heroPortrait.fields.file.url}
+        altText={aboutPage.heroPortrait.fields.description}
+      />
 
       <Post className="intro" title={aboutPage.title1} text={aboutPage.text1} />
 
