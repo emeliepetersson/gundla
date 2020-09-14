@@ -27,7 +27,7 @@ const Hero = ({
     </picture>
     {text && <h1>{text}</h1>}
     {showIcon && (
-      <a className="icon" href="#scroll">
+      <a className="icon" href="#scroll-to">
         <img src="/icons/down-arrow.png" alt="Arrow pointing down" />
       </a>
     )}

@@ -20,16 +20,15 @@ const Home = ({ contactInfo, landingPage }) => {
         text={landingPage.mainTitle}
       />
 
-      <div id="scroll">
-        <Post
-          className="intro"
-          title={landingPage.title1}
-          text={landingPage.text1}
-          buttonText="Till vår meny!"
-          imageUrl={landingPage.image1.fields.file.url}
-          altText={landingPage.image1.fields.description}
-        />
-      </div>
+      <div id="scroll-to"></div>
+      <Post
+        className="intro"
+        title={landingPage.title1}
+        text={landingPage.text1}
+        buttonText="Till vår meny!"
+        imageUrl={landingPage.image1.fields.file.url}
+        altText={landingPage.image1.fields.description}
+      />
 
       <div className="contact">
         <Post title={landingPage.title2} text={landingPage.text2} />
@@ -111,6 +110,7 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     padding: 16px 0 170px;
+    width: 100%;
   }
 
   .event {
