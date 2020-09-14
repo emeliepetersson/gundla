@@ -6,6 +6,7 @@ export default {
   medium: "#6e6969",
   light: "#f8f4f4",
   dark: "#0c0c0c",
+  lightGrey:"#F5F5F5",
 
   infoGreen:"#4E633A",
   buttonColor: "#D7D7D7",
