@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Footer from "./Footer";
 
 
-const Layout = ({ children, title }) => (
+const Layout = ({ children, title, footerData}) => (
   <main>
     <Head>
       <meta charSet="utf-8" />
@@ -35,12 +35,13 @@ const Layout = ({ children, title }) => (
     </Head>
     <Nav/>
       <div className="content">{children}</div>
-    <Footer/>
+    <Footer footerData={footerData}/>
   </main>
 );
 
 Layout.propTypes = {
   title: PropTypes.string,
+  footerData: PropTypes.object,
 };
 
 export default Layout;
