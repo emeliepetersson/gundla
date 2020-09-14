@@ -12,22 +12,25 @@ const HamburgerMenu = () => {
             </div>
             <nav> 
                 <Link href="/">
-                <a onClick={()=> setOpen(false)}>Hem</a>
+                    <a onClick={()=> setOpen(false)}>Hem</a>
                 </Link>
                 <Link href="/about">
-                <a onClick={()=> setOpen(false)}>Om oss</a>
+                    <a onClick={() => setOpen(false)}>Om oss</a>
+                </Link>
+                <Link href="/menu">
+                    <a onClick={() => setOpen(false)}>Meny</a>
+                </Link>
+                <Link href="/event">
+                    <a onClick={() => setOpen(false)}>Evenemang</a>
+                </Link>
+                <Link href="/catering">
+                    <a onClick={() => setOpen(false)}>Catering</a>
+                </Link>
+                <Link href="/find">
+                    <a onClick={() => setOpen(false)}>Hitta hit</a>
                 </Link>
                 <Link href="/contact">
                 <a onClick={()=> setOpen(false)}>Kontakt</a>
-                </Link>
-                <Link href="/event">
-                <a onClick={()=> setOpen(false)}>Evenemang</a>
-                </Link>
-                <Link href="/catering">
-                <a onClick={()=> setOpen(false)}>Catering</a>
-                </Link>
-                <Link href="/menu">
-                <a onClick={()=> setOpen(false)}>Meny</a>
                 </Link>
             </nav>
         </Container>
