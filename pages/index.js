@@ -13,8 +13,9 @@ const Home = ({ contactInfo, landingPage }) => {
     <Container>
       <Hero
         fullScreen={true}
-        imageUrl={landingPage.hero.fields.file.url}
-        altText={landingPage.hero.fields.description}
+        imageLandscapeUrl={landingPage.heroLandscape.fields.file.url}
+        imagePortraitUrl={landingPage.heroPortrait.fields.file.url}
+        altText={landingPage.heroPortrait.fields.description}
         showIcon={true}
         text={landingPage.mainTitle}
       />
