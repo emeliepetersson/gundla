@@ -105,7 +105,7 @@ export default Menu
       }
   }
       @media ${Device.laptop} {
-        padding-left:9%;
+        padding-left:10%;
       }
     
   ` 
@@ -142,7 +142,7 @@ const AllergyLogos = styled.div`
  
        
        .menu-req{
-          padding-right:12%;
+          padding-right:10%;
           border-right:1px solid black;
           .content{
             width:100%;
