@@ -6,7 +6,6 @@ import colors from "../config/colors";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
 import ContactForm  from '../components/ContactForm';
-import ContactInfo from "../components/ContactInfo";
 import Map from "../components/Map";
 
 
@@ -14,21 +13,20 @@ function Contact({contactPage, contactInfo}) {
 
     return (
         <Container>
-          <Hero
-            imageUrl={contactPage.hero.fields.file.url}
+          <Hero className={"contact-hero-img-container"}
+            imageLandscapeUrl={contactPage.heroLandscape.fields.file.url}
+            imagePortraitUrl={contactPage.heroPortrait.fields.file.url}
           />
-          <div className="contact-hero-text-container">
-            <Post
-              title={contactPage.title1}
-              text={contactPage.text1}
-            />
-          </div>
+          <Post className="contact-hero-text-container"
+            title={contactPage.title1}
+            text={contactPage.text1}
+          />
           <ContactForm/>
-          <h2>{contactPage.title2}</h2>
-          <ContactInfo
-            adress={contactInfo.adress}
-            postcode={contactInfo.postcode}
-          />
+          <div className="contact-contact-info-container">
+            <h2>{contactPage.title2}</h2>
+            <p>{contactInfo.adress}</p>
+            <p>{contactInfo.postcode}</p>
+          </div>
           <Map/>
         </Container>
     );
@@ -68,16 +66,50 @@ function Contact({contactPage, contactInfo}) {
 
     .contact-hero-text-container {
       min-height: 50vh;
+      text-align: start;
+    
+      h2 {
+        margin-top: 48px;
+        text-align: center;
+      }
+
+      p {
+        text-align: start;
+      }
+      
+      div{
+        padding: 15px 35px 0;
+      }
     }
 
-    h2 {
-      margin-top: 64px;
-      font-family: Roboto;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 28px;
-      text-align: center;
-      color: ${colors.black};
+    .contact-contact-info-container {
+      height: 406px;
+      width: 100%;
+      
+      h2 {
+        margin-top: 141px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        color: ${colors.black};
+      }
+      
+      p {
+        margin-top: 32px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 32px;
+        text-align: center;
+        color: ${colors.black};
+      }
+
+      p:last-child{
+        font-weight: normal;
+        margin-top: 6px;
+      }
     }
+
   `;
