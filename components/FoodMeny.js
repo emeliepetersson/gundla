@@ -21,6 +21,7 @@ const FoodMenu =({theMenu})=>{
 }
 
 const ContainerMenu = styled.div`
+    background:${Color.lightGrey};
     width:100%;
     padding:40px 9% 100px 9%;
     display:flex;
@@ -33,6 +34,7 @@ const ContainerMenu = styled.div`
         flex-direction: row;
         padding:75px 9% 75px 9%;
     }
+
     
 `
 const FoodInfo = styled.div`
@@ -45,10 +47,12 @@ const FoodInfo = styled.div`
     }
       @media ${Device.laptop} {
         border-right:1px solid black;
+        padding-right:10%;
+        padding-top:5%;
         p{
             text-align:center;
         }
-        padding-right:10%;
+     
     }
 `
 const Food = styled.div`
@@ -57,7 +61,11 @@ const Food = styled.div`
     @media ${Device.laptop} {
         
         padding-left:10%;
-
+        p{
+            margin-left:auto;
+            margin-right:auto;
+            width:70%;
+        }
     }
 `
 
