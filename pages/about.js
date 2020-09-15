@@ -5,8 +5,10 @@ import Hero from "../components/Hero";
 import Post from "../components/Post";
 import { fetchEntries } from "../pages/api/Contentful";
 import SocialMedia from "../components/SocialMedia";
+import ContactInfo from "../components/ContactInfo";
+import device from "../config/device";
 
-const About = ({ aboutPage }) => {
+const About = ({ aboutPage, contactInfo }) => {
   return (
     <Container>
       <Hero
@@ -32,12 +34,21 @@ const About = ({ aboutPage }) => {
         buttonText="Hitta hit"
       />
 
-      <Post
-        className="questions"
-        title={aboutPage.title4}
-        text={aboutPage.text4}
-        buttonText="Kontakta oss"
-      />
+      <div className="contact-container">
+        <Post
+          className="questions"
+          title={aboutPage.title4}
+          text={aboutPage.text4}
+          buttonText="Kontakta oss"
+        />
+
+        <ContactInfo
+          className="contact-info"
+          adress={contactInfo.adress}
+          postcode={contactInfo.postcode}
+          openingHours={contactInfo.openingHours}
+        />
+      </div>
 
       <SocialMedia
         className="social-media"
@@ -52,6 +63,12 @@ const About = ({ aboutPage }) => {
 };
 
 export const getStaticProps = async () => {
+  const contactInfoRes = await fetchEntries("visitingInfo");
+  const contactInfoResponse = await contactInfoRes.map((i) => {
+    return i.fields;
+  });
+  const contactInfo = contactInfoResponse[0];
+
   const aboutPageRes = await fetchEntries("about");
   const aboutPageResponse = await aboutPageRes.map((i) => {
     return i.fields;
@@ -61,6 +78,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       aboutPage,
+      contactInfo,
     },
   };
 };
@@ -79,14 +97,51 @@ const Container = styled.div`
     background-color: palevioletred;
     padding-bottom: 150px;
   }
+  .contact-container {
+    background-color: khaki;
 
-  .questions {
-    background-color: goldenrod;
-    padding-bottom: 150px;
+    .questions {
+      padding: 16px 0 70px;
+    }
+
+    .contact-info {
+      padding-bottom: 180px;
+    }
   }
 
   .social-media {
     padding: 80px 50px;
+  }
+
+  @media ${device.laptop} {
+    .intro,
+    .who-we-are,
+    .location {
+      padding-bottom: 75px;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 75px 0;
+
+      .questions {
+        border-right: 1px solid ${colors.dark};
+
+        .content.only-text {
+          padding: 60px 0;
+          width: 50%;
+        }
+      }
+
+      .contact-info,
+      .questions {
+        padding: 0;
+        width: 40%;
+      }
+    }
   }
 `;
 
