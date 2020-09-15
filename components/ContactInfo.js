@@ -7,9 +7,10 @@ const ContactInfo = ({
   openingHours,
   email,
   phonenumber,
+  className,
 }) => {
   return (
-    <Container>
+    <Container className={className}>
       <div>
         <h3>{adress}</h3>
         <p>{postcode}</p>

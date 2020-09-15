@@ -1,10 +1,9 @@
 import Head from "next/head";
 import Nav from "./Nav";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Footer from "./Footer";
 
-
-const Layout = ({ children, title, footerData}) => (
+const Layout = ({ children, title, footerData }) => (
   <main>
     <Head>
       <meta charSet="utf-8" />
@@ -33,9 +32,9 @@ const Layout = ({ children, title, footerData}) => (
       <link rel="apple-touch-icon" href="/apple-icon.png"></link>
       <meta name="theme-color" content="#317EFB" />
     </Head>
-    <Nav/>
-      <div className="content">{children}</div>
-    <Footer footerData={footerData}/>
+    <Nav />
+    <div className="content">{children}</div>
+    <Footer footerData={footerData} />
   </main>
 );
 
