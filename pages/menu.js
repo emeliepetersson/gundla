@@ -2,14 +2,14 @@ import styled from "styled-components";
 import Hero from "../components/Hero";
 import colors from "../config/colors";
 import { fetchEntries } from "../pages/api/Contentful";
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 import Post from "../components/Post";
 import FoodMenu from "../components/FoodMeny";
 
 
 
-const Menu =({menuPage})=> {
-
+const Menu =({menuPage,menu})=> {
+    
  
     return (
         
@@ -20,7 +20,8 @@ const Menu =({menuPage})=> {
         /> 
 
            <FoodMenu
-            theMenu={documentToReactComponents(menuPage.meny)}
+              theMenu={menu}
+              border={"border-right"}
            />
           <Post
             className="menu-req" 
@@ -43,17 +44,24 @@ const Menu =({menuPage})=> {
 export default Menu
 
 export const getStaticProps = async () => {
-  const res = await fetchEntries("menySida");
+  const resMenuPage = await fetchEntries("menySida");
  
-  const resp = await res.map((i)=>{
+  const responseMenuPage = await resMenuPage.map((i)=>{
        return i.fields
   })
-  const menuPage = resp[0];
-  
+  const menuPage = responseMenuPage[0];
+
+  const resMenu = await fetchEntries("meny");
+  const responseMenu = await resMenu.map((i) => {
+    return i.fields
+  })
+  const menu = responseMenu[0];
+
   return {
 
     props:{
       menuPage,
+      menu
     }
   };
   
