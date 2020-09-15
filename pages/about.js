@@ -3,9 +3,10 @@ import styled from "styled-components";
 import colors from "../config/colors";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
-import { fetchEntries } from "../pages/api/Contentful";
 import SocialMedia from "../components/SocialMedia";
 import ContactInfo from "../components/ContactInfo";
+import Carousel from "../components/Carousel";
+import { fetchEntries } from "../pages/api/Contentful";
 import device from "../config/device";
 
 const About = ({ aboutPage, contactInfo }) => {
@@ -27,12 +28,16 @@ const About = ({ aboutPage, contactInfo }) => {
         text={aboutPage.text2}
       />
 
-      <Post
-        className="location"
-        title={aboutPage.title3}
-        text={aboutPage.text3}
-        buttonText="Hitta hit"
-      />
+      <div className="carousel-container">
+        <Carousel images={aboutPage.imgCarusel} />
+
+        <Post
+          className="location"
+          title={aboutPage.title3}
+          text={aboutPage.text3}
+          buttonText="Hitta hit"
+        />
+      </div>
 
       <div className="contact-container">
         <Post
@@ -56,7 +61,7 @@ const About = ({ aboutPage, contactInfo }) => {
           { url: "/icons/instagram-black.png", altText: "Instagram icon" },
           { url: "/icons/facebook-black.png", altText: "Facebook icon" },
         ]}
-        text="Följ oss på Instagram och Facebook för fler bilder och uppdateringar!"
+        text="Följ oss på Instagram och Facebook för fler recensioner och bilder!"
       />
     </Container>
   );
@@ -93,10 +98,14 @@ const Container = styled.div`
     background-color: cornflowerblue;
   }
 
-  .location {
+  .carousel-container {
     background-color: palevioletred;
-    padding-bottom: 150px;
+
+    .location {
+      padding-bottom: 150px;
+    }
   }
+
   .contact-container {
     background-color: khaki;
 
@@ -109,15 +118,35 @@ const Container = styled.div`
     }
   }
 
-  .social-media {
-    padding: 80px 50px;
-  }
-
   @media ${device.laptop} {
     .intro,
     .who-we-are,
     .location {
       padding-bottom: 75px;
+    }
+
+    .who-we-are {
+      flex-direction: row-reverse;
+
+      .content {
+        padding: 106px 130px 0 0;
+      }
+    }
+
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .location {
+        padding: 106px 0 0 130px;
+      }
+
+      .content.only-text {
+        width: 50%;
+        margin: 0;
+        padding: 0;
+      }
     }
 
     .contact-container {
