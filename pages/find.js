@@ -10,7 +10,7 @@ import Map from "../components/Map";
 
 
 function Find({find,contactInfo}) {
-    console.log(contactInfo.adress)
+
     return (
 
         <Container>

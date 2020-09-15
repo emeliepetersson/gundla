@@ -1,33 +1,70 @@
 import styled from "styled-components";
+import Device from "../config/device";
+import Color from "../config/colors";
 import PropTypes from "prop-types";
-
-const FoodMenu =({theMenu})=>{
-    return(
-     <ContainerMenu >
-        { theMenu }
-    </ContainerMenu >
-    )
+import {documentToReactComponents } from '@contentful/rich-text-react-renderer';
+const FoodMenu =({theMenu})=>{ 
    
-
+    return(
+        <ContainerMenu>
+            <FoodInfo>
+                { documentToReactComponents(theMenu.menyInfo) }
+            </FoodInfo>
+            
+            <Food >
+                {documentToReactComponents(theMenu.meny)}
+            </Food>
+        </ContainerMenu>
+   )
+        
+     
 }
 
 const ContainerMenu = styled.div`
     width:100%;
-    padding:40px 36px 100px 36px;
-    text-align: center;
-    h2{
-        padding:28px 0px;
-        margin:0;
+    padding:40px 9% 100px 9%;
+    display:flex;
+    flex-direction: column;
+    text-align:center;
+    p,h1,h2,h3,h4,h5,h6{
+        padding:14px 0px;
     }
-    h3{
-        padding:28px 0px 10px 0px;
+     @media ${Device.laptop} {
+        flex-direction: row;
+        padding:75px 9% 75px 9%;
     }
+    
+`
+const FoodInfo = styled.div`
+   "border-bottom":1px solid ${Color.lightBlack};
+  
+    padding-bottom:42px;
+    width:100%;
     p{
-        padding:8px 0px;
+     text-align:left;   
+    }
+      @media ${Device.laptop} {
+        border-right:1px solid black;
+        p{
+            text-align:center;
+        }
+        padding-right:10%;
     }
 `
+const Food = styled.div`
+    padding:42px 0px;
+    width:100%;
+    @media ${Device.laptop} {
+        
+        padding-left:10%;
+
+    }
+`
+
 FoodMenu.propTypes = {
-    theMenu: PropTypes.array,
-  
+    theMenu: PropTypes.object,
+    border:PropTypes.string,
+    padding:PropTypes.string
 };
+
 export default FoodMenu;
