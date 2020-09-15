@@ -135,7 +135,6 @@ const Container = styled.div`
   align-items: center;
 
   .intro {
-    background-color: cornflowerblue;
     padding-bottom: 120px;
   }
 
@@ -174,7 +173,6 @@ const Container = styled.div`
   }
 
   .event {
-    background-color: goldenrod;
     padding-bottom: 120px;
   }
 
@@ -184,7 +182,6 @@ const Container = styled.div`
   }
 
   .social-media {
-    padding: 64px 0;
     background-color: peachpuff;
   }
 
