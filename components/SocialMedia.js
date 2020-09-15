@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+import device from "../config/device";
+
 const SocialMedia = ({ text, icons, className }) => (
   <Container className={className}>
     <p>{text}</p>
@@ -18,6 +20,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  padding: 55px 50px;
 
   p {
     font-weight: bold;
@@ -27,6 +30,10 @@ const Container = styled.div`
   .icon {
     margin: 24px 8px 8px;
     width: 44px;
+  }
+
+  @media ${device.laptop} {
+    padding: 100px 39%;
   }
 `;
 

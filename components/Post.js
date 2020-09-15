@@ -7,7 +7,6 @@ import Image from "./Image";
 import device from "../config/device";
 
 const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
-  console.log(imageUrl);
   return (
     <Container className={className}>
       {imageUrl && (
