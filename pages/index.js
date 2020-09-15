@@ -8,6 +8,7 @@ import SocialMedia from "../components/SocialMedia";
 import Post from "../components/Post";
 import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
+import device from "../config/device";
 
 const Home = ({ contactInfo, landingPage }) => {
   useEffect(() => {
@@ -45,24 +46,28 @@ const Home = ({ contactInfo, landingPage }) => {
       />
 
       <div className="contact">
-        <Post
-          className="text"
-          title={landingPage.title2}
-          text={landingPage.text2}
-        />
+        <div className="wrapper">
+          <Post
+            className="text"
+            title={landingPage.title2}
+            text={landingPage.text2}
+          />
 
-        <a
-          className="weatherwidget-io"
-          href="https://forecast7.com/sv/57d7111d97/gothenburg/"
-          data-font="Roboto"
-          data-icons="Climacons Animated"
-          data-mode="Current"
-          data-days="3"
-          data-theme="original"
-          data-basecolor="rgba(255, 255, 255, 0)"
-          data-textcolor="#000000"
-          data-mooncolor="#febc2f"
-        ></a>
+          <a
+            className="weatherwidget-io"
+            href="https://forecast7.com/sv/57d7111d97/gothenburg/"
+            data-font="Roboto"
+            data-icons="Climacons Animated"
+            data-mode="Current"
+            data-days="3"
+            data-theme="original"
+            data-basecolor="rgba(255, 255, 255, 0)"
+            data-textcolor="#000000"
+            data-mooncolor="#febc2f"
+          ></a>
+
+          <Button>Hitta hit</Button>
+        </div>
 
         <ContactInfo
           className="contact-info"
@@ -70,8 +75,6 @@ const Home = ({ contactInfo, landingPage }) => {
           postcode={contactInfo.postcode}
           openingHours={contactInfo.openingHours}
         />
-
-        <Button>Hitta hit</Button>
       </div>
 
       <Post
@@ -143,13 +146,30 @@ const Container = styled.div`
     flex-direction: column;
     padding: 16px 0 170px;
     width: 100%;
+    position: relative;
 
-    .text {
-      padding: 0;
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .text {
+        padding: 0;
+      }
+
+      .weatherwidget-io {
+        width: 200px;
+        margin: 30px 0%;
+      }
+
+      button {
+        position: absolute;
+        bottom: 170px;
+      }
     }
 
     .contact-info {
-      padding-bottom: 80px;
+      padding-bottom: 130px;
     }
   }
 
@@ -168,9 +188,52 @@ const Container = styled.div`
     background-color: peachpuff;
   }
 
-  .weatherwidget-io {
-    width: 200px;
-    margin: 30px 0%;
+  @media ${device.laptop} {
+    .intro {
+      padding-bottom: 75px;
+    }
+
+    .contact {
+      padding: 75px 0;
+      flex-direction: row;
+      justify-content: center;
+
+      .wrapper {
+        border-right: 1px solid ${colors.dark};
+        padding: 60px 0;
+
+        .content.only-text {
+          padding: 0;
+          width: 50%;
+        }
+
+        button {
+          position: initial;
+          margin-top: 30px;
+        }
+      }
+
+      .contact-info,
+      .wrapper {
+        width: 40%;
+      }
+
+      .contact-info {
+        padding: 0;
+      }
+    }
+    .event,
+    .catering {
+      padding-bottom: 75px;
+    }
+
+    .catering {
+      flex-direction: row-reverse;
+
+      .content {
+        padding: 106px 130px 0 0;
+      }
+    }
   }
 `;
 

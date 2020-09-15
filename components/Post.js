@@ -4,8 +4,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Button from "./Button";
 import Image from "./Image";
+import device from "../config/device";
 
 const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
+  console.log(imageUrl);
   return (
     <Container className={className}>
       {imageUrl && (
@@ -13,7 +15,7 @@ const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
           <Image imageUrl={imageUrl} altText={altText} />
         </div>
       )}
-      <div className="content">
+      <div className={`content ${imageUrl ? "" : "only-text"}`}>
         <h2>{title}</h2>
         {text && documentToReactComponents(text)}
         {buttonText && <Button>{buttonText}</Button>}
@@ -56,6 +58,26 @@ const Container = styled.div`
 
     button {
       margin-top: 40px;
+    }
+  }
+
+  @media ${device.laptop} {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 75px 10%;
+
+    .image-container {
+      width: 50%;
+      padding-top: 40%;
+    }
+    .content {
+      padding: 106px 0 0 130px;
+      width: 38%;
+    }
+    .content.only-text {
+      width: 29%;
+      padding: 105px 0 125px;
+      margin: 0 auto;
     }
   }
 `;
