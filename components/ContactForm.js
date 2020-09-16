@@ -13,7 +13,9 @@ function ContactForm() {
   }
   return (
     <Container>
-    <h1>Kontaktformulär</h1>
+    <div className="contact-form-header-container">
+      <h1>Kontaktformulär</h1>
+    </div>
 
     <form onSubmit={handleSubmit} autoComplete="off">
 
@@ -112,41 +114,33 @@ function ContactForm() {
 export default ContactForm;
 
 const Container = styled.div`
+background: #EBEBEB;
 width: 100%;
 max-width: 576px;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items:center;
+padding-top: 73px; 
 padding-left: 37px;
 padding-right: 37px;
 padding-bottom: 55px;
 
-h1 {
+.contact-form-header-container {
+  width: 100%;
+
+  h1 {
+  margin: 0px;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
-  text-align: center;
   color: ${colors.black};
-  margin-bottom: 48px;
-}
-
-.form-buttons-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 24px;
-
-  button:focus {
-    outline: none;
+  margin-bottom: 64px;
   }
 }
 
-.form-buttons-container:nth-child(3){
-  margin-bottom: 48px;
-}
 
 form {
   width: 100%;
