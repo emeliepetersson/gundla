@@ -73,11 +73,12 @@ function Contact({contactPage, contactInfo}) {
       text-align: start;
     
       h2 {
-        margin-top: 48px;
+        margin-top: 33px;
         text-align: center;
       }
 
       p {
+        margin-top: 18px;
         text-align: start;
       }
       
@@ -88,6 +89,10 @@ function Contact({contactPage, contactInfo}) {
 
     .contact-form-text-container {
       margin-top: 30px;
+
+      p {
+        margin-top: 18px;
+      }
     }
 
     .contact-contact-info-container {
