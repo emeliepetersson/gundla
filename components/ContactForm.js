@@ -19,7 +19,7 @@ function ContactForm() {
   }
   return (
     <Container>
-    <h1>Kontakta oss</h1>
+    <h1>Kontaktformulär</h1>
     <div className="form-buttons-container"> 
       <Button onClick={() => handleClick('Hålla i evenemang')} height={33} width={182} >Hålla i evenemang</Button>
       <Button onClick={() => handleClick('Överigt')} height={33} width={88}>Överigt</Button>
