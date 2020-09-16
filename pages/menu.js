@@ -9,7 +9,7 @@ import FoodMenu from "../components/FoodMeny";
 
 const Menu =({menuPage,menu})=> {
     
-    console.log(menuPage)
+  
     return (
         
         <Container>
@@ -68,25 +68,31 @@ const Menu =({menuPage,menu})=> {
 export default Menu
 
   const Container = styled.div`
+
   min-height: 100vh;
-  width:100vw;
+  width:100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background:white;
- 
-  .background-image{
-    z-index:0;
+  div{
+     width:100%;
   }
-  .menu-lux .content{
-    padding-top:5%;
+  h2{
+    text-align:center;
+  }
+  
+  .menu-lux{
+    padding-bottom:120px;
+    h2{
+      text-align:left;
+    }
   }
 
   
    @media ${Device.laptop} {
-       padding-top:7%;
-        
-       }
+     .menu-lux .content{
+        padding-top:7.5%;
+      }
     }
   
   `;
@@ -94,18 +100,23 @@ export default Menu
 
 
   const AllergyContainer = styled.div`
-    width:100%;
-    padding-bottom:100px;
-
+    padding-bottom:80px;
+    h2{
+      font-size:16px;
+    }
   .allergy-text {
-      padding:0px;
-      .content{
-          width:100%;
-          padding-bottom:0px;
-      }
+      padding:2px;
+        .content{  
+            width:100%;
+        }
   }
       @media ${Device.laptop} {
         padding-left:10%;
+        p{
+          text-align:left;
+          max-width:300px;
+          align-self:center;
+        }
       }
     
   ` 
@@ -113,47 +124,43 @@ const AllergyLogos = styled.div`
  display:flex;
     flex-direction:row;
     justify-content:center;
+  
     div{
         padding:30px;
         text-align:center;
         img{
-          padding-bottom:10px;
+          padding-bottom:2.5px;
         }
     }
 `
   const AtMedia = styled.div`
         background:${colors.lightGrey};
-        width:100%;
-        padding:100px 10%;
-        .menu-req .content{
-          padding:0;
-          h2{
-            padding-bottom:45px;
-          }
-          p{
-            margin:0;
-            padding:0px 10px;
-          }
-        }
+        padding:80px 10%;
+      
 
       @media ${Device.laptop} {
         display:flex;
         flex-direction:row;
- 
-       
+
        .menu-req{
           padding-right:10%;
           border-right:1px solid black;
           .content{
+            max-width:300px;
             width:100%;
             padding:0;
             margin: 0;
             h2{
+              
               padding-bottom:20px;
             }
             p{
-              margin-top:30px;
+              margin-top:20px;
               margin-bottom:20px;
+             
+            }
+            button{
+              align-self:center;
             }
            
           }

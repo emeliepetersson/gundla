@@ -28,11 +28,13 @@ const ContainerMenu = styled.div`
     flex-direction: column;
     text-align:center;
     p,h1,h2,h3,h4,h5,h6{
-        padding:14px 0px;
+        padding:10px 0px;
     }
      @media ${Device.laptop} {
+        width:100%;
         flex-direction: row;
         padding:75px 9% 75px 9%;
+        
     }
 
     
@@ -49,8 +51,10 @@ const FoodInfo = styled.div`
         border-right:1px solid black;
         padding-right:10%;
         padding-top:5%;
+        
         p{
-            text-align:center;
+            max-width:300px;
+            margin:0 auto;
         }
      
     }

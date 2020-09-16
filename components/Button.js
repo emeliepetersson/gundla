@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 
 const Button = styled.button`
   border: 1px solid ${colors.buttonColor};
-  border-radius: 16px;
   font-weight: bold;
   font-size: ${(props) => props.fontSize || 16}px;
   width: ${(props) => props.width || 200}px;

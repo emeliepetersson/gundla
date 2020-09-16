@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import Hero from "../components/Hero";
 import colors from "../config/colors";
+import device from "../config/device";
 import { fetchEntries } from "../pages/api/Contentful";
 import Post from "../components/Post";
 import PostEvent from "../components/PostEvent";
+
 
 const Event =({eventPage,event})=> {
    event = event.sort(function(a,b){
@@ -12,21 +14,24 @@ const Event =({eventPage,event})=> {
      return dateA - dateB;
    })
 
+
    return (
           
         <Container>
-          <Hero 
-            imageUrl={eventPage.hero.fields.file.url}
-            altText={eventPage.hero.fields.description}
-          />
+       <Hero
+         imageLandscapeUrl={eventPage.heroDesktop.fields.file.url}
+         imagePortraitUrl={eventPage.heroMobil.fields.file.url}
+         altText={eventPage.heroMobil.fields.description}
+       />
 
-          <Post 
+          <Post className="hero-event"
               title={eventPage.title}
               text={eventPage.heroText}
               buttonText={"Boka biljet"}
            
           />
-          {event.map((e)=>{
+          <AtMediaEvent>
+          {event.map((e,i)=>{
 
             return(
           <PostEvent 
@@ -35,11 +40,14 @@ const Event =({eventPage,event})=> {
             title={e.eventTitle}
             text={e.eventText} 
             price={e.eventPrice}
+            priceShifting={e.priceShifting}
             date={e.eventDate}
             young={e.eventYoung}
+            index ={i}
           />
           )})
           }
+       </AtMediaEvent>
           <Post className={"event-sub"}
                 text={eventPage.textInfo}
                 buttonText={"Kontakta oss"}
@@ -75,13 +83,40 @@ export const getStaticProps = async () => {
 
 }
   const Container = styled.div`
-  
-  .event-sub{
-    background:${colors.lightGrey};
-    p{
-      font-size: 24px;
-      font-weight:bold;
+    width:100%;
+    
+    .event-sub{
+      background:${colors.lightGrey};
+      text-align:center;
+      p{
+        font-size: 24px;
+        font-weight:bold;
+      }
+    
     }
+    @media ${device.laptop} {  
+    .hero-event{
+        margin:0px;
+        padding:70px 110px;
+        .content{
+          max-width:500px;
+          width:70%;
+        }
+      
+      }
+       .event-sub .content button,
+        .hero-event .content button{
+           align-self:center;
+        }
+        .event-sub{
+          padding:0;
+          background:${colors.white};
+        }
+    }
+  `;
+
+  const AtMediaEvent = styled.div`
+        @media ${device.laptop} {  
+        
   
-  }
   `;
