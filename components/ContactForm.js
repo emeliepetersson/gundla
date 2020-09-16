@@ -7,31 +7,30 @@ import Button from "../components/Button";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("contactForm");
-  const [hiddenInputValue, setHiddenInputValue] = React.useState(null);
-  const [showHiddenInput, setShowHiddenInput] = React.useState(false);
 
-  const handleClick = (value) => {
-    setShowHiddenInput(true);
-    setHiddenInputValue(value);
-  }
   if (state.succeeded) {
     return <ResponseContainer/>;
   }
   return (
     <Container>
     <h1>Kontaktformulär</h1>
-    <div className="form-buttons-container"> 
-      <Button onClick={() => handleClick('Hålla i evenemang')} height={33} width={182} >Hålla i evenemang</Button>
-      <Button onClick={() => handleClick('Överigt')} height={33} width={88}>Överigt</Button>
-    </div>
-    <div className="form-buttons-container"> 
-      <Button onClick={() => handleClick('Boka biljett')} height={33} width={110}>Boka biljett</Button>
-      <Button onClick={() => handleClick('Beställa catering')} height={33} width={160}>Beställa catering</Button>
-    </div>
+
     <form onSubmit={handleSubmit} autoComplete="off">
+
       <div>
-        <label htmlFor="name">
-          Name 
+      <label htmlFor="typ" className="form-first-label">Vad gäller det?</label>
+      <select id="typ" name="typ">
+        <option value="Hålla i evenemang">Hålla i evenemang</option>
+        <option value="Beställa catering">Beställa catering</option>
+        <option value="Boka biljett">Boka biljett</option>
+        <option value="Övrigt">Övrigt</option>
+      </select>
+      <ValidationError prefix="Typ" field="typ" errors={state.errors}/>
+      </div>
+
+      <div>
+        <label htmlFor="name" >
+          Namn 
         </label>
         <input
           id="name"
@@ -64,6 +63,7 @@ function ContactForm() {
           errors={state.errors}
         />
       </div>
+
       <div>
         <label htmlFor="phone">
           Telefonnummer
@@ -80,19 +80,7 @@ function ContactForm() {
           errors={state.errors}
         />
       </div>
-      {showHiddenInput === true && 
-      <div className="form-hidden-input">
-        <label htmlFor="text">
-            Vad gäller det?
-          </label>
-      <input id="text" type="text" name="text" value={hiddenInputValue} readOnly required/>
-          <ValidationError 
-            prefix="Text" 
-            field="text"
-            errors={state.errors}
-          />
-      </div>
-      }
+
       <div>
       <label htmlFor="message">
           Meddelande
@@ -111,6 +99,7 @@ function ContactForm() {
           errors={state.errors}
         />
       </div>
+
       <div>
         <Button type="submit" disabled={state.submitting}>
           Submit
@@ -123,7 +112,8 @@ function ContactForm() {
 export default ContactForm;
 
 const Container = styled.div`
-width: 100vw;
+width: 100%;
+max-width: 576px;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -174,7 +164,32 @@ form {
       font-size: 16px;
       line-height: 19px;
       color: ${colors.black};
-      margin-bottom: 16px;
+      margin-bottom: 11px;
+    }
+
+    .form-first-label {
+      margin-bottom: 32px;
+    }
+
+    select {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      background: #FFFFFF;
+      border-radius: 9px;
+      border: none;
+      width: 300px;
+      height: 48px;
+      padding-left: 28px;
+      margin-bottom: 32px;
+      background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #D7D7D7;
+      -webkit-appearance: none;
+      background-position-x: 260px;
+    }
+    
+    select:focus{
+      outline: none;
     }
 
     input {
