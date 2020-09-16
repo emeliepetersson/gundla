@@ -17,13 +17,17 @@ function Contact({contactPage, contactInfo}) {
             imageLandscapeUrl={contactPage.heroLandscape.fields.file.url}
             imagePortraitUrl={contactPage.heroPortrait.fields.file.url}
           />
-          <Post className="contact-hero-text-container"
+          <Post className={"contact-hero-text-container"}
             title={contactPage.title1}
             text={contactPage.text1}
           />
           <ContactForm/>
+          <Post className={"contact-form-text-container"}
+            title={contactPage.title2}
+            text={contactPage.text2}
+          />
           <div className="contact-contact-info-container">
-            <h2>{contactPage.title2}</h2>
+            <h2>{contactPage.title3}</h2>
             <p>{contactInfo.adress}</p>
             <p>{contactInfo.postcode}</p>
           </div>
@@ -80,6 +84,10 @@ function Contact({contactPage, contactInfo}) {
       div{
         padding: 15px 35px 0;
       }
+    }
+
+    .contact-form-text-container {
+      margin-top: 30px;
     }
 
     .contact-contact-info-container {
