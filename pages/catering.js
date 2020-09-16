@@ -9,43 +9,49 @@ import Carousel from "../components/Carousel";
 
 import { fetchEntries } from "../pages/api/Contentful";
 
-function Catering({cateringPage}) {
+function Catering({cateringPage, cateringMenuArrayOfObjects}) {
+    function compare(a, b) {
+
+      let comparison = 0;
+      if (a.order > b.order) {
+        comparison = 1;
+      } else if (a.order < b.order) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+    const sortedMenuArrayOfObjects = [...cateringMenuArrayOfObjects].sort(compare);
 
     return (
         <Container>
-          <Hero
-            imageUrl={cateringPage.hero.fields.file.url}
+          <Hero className={"catering-hero-img-container"}
+            imageLandscapeUrl={cateringPage.heroLandscape.fields.file.url}
+            imagePortraitUrl={cateringPage.heroPortrait.fields.file.url}
           />
-        <div className="catering-hero-text-container">
-          <Post
+          <Post className="catering-hero-text-container"
             title={cateringPage.title1}
             text={cateringPage.text1}
           />
-          <Button>Beställ här</Button>
-        </div>
-        <div className="catering-menu-container">
-          <h2>{cateringPage.titleCateringMenu1}</h2>
-          <div className="catering-menu-content-container">
-            {documentToReactComponents(cateringPage.textCateringMenu1)}
+        {sortedMenuArrayOfObjects && sortedMenuArrayOfObjects.map((menu, index) => {
+          return (
+            <div className="catering-menu-container" key={index}>
+              <h2>{menu.titleCateringMenu}</h2>
+                <div className="catering-menu-content-container">
+                  {documentToReactComponents(menu.textCateringMenu)}
+                </div>
+                <h3>{menu.titlePriceCateringMenu}</h3>
+              <p>{menu.textPriceCateringMenu}</p>
           </div>
-          <h3>{cateringPage.titlePriceCateringMenu1}</h3>
-          <p>{cateringPage.textPriceCateringMenu1}</p>
-        </div>
-        <Post
-          text={cateringPage.cateringMenu2}
-        />
-        <Post
-          text={cateringPage.cateringMenu2}
-        />
+          )
+        })}
         <div className="catering-order-button-container">
           <Button>Beställ här</Button>
         </div>
 {        <Carousel images={cateringPage.imgCarusel} />}
-        <Post
-          title={cateringPage.title2}
+        <Post className="catering-review-container"
           text={cateringPage.text2}
         />
-        <SocialMedia
+        <SocialMedia className="catering-Social-media-container"
           text={cateringPage.title3}
           icons={[
             { url: "/icons/instagram-black.png", altText: "Instagram icon" },
@@ -66,10 +72,18 @@ function Catering({cateringPage}) {
     });
   
     const cateringPage = cateringPageResponse[0];
+
+    const cateringMenuRes = await fetchEntries("cateringMenu");
+    const cateringMenuResponse = await cateringMenuRes.map((i) => {
+      return i.fields;
+    });
+  
+    const cateringMenuArrayOfObjects = cateringMenuResponse;
   
     return {
       props: {
         cateringPage,
+        cateringMenuArrayOfObjects,
       },
     };
   };
@@ -82,11 +96,16 @@ const Container = styled.div`
   align-items: center;
 
   .catering-hero-text-container {
-      min-height: 50vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    min-height: 50vh;
+    text-align: start;
+    padding-bottom: 40px;
+
+    h2 {
+      text-align: center;
+    }
+    div{
+      padding: 48px 35px 0;
+    }
   }
 
   .catering-menu-container {
@@ -94,7 +113,6 @@ const Container = styled.div`
     justify-content: center;
     align-items: center; 
     flex-direction: column;
-    margin-top: 60px;
     min-height: 406px;
 
     h2 {
@@ -114,6 +132,7 @@ const Container = styled.div`
       margin-bottom: 22px;
       width: 100vw;
       padding-left: 10px;
+      
 
       p {
         font-style: normal;
@@ -123,26 +142,7 @@ const Container = styled.div`
         color: ${colors.black};
       }
     }
-
-    h3 {
-      font-style: normal;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 200%;
-      text-align: center;
-      color: ${colors.black};
-      margin-bottom: 6px;
-    }
-
-    p {
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 200%;
-      color: ${colors.black};
-    }
   }
-
   .catering-order-button-container{
     min-height: 203px;
     display: flex;
@@ -150,4 +150,43 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  .catering-review-container {
+
+      p{
+        font-family: Roboto;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 42px;
+      }
+
+      h3 {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 200%;
+      text-align: center;
+      color: ${colors.black};
+      margin-top: -30px;
+      margin-bottom: 50px;
+      }
+
+      p:last-child {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 19px;
+        color: ${colors.black};
+        margin-bottom: 0px;
+      }
+    }
+
+  .catering-Social-media-container {
+    padding-top: 55px;
+    padding-bottom: 42px;
+  }
+
 `;

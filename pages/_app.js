@@ -7,6 +7,7 @@ import { fetchEntries } from "../pages/api/Contentful";
 import "lazysizes";
 
 const MyApp = ({ Component, pageProps, footerData }) => {
+
   return (
     <Fragment>
         <Layout footerData={footerData}>
