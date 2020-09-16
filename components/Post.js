@@ -31,6 +31,7 @@ const Container = styled.div`
   overflow: hidden;
   width: 100%;
   padding-bottom: 80px;
+  text-align: left;
 
   .image-container {
     position: relative;
@@ -50,13 +51,20 @@ const Container = styled.div`
   }
   .content {
     padding: 48px 37px 0;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 15px;
+    }
 
     p {
-      margin: 32px 0 20px;
+      margin-top: 20px;
     }
 
     button {
-      margin-top: 40px;
+      margin-top: 48px;
+      align-self: center;
     }
   }
 
@@ -72,11 +80,19 @@ const Container = styled.div`
     .content {
       padding: 106px 0 0 130px;
       width: 38%;
+
+      button {
+        align-self: flex-start;
+      }
     }
     .content.only-text {
-      width: 29%;
-      padding: 105px 0 125px;
+      width: 40%;
+      padding: 65px 0;
       margin: 0 auto;
+
+      h2 {
+        text-align: center;
+      }
     }
   }
 `;

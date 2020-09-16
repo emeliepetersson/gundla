@@ -61,7 +61,7 @@ const About = ({ aboutPage, contactInfo }) => {
           { url: "/icons/instagram-black.png", altText: "Instagram icon" },
           { url: "/icons/facebook-black.png", altText: "Facebook icon" },
         ]}
-        text="Följ oss på Instagram och Facebook för fler recensioner och bilder!"
+        text="Följ oss på sociala medier!"
       />
     </Container>
   );
@@ -94,7 +94,7 @@ const Container = styled.div`
   }
 
   .who-we-are {
-    padding-bottom: 260px;
+    padding-bottom: 108px;
     background-color: cornflowerblue;
   }
 
@@ -102,7 +102,12 @@ const Container = styled.div`
     background-color: palevioletred;
 
     .location {
-      padding-bottom: 150px;
+      padding-bottom: 108px;
+    }
+    .content.only-text {
+      h2 {
+        text-align: left;
+      }
     }
   }
 
@@ -111,6 +116,7 @@ const Container = styled.div`
 
     .questions {
       padding: 16px 0 70px;
+      text-align: center;
     }
 
     .contact-info {
@@ -160,8 +166,8 @@ const Container = styled.div`
         border-right: 1px solid ${colors.dark};
 
         .content.only-text {
-          padding: 60px 0;
-          width: 50%;
+          padding: 90px 0;
+          width: 55%;
         }
       }
 
