@@ -99,8 +99,9 @@ const Home = ({ contactInfo, landingPage }) => {
         className="social-media"
         icons={[
           { url: "/icons/instagram-black.png", altText: "Instagram icon" },
+          { url: "/icons/facebook-black.png", altText: "Facebook icon" },
         ]}
-        text="Följ oss på Instagram!"
+        text="Följ oss på sociala medier!"
       />
     </Container>
   );
@@ -154,6 +155,8 @@ const Container = styled.div`
 
       .text {
         padding: 0;
+        text-align: center;
+        width: 80%;
       }
 
       .weatherwidget-io {
@@ -199,6 +202,9 @@ const Container = styled.div`
         border-right: 1px solid ${colors.dark};
         padding: 60px 0;
 
+        .text {
+          width: 100%;
+        }
         .content.only-text {
           padding: 0;
           width: 50%;
