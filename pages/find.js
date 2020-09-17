@@ -5,7 +5,7 @@ import Post from "../components/Post";
 import colors from "../config/colors";
 import ContactInfo from "../components/ContactInfo";
 import Map from "../components/Map";
-
+import Device from "../config/device";
 
 
 
@@ -14,41 +14,52 @@ function Find({find,contactInfo}) {
     return (
 
         <Container>
-          <Hero
-             imageUrl={find.hero.fields.file.url}
-           />
+        
+            <Hero
+                imagePortraitUrl={find.heroDesktop.fields.file.url}
+                imageLandscapeUrl={find.heroMobile.fields.file.url}
+                altText={find.heroMobile.fields.description}
+            /> 
            <Post 
+                className ="hero-text"
                 title={find.title}
                 text={find.text}
            />
             <ContactContainer>
                 <ContactInfo
-
+                    className="map-info"
                     adress={contactInfo.adress}
                     postcode={contactInfo.postcode}
                     openingHours={contactInfo.openingHours}
                 />
-                <Map />
+                <Map className="map" />
             </ContactContainer>
             <Post className="travel"
+                imageUrl={find.imageTravel.fields.file.url}
+                altText={find.imageTravel.fields.description}
                 title={find.titleTravel}
                 text={find.textTravel}
                 buttonText={"Till Västtrafik"}
             />
           
             <Post
+                className="find-car"
+                imageUrl={find.imageCar.fields.file.url}
+                altText={find.imageCar.fields.description}
                 title={find.titleCar}
                 text={find.textCar}
             />
          
-            <Post 
+            <Post className="access"
                 imageUrl={find.imageAccess.fields.file.url}
                 altText={find.imageAccess.fields.description}
                 title={find.titleAccess}
                 text={find.textAccess}
-                buttonText={"Till Västtrafik"}
+ 
             />
             <Post className="animal"
+                imageUrl={find.imageAnimal.fields.file.url}
+                altText={find.imageAnimal.fields.description}
                 title={find.titleAnimal}
                 text={find.textAnimal}
                 
@@ -84,23 +95,86 @@ export const getStaticProps = async () => {
 
 
 const Container = styled.div`
-    background:white;
-    img:nth-child(1){
-        z-index:0;
+    width:100%;
+    .access,.animal{
+        .content{
+            min-height:300px;
+        }
+      
     }
-    .travel{
-        background:${colors.lightGrey};
-        padding-top:64px;
-        padding-bottom:75px;
-    }
-    .animal{
-        background:${colors.lightGrey};
+    
+   @media ${Device.laptop} {
+        .hero-text{
+                .content{
+                    min-width:543px;
+                    h2{
+                     text-align:left;
+                      padding-bottom:35px;
+                    }
+                }
+               
+                p{
+                    padding:0px;
+                    margin:0px;
+                }
+            }
+            .find-car,.access,.travel, .animal{
+                 
+                .content{
+                    height:100%;
+                    padding-top:0;
+                    display:flex;
+                    justify-content:center;
+                    align-self:center;
+                }
+            }
+            .find-car,.animal{
+                background:${colors.lightGrey};
+                flex-direction:row-reverse;
+                .content{
+          
+                    padding-left:0;
+                    padding-right:130px;
+                }
+         }
+            
+
+
+
+        }
+         
+
     }
 `;
 const ContactContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    .map-info{
+        padding-bottom:97px;
+        padding-top:75px;
+    }
+       
     background:${colors.lightGrey};
-    div:nth-child(1){
-        padding-top:70px;
-        padding-bottom:90px;
+    .map{
+        height:406px;
+        iframe{
+             min-height:100%;
+        }
+    }
+    @media ${Device.laptop} {
+        padding:75px 10%;
+
+        .map-info, .map{
+                width:50%;
+                padding:0;
+            }
+         .map-info{
+             padding:0px;
+             padding-top:0px;
+             margin:0;
+         }  
+        
+       flex-direction:row;
+       flex-basis:auto;
     }
 `;
