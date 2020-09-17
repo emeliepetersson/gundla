@@ -168,6 +168,10 @@ const Container = styled.div`
         .content.only-text {
           padding: 90px 0;
           width: 55%;
+
+          button {
+            align-self: center;
+          }
         }
       }
 
