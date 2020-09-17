@@ -1,14 +1,20 @@
 import { Spin as Hamburger } from 'hamburger-react';
 import Link from "next/link";
 import styled from "styled-components";
+import device from "../config/device";
 
 const HamburgerMenu = () => {
     const [isOpen, setOpen] = React.useState(false);
 
     return (
         <Container show={isOpen}>
-            <div className="hamburger-wrapper">
-                <Hamburger size={40} Hamburger toggled={isOpen} toggle={setOpen} />
+            <div className="nav-emty-container">
+            </div>
+            <div className="nav-header-container">
+                <h1>Gundla Gårdscafé</h1>
+            </div>
+            <div className="nav-hamburger-container">
+                <Hamburger size={32} color={"#ffffff"} Hamburger toggled={isOpen} toggle={setOpen} />
             </div>
             <nav> 
                 <Link href="/">
@@ -38,27 +44,50 @@ const HamburgerMenu = () => {
 };
 
 const Container = styled.div`
+    background: #000000;
     width: 100%;
-    pointer-events: none;
     display: flex;
-    justify-content: flex-end;
     position: fixed;
     top: 0;
     z-index: 9999;
+    height: 62px;
+    box-sizing: border-box;
 
-    .hamburger-wrapper {
-        margin-right: 20px;
-        margin-top: 30px;
-        pointer-events: auto;
+    .nav-emty-container {
+        width:20%;
     }
+
+    .nav-header-container {
+        width:60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-family: Noto Serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+    }
+
+    .nav-hamburger-container {
+        width:20%;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 12px;
+        margin: auto 0px;
+    }
+    
 
     .hamburger-react {
         z-index: 9999;
     }
 
     nav {
-        pointer-events: auto;
-        background-color: #ffffff;
+        background-color: #000000;
         z-index: 100;
         position: fixed;
         right: 0;
@@ -70,31 +99,45 @@ const Container = styled.div`
         transition: all 300ms ease-in-out;
         
         display: flex;
-        align-items: center;
+        justify-content: center;
         flex-direction: column;
+        margin: auto 0px;
 
-        a:first-child {
-            margin-top: 144px;
-        }
 
         a {
-            font-family: Roboto;
             text-decoration: none;
+            font-family: Noto Serif;
             font-style: normal;
-            font-weight: normal;
-            font-size: 20px;
-            line-height: 23px;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 33px;
             text-align: center;
-            color: #000000; 
-
-            margin-bottom: 50px;
+            color: #ffffff; 
+            margin-bottom: 32px;
         }
-
-        a:hover {
-            color: rgba(255, 255, 255, .5);
-        }
-
     }
+
+@media ${device.laptop}{
+    height: 70px;
+
+    .nav-hamburger-container {
+        padding-right: 25px;
+        margin: auto 0px;
+    }
+
+    .nav-header-container {
+        h1 {
+            font-size: 18px;
+            line-height: 25px;
+        }
+    }
+
+    nav {
+        a:hover {
+            color: rgb(255, 255, 255, 0.5);
+        }
+    }
+}
 `;
 
 
