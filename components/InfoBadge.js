@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import colors from "../config/colors";
+import device from "../config/device";
 
 
-
-const InfoBadge =({text})=>{
-
+const InfoBadge =({text,checkSide})=>{
+   
     return(
-    <BadgeContainer>
+    <BadgeContainer checkSide={checkSide}>
         <p>
          {text}
         </p>
@@ -28,20 +28,26 @@ const BadgeContainer = styled.div`
     
     color:${props =>props.color || colors.white};
     background:${props => props.bg || colors.infoGreen};
-    top:${props => props.top || -54}px;
-    right:${props => props.right|| 16}px;
+
+    top:-55px;
+    left:-16px;
     margin-left:auto;
     p{
         font-size:12px;
     }
+    @media ${device.laptop} { 
+      top:2px;
+      left:0; 
+          margin:${(props) => props.checkSide === true ?  "0px 16px 0px auto":"0px auto 0px -16px"};
+     
+         
+       }
 `
 InfoBadge.propTypes ={
     color:PropTypes.string,
     bg:PropTypes.string,
-    top:PropTypes.any,
-    right:PropTypes.any,
     text:PropTypes.string,
-   
+    checkSide:PropTypes.bool,
 }
 
 export default InfoBadge;
