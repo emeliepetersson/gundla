@@ -29,6 +29,12 @@ const GlobalStyle = createGlobalStyle`
   h2, p, h3 {
     margin: 0;
   }
+
+  h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+  }
 `;
 
 export default GlobalStyle;
