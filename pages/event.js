@@ -84,10 +84,12 @@ export const getStaticProps = async () => {
 }
   const Container = styled.div`
     width:100%;
-    
+    .hero-event .content h2,.event-sub{
+          text-align:center;
+    }
     .event-sub{
       background:${colors.lightGrey};
-      text-align:center;
+  
       p{
         font-size: 24px;
         font-weight:bold;
@@ -101,16 +103,24 @@ export const getStaticProps = async () => {
         .content{
           max-width:500px;
           width:70%;
+           p,h2{
+            text-align:left;
+          }
+          button{
+            align-self: flex-start;
+          }
         }
       
       }
-       .event-sub .content button,
-        .hero-event .content button{
+       .event-sub .content button{
            align-self:center;
         }
         .event-sub{
           padding:0;
           background:${colors.white};
+        }
+        .hero-event .content {
+         
         }
     }
   `;

@@ -8,8 +8,7 @@ export default {
   light: "#f8f4f4",
   dark: "#0c0c0c",
   lightGrey:"#F5F5F5",
-  infoGreen: "#4E633A",
-  buttonColor: "#D7D7D7",
+  
   inputBorderColor: "#AAAAAA",
   //colors from figma
   red:"#AA3D2A",
