@@ -4,6 +4,7 @@ import styled from "styled-components";
 import colors from "../config/colors";
 import ResponseContainer from "../components/ContactFormRes";
 import Button from "../components/Button";
+import device from "../config/device";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("contactForm");
@@ -13,15 +14,13 @@ function ContactForm() {
   }
   return (
     <Container>
-    <div className="contact-form-header-container">
-      <h1>Kontaktformulär</h1>
-    </div>
+    <h2>Kontaktformulär</h2>
 
     <form onSubmit={handleSubmit} autoComplete="off">
 
       <div>
       <label htmlFor="typ" className="form-first-label">Vad gäller det?</label>
-      <select id="typ" name="typ">
+      <select className="form-select" id="typ" name="typ">
         <option value="Hålla i evenemang">Hålla i evenemang</option>
         <option value="Beställa catering">Beställa catering</option>
         <option value="Boka biljett">Boka biljett</option>
@@ -103,7 +102,7 @@ function ContactForm() {
       </div>
 
       <div>
-        <Button type="submit" disabled={state.submitting}>
+        <Button width={300}type="submit" disabled={state.submitting}>
           Submit
         </Button>
       </div>
@@ -114,33 +113,17 @@ function ContactForm() {
 export default ContactForm;
 
 const Container = styled.div`
-background: #e5e5e5;
+background: ${colors.lightBlue};
 width: 100%;
 max-width: 576px;
 display: flex;
 flex-direction: column;
-justify-content: center;
-align-items:center;
-padding-top: 73px; 
-padding-left: 37px;
-padding-right: 37px;
-padding-bottom: 69px;
+justify-content: flex-start;
 
-.contact-form-header-container {
-  width: 100%;
-
-  h1 {
-  margin: 0px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  color: ${colors.black};
-  margin-bottom: 64px;
-  }
+h2 {
+    color: ${colors.black};
+    margin-bottom: 32px;
 }
-
 
 form {
   width: 100%;
@@ -165,13 +148,12 @@ form {
       margin-bottom: 32px;
     }
 
-    select {
+    .form-select {
       font-style: normal;
       font-weight: normal;
       font-size: 16px;
       line-height: 19px;
       background: #FFFFFF;
-      border-radius: 9px;
       border: none;
       width: 300px;
       height: 48px;
@@ -187,7 +169,7 @@ form {
     }
 
     input {
-      background: #e5e5e5;
+      background: ${colors.lightBlue};
       border: 0px;
       border-bottom: 1px solid ${colors.inputBorderColor};
       margin-bottom: 32px;
@@ -201,7 +183,7 @@ form {
       margin-bottom: 48px;
     }
     textarea {
-      background: #e5e5e5;
+      background: ${colors.lightBlue};
       resize: none;
       border: none;
       border-bottom: 1px solid ${colors.inputBorderColor};
@@ -210,10 +192,17 @@ form {
     textarea:focus{
       outline: none;
     }
-
-    button {
-      margin: 0 auto;
+  }
+}
+@media ${device.laptop} {
+form {
+  div {
+    .form-select {
+      width: 576px;
+      background-position-x: 545px;
     }
   }
+}
+
 }
 `;

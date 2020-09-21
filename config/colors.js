@@ -9,7 +9,7 @@ export default {
   dark: "#0c0c0c",
   lightGrey:"#F5F5F5",
   
-  inputBorderColor: "#AAAAAA",
+  inputBorderColor: "#000000",
   //colors from figma
   red:"#AA3D2A",
   brown: "#513A2C",

@@ -6,31 +6,40 @@ import Hero from "../components/Hero";
 import Post from "../components/Post";
 import ContactForm  from '../components/ContactForm';
 import Map from "../components/Map";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 
 function Contact({contactPage, contactInfo}) {
 
     return (
         <Container>
-          <Hero className={"contact-hero-img-container"}
+          <Hero className="contact-hero-img-container"
             imageLandscapeUrl={contactPage.heroLandscape.fields.file.url}
             imagePortraitUrl={contactPage.heroPortrait.fields.file.url}
           />
-          <Post className={"contact-hero-text-container"}
+          <Post className="contact-hero-text-container"
             title={contactPage.title1}
             text={contactPage.text1}
           />
-          <ContactForm/>
-          <Post className={"contact-form-text-container"}
-            title={contactPage.title2}
-            text={contactPage.text2}
-          />
-          <div className="contact-contact-info-container">
+          <div className="contact-form-container">
+            <div className="contact-form-form">
+              <ContactForm/>
+            </div>
+            <div className="contact-form-text">
+                <h2>{contactPage.title2}</h2>
+                <div>
+                  {documentToReactComponents(contactPage.text2)}
+                </div>
+            </div>
+          </div>
+        <div className="contact-address-info-container">
+          <div className="contact-address-info">
             <h2>{contactPage.title3}</h2>
             <p>{contactInfo.adress}</p>
             <p>{contactInfo.postcode}</p>
           </div>
-          <Map/>
+          <Map className="contact-map"/>
+        </div>
         </Container>
     );
   };
@@ -66,7 +75,7 @@ function Contact({contactPage, contactInfo}) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    width: 100vw;
     .contact-hero-text-container {
       min-height: 50vh;
       text-align: start;
@@ -91,45 +100,107 @@ function Contact({contactPage, contactInfo}) {
       }
     }
 
-    .contact-form-text-container {
-      min-height: 603px;
-      background: #e5e5e5;
-      padding-top: 30px;
-      margin-top: -1px;
+    .contact-form-container {
+      width:100%;
+      padding: 48px 38px 64px;
+      background: ${colors.lightBlue};
 
+      .contact-form-text {
+        padding-top: 174px;
+        
+        p {
+          margin-top: 18px;
+        }
+      }
+    }
+
+    .contact-address-info-container {
+      width: 100%;
+      .contact-address-info {
+        width: 100%;
+        h2 {
+          padding-top: 48px;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 28px;
+          text-align: center;
+          color: ${colors.black};
+        }
+        
+        p {
+          margin-top: 32px;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 32px;
+          text-align: center;
+          color: ${colors.black};
+        }
+
+        p:last-child{
+          font-weight: normal;
+          margin-top: 6px;
+          padding-bottom: 64px
+        }
+      }
+
+      .contact-map {
+        width: 100%;
+        height: 406px;
+      }
+    }
+
+
+@media ${device.laptop} {
+  .contact-form-container {
+    padding: 150px 143px 100px;
+    background: ${colors.lightBlue};
+    display: flex;
+    flex-direction: row;
+
+    .contact-form-form {
+      display:flex;
+      justify-content: flex-end;
+      margin-right: 40px;
+    }
+
+    .contact-form-text {
+      margin-left: 40px;
+      padding-top: 0px;
       p {
+        width: 400px;
         margin-top: 18px;
       }
     }
+  }
 
-    .contact-contact-info-container {
-      height: 406px;
-      width: 100%;
-      
-      h2 {
-        margin-top: 141px;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 28px;
-        text-align: center;
-        color: ${colors.black};
-      }
-      
-      p {
-        margin-top: 32px;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 32px;
-        text-align: center;
-        color: ${colors.black};
-      }
+  .contact-form-container > div {
+      width: 50%;
+  }
+  .contact-address-info-container {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
 
-      p:last-child{
-        font-weight: normal;
-        margin-top: 6px;
-      }
+    .contact-address-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 576px;
+      height: 450px;
     }
+
+    .contact-map {
+      width: 576px;
+      height: 450px;
+    }
+
+  }
+}
 
   `;
