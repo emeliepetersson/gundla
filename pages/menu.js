@@ -10,8 +10,11 @@ const Menu =({menuPage,menu})=> {
     
   
     return (
-        
+      
         <Container>
+         <br>
+         </br> 
+       
         <Hero 
           imagePortraitUrl={menuPage.heroDesktop.fields.file.url}
           imageLandscapeUrl={menuPage.heroMobile.fields.file.url}
@@ -31,14 +34,15 @@ const Menu =({menuPage,menu})=> {
           text={menuPage.textLuxury}
           buttonText={"Till catering"}
         /> 
-        <AtMedia>
+
+        <Wrapper>
             <Post
               className="menu-req"
               title={menuPage.titleRequests}
               text={menuPage.textRequests}
               buttonText={"Kontakta"}
             /> 
-            
+         
           <AllergyContainer >
             <Post
               className="allergy-text"
@@ -46,6 +50,7 @@ const Menu =({menuPage,menu})=> {
               text={menuPage.textAllergy}
             />
           <AllergyLogos>
+         
                 {menuPage.logos.map((L,index) =>{
                   return(
                   <div key={index}>
@@ -59,7 +64,7 @@ const Menu =({menuPage,menu})=> {
                 }
             </AllergyLogos >
           </AllergyContainer>
-          </AtMedia>
+          </Wrapper>
         </Container>
 
     )
@@ -69,78 +74,145 @@ export default Menu
   const Container = styled.div`
 
   min-height: 100vh;
-  width:100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  div{
-     width:100%;
-  }
-  .menu-req .content{
-    padding:48px 0px 0px;
-    text-align:center;
-  }
-  .menu-lux{
-    padding-bottom:120px;
-    
-  }
-
-  
-   @media ${Device.laptop} {
-     .menu-lux .content{
-        padding-top:7.5%;
-        padding-right:0px;
-        width:50%;
+  ,div  {
+     width:100%;  
+     
+     .image-container{
+      max-height:500px;
+      
       }
-    }
+  }
+ .menu-lux , .menu-req , .content, .only-text, .allergy-text {
+   padding:0;
+ }
+ .menu-lux .content{
+   padding:48px 10% 64px 10%;
+ }
+ 
+   @media ${Device.laptop} {
+    .menu-lux , .menu-req , .only-text, .allergy-text {
+      
+      padding:75px 10% 75px 10%;
+          .content{
+              padding:0;
+            
+              }    
+            }
+        }
+        .menu-lux .content{
+          padding-left:12.09%;
+          min-width:50%;;
+          align-self:center;
+        }
   
   `;
 
-
+const Wrapper = styled.div`
+      background:${colors.lightGrey};
+      padding:48px 10% 64px 10%;
+      .allergy-text .content{
+        padding-top:48px;
+        padding-bottom:0px;
+      }
+    
+      p,h2{
+        text-align:center;
+      }
+      .content{
+        max-width:400px;
+      }
+      @media ${Device.laptop} {
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+     
+        padding:97px 10%;
+        
+        .menu-req, .allergy-text, .content {
+            padding:0;
+            margin:0px;
+        }
+         .menu-req, .allergy-text{.content{
+           margin:0px;
+           width:100%;
+       
+             text-align:center;
+           button{
+             align-self:center;
+           }
+         }}
+       .menu-req{
+          min-width:50%;
+          max-width:400px;
+          border-right:1px solid ${colors.lightBlack};
+          padding-right:12%;
+           p{
+             text-align:left;
+           }
+          
+        }
+        .menu-req{
+          padding-top:107px;
+          padding-bottom:107px;
+        }
+        
+      
+    }
+  `;
 
   const AllergyContainer = styled.div`
-    padding-bottom:80px;
-    h2{
-      font-size:16px;
+    .hello{
+     
     }
-  .allergy-text {
-      padding:2px;
-        .content{  
-            text-align:center;
-            width:100%;
-            padding:48px 0px 0px
-        }
-  }
+    
       @media ${Device.laptop} {
         align-self:center;
-        padding-left:10%;
-        p{
-          text-align:left;
-          max-width:300px;
-          align-self:center;
-        }
+         padding-left:12%;
+         min-width:50%;
+          max-width:350px;
+          
+          padding-top:107px;
+          padding-bottom:107px;
+      
+         .allergy-text .content{
+           padding-top:0;
+           p{
+             text-align:left;
+              padding:2px;
+           }
+         }
+        
+      
       }
     
   ` 
 const AllergyLogos = styled.div`
+position:relative;
+padding-top:34px;
+width:100%;
+display:flex;
+min-width:50%;
+max-width:350px;
+justify-content: center;
 
- padding:30px 0px;
- width:100%;
- display:flex;
- justify-content: center;
-
-    div{
-       position:relative;
-        padding:0px 27px;
-        height:55px;
-        width:auto;
         p{
           position:absolute;
+          margin:0;
           bottom:0px;
           left:0px;
           text-align:center;
           width:100%;
+        
         }
+    div{
+       position:relative;
+        padding:0px 34px;
+        height:55px;
+        width:auto;
+    
      
         img{
           display:block;
@@ -150,42 +222,7 @@ const AllergyLogos = styled.div`
         }
     }
 `
-  const AtMedia = styled.div`
-        background:${colors.lightGrey};
-        padding:80px 10%;
-      
 
-      @media ${Device.laptop} {
-        display:flex;
-        flex-direction:row;
-
-       .menu-req{
-          padding-right:10%;
-          border-right:1px solid black;
-          .content{
-            max-width:300px;
-            width:100%;
-            padding:0;
-            margin: 0;
-            h2{
-              
-              padding-bottom:20px;
-            }
-            p{
-              margin-top:20px;
-              margin-bottom:20px;
-             
-            }
-            button{
-              align-self:center;
-            }
-           
-          }
-        }
-        
-      
-    }
-  `;
 export const getStaticProps = async () => {
   const resMenuPage = await fetchEntries("menySida");
 

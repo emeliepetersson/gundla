@@ -10,15 +10,15 @@ const Button = styled.button`
   outline-color:${"black"};
   font-weight: bold;
   font-size: ${(props) => props.fontSize || 16}px;
-  width: ${(props) => props.width || 200}px;
+  width: ${(props) => props.width || 300}px;
   height: ${(props) => props.height || 48}px;
   color: ${(props) => props.color || colors.white};
   background: ${(props) => props.bg || colors.green};
+  border-radius:3px;
   transition: 0.2s ease;
   &:hover {
     background-color: ${colors.lightGreen};
     border-color: ${colors.lightGreen};
-
     color:${colors.black}
   }
   &:active {

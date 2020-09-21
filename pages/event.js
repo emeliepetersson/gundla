@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Hero from "../components/Hero";
 import colors from "../config/colors";
+import Textures from "../config/texture"
 import device from "../config/device";
 import { fetchEntries } from "../pages/api/Contentful";
 import Post from "../components/Post";
@@ -8,11 +9,12 @@ import PostEvent from "../components/PostEvent";
 
 
 const Event =({eventPage,event})=> {
+  
    event = event.sort(function(a,b){
-     let dateA = new Date(a.eventDate)
-     let dateB = new Date(b.eventDate);
-     return dateA - dateB;
-   })
+     let positionA = a.sidoPosition
+     let positionB = b.sidoPosition;
+     return positionB - positionA;
+   }) 
 
 
    return (
@@ -27,27 +29,29 @@ const Event =({eventPage,event})=> {
           <Post className="hero-event"
               title={eventPage.title}
               text={eventPage.heroText}
-              buttonText={"Boka biljet"}
+       
            
           />
-          <AtMediaEvent>
+          <div>
           {event.map((e,i)=>{
 
             return(
           <PostEvent 
             imageUrl={e.ImageEvent.fields.file.url}
             altText={e.ImageEvent.fields.description}
+                imageSize={e.ImageEvent.fields.file.details.image}
             title={e.eventTitle}
             text={e.eventText} 
-            price={e.eventPrice}
-            priceShifting={e.priceShifting}
-            date={e.eventDate}
             young={e.eventYoung}
             index ={i}
+         
+            //optinal
+            price={e.eventPrice}
+            date={e.eventDate}
           />
           )})
           }
-       </AtMediaEvent>
+       </div>
           <Post className={"event-sub"}
                 text={eventPage.textInfo}
                 buttonText={"Kontakta oss"}
@@ -84,7 +88,8 @@ export const getStaticProps = async () => {
 }
   const Container = styled.div`
     width:100%;
-    .hero-event .content h2,.event-sub{
+    overflow:hidden;
+    .event-sub{
           text-align:center;
     }
     .event-sub{
@@ -99,7 +104,10 @@ export const getStaticProps = async () => {
     @media ${device.laptop} {  
     .hero-event{
         margin:0px;
-        padding:70px 110px;
+        padding:140px 10.1%;
+        img{
+          border:10px solid black;
+        }
         .content{
           max-width:500px;
           width:70%;
@@ -116,17 +124,9 @@ export const getStaticProps = async () => {
            align-self:center;
         }
         .event-sub{
-          padding:0;
-          background:${colors.white};
+          ${Textures}
         }
-        .hero-event .content {
-         
-        }
+        
     }
   `;
 
-  const AtMediaEvent = styled.div`
-        @media ${device.laptop} {  
-        
-  
-  `;
