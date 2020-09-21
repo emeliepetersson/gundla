@@ -10,7 +10,7 @@ const Footer = ({ footerData }) => {
     <Container>
       <img
         className="logo"
-        src="./icons/logo.png"
+        src="./icons/logo.svg"
         alt="Gundla's logotype, an black outlined sunflower in a white circle."
       />
       <h2>Gundla Gårdscafé</h2>
@@ -79,12 +79,13 @@ const Container = styled.footer`
   @media ${device.laptop} {
     position: relative;
     padding-bottom: 164px;
+    padding-top: 109px;
 
     .contact-info {
       flex-direction: row;
       justify-content: space-evenly;
       align-items: flex-start;
-      padding: 30px 50px;
+      padding: 46px 50px;
 
       .contact,
       .opening-hours {
@@ -113,7 +114,7 @@ const Container = styled.footer`
 
     .footer-icon-container {
       position: absolute;
-      bottom: 168px;
+      bottom: 170px;
     }
   }
 `;
