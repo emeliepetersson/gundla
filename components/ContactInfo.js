@@ -11,17 +11,17 @@ const ContactInfo = ({
 }) => {
   return (
     <Container className={className}>
-      <div>
+      <div className="adress">
         <h3>{adress}</h3>
         <p>{postcode}</p>
       </div>
-      <ul className={"openingHours"}>
+      <ul className="opening-hours">
         {openingHours && <h3>Öppettider</h3>}
         {openingHours &&
           openingHours.map((day, index) => <li key={index}>{day}</li>)}
       </ul>
       {email && phonenumber && (
-        <div className={"contact"}>
+        <div className="contact">
           <h3>Kontakta oss</h3>
           <p>{email}</p> <p>{phonenumber}</p>
         </div>
@@ -50,7 +50,7 @@ const Container = styled.div`
     margin: 10px 0;
   }
 
-  .openingHours,
+  .opening-hours,
   .contact {
     padding-top: 30px;
   }
