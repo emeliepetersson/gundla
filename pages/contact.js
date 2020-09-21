@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { fetchEntries } from "../pages/api/Contentful";
-
 import colors from "../config/colors";
-
+import device from "../config/device";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
 import ContactForm  from '../components/ContactForm';
@@ -77,10 +76,15 @@ function Contact({contactPage, contactInfo}) {
         text-align: center;
       }
 
-      p {
+      p{
+        margin-top: 20px;
+      }
+
+      p:first-child {
         margin-top: 18px;
         text-align: start;
       }
+
       
       div{
         padding: 15px 35px 0;
@@ -88,7 +92,10 @@ function Contact({contactPage, contactInfo}) {
     }
 
     .contact-form-text-container {
-      margin-top: 30px;
+      min-height: 603px;
+      background: #e5e5e5;
+      padding-top: 30px;
+      margin-top: -1px;
 
       p {
         margin-top: 18px;

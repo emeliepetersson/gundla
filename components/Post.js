@@ -87,7 +87,7 @@ const Container = styled.div`
     }
     .content.only-text {
       width: 40%;
-      padding: 65px 0;
+      padding: 0 0;
       margin: 0 auto;
 
       h2 {

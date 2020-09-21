@@ -114,7 +114,7 @@ function ContactForm() {
 export default ContactForm;
 
 const Container = styled.div`
-background: #EBEBEB;
+background: #e5e5e5;
 width: 100%;
 max-width: 576px;
 display: flex;
@@ -124,7 +124,7 @@ align-items:center;
 padding-top: 73px; 
 padding-left: 37px;
 padding-right: 37px;
-padding-bottom: 55px;
+padding-bottom: 69px;
 
 .contact-form-header-container {
   width: 100%;
@@ -177,7 +177,7 @@ form {
       height: 48px;
       padding-left: 28px;
       margin-bottom: 32px;
-      background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #D7D7D7;
+      background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #FFFFFF;
       -webkit-appearance: none;
       background-position-x: 260px;
     }
@@ -187,6 +187,7 @@ form {
     }
 
     input {
+      background: #e5e5e5;
       border: 0px;
       border-bottom: 1px solid ${colors.inputBorderColor};
       margin-bottom: 32px;
@@ -200,6 +201,7 @@ form {
       margin-bottom: 48px;
     }
     textarea {
+      background: #e5e5e5;
       resize: none;
       border: none;
       border-bottom: 1px solid ${colors.inputBorderColor};
