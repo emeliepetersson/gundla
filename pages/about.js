@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 import colors from "../config/colors";
+import texture from "../config/texture";
+import device from "../config/device";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
 import SocialMedia from "../components/SocialMedia";
 import ContactInfo from "../components/ContactInfo";
 import Carousel from "../components/Carousel";
 import { fetchEntries } from "../pages/api/Contentful";
-import device from "../config/device";
 
 const About = ({ aboutPage, contactInfo }) => {
   return (
@@ -118,7 +119,7 @@ const Container = styled.div`
   }
 
   .contact-container {
-    background-color: khaki;
+    ${texture}
 
     .questions {
       padding: 16px 0 70px;

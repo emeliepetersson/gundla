@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import styled from "styled-components";
 
 import colors from "../config/colors";
+import device from "../config/device";
+import texture from "../config/texture";
 import Hero from "../components/Hero";
 import ContactInfo from "../components/ContactInfo";
 import SocialMedia from "../components/SocialMedia";
 import Post from "../components/Post";
 import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
-import device from "../config/device";
 
 const Home = ({ contactInfo, landingPage }) => {
   useEffect(() => {
@@ -140,7 +141,7 @@ const Container = styled.div`
   }
 
   .contact {
-    background-color: palevioletred;
+    ${texture}
     display: flex;
     align-items: center;
     flex-direction: column;
