@@ -29,6 +29,7 @@ const Home = ({ contactInfo, landingPage }) => {
     <Container>
       <Hero
         fullScreen={true}
+        addOverlay={true}
         imageLandscapeUrl={landingPage.heroLandscape.fields.file.url}
         imagePortraitUrl={landingPage.heroPortrait.fields.file.url}
         altText={landingPage.heroPortrait.fields.description}
@@ -166,6 +167,10 @@ const Container = styled.div`
         padding: 0;
         text-align: center;
         width: 80%;
+
+        h2 {
+          text-align: center;
+        }
       }
 
       .weatherwidget-io {

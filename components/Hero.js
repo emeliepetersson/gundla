@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 import colors from "../config/colors";
@@ -9,10 +9,11 @@ const Hero = ({
   imagePortraitUrl,
   imageLandscapeUrl,
   showIcon = false,
+  addOverlay = false,
   text,
   altText,
 }) => (
-  <Container fullScreen={fullScreen}>
+  <Container fullScreen={fullScreen} addOverlay={addOverlay}>
     <picture>
       <source media={device.laptop} srcSet={imageLandscapeUrl} />
       <source
@@ -23,6 +24,7 @@ const Hero = ({
         media={device.mobileL}
         srcSet={`${imagePortraitUrl}?w=550&h=550`}
       />
+
       <img className="background-image" src={imagePortraitUrl} alt={altText} />
     </picture>
     {text && <h1>{text}</h1>}
@@ -40,6 +42,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   height: ${(props) => (props.fullScreen ? "100vh" : "50vh")};
+  margin-top: ${(props) => (props.fullScreen ? "0" : "60px")};
   width: 100vw;
   position: relative;
   color: ${colors.white};
@@ -69,6 +72,12 @@ const Container = styled.div`
     }
   }
 
+  ${(props) =>
+    props.addOverlay &&
+    css`
+      background-color: rgba(0, 0, 0, 0.5);
+    `}
+
   @keyframes bounce {
     0% {
       transform: translateY(6px);
@@ -79,6 +88,10 @@ const Container = styled.div`
     100% {
       transform: translateY(6px);
     }
+  }
+
+  @media ${device.laptop} {
+    margin-top: ${(props) => (props.fullScreen ? "0" : "70px")};
   }
 `;
 
