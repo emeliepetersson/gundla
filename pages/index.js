@@ -29,6 +29,7 @@ const Home = ({ contactInfo, landingPage }) => {
     <Container>
       <Hero
         fullScreen={true}
+        addOverlay={true}
         imageLandscapeUrl={landingPage.heroLandscape.fields.file.url}
         imagePortraitUrl={landingPage.heroPortrait.fields.file.url}
         altText={landingPage.heroPortrait.fields.description}
@@ -99,8 +100,16 @@ const Home = ({ contactInfo, landingPage }) => {
       <SocialMedia
         className="social-media"
         icons={[
-          { url: "/icons/instagram-black.png", altText: "Instagram icon" },
-          { url: "/icons/facebook-black.png", altText: "Facebook icon" },
+          {
+            url: "/icons/instagram-black.png",
+            altText: "Instagram icon",
+            link: "https://www.instagram.com/gundlagardscafe/",
+          },
+          {
+            url: "/icons/facebook-black.png",
+            altText: "Facebook icon",
+            link: "https://www.facebook.com/gundlagardscafe",
+          },
         ]}
         text="Följ oss på sociala medier!"
       />
@@ -158,6 +167,10 @@ const Container = styled.div`
         padding: 0;
         text-align: center;
         width: 80%;
+
+        h2 {
+          text-align: center;
+        }
       }
 
       .weatherwidget-io {
