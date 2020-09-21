@@ -29,7 +29,8 @@ const About = ({ aboutPage, contactInfo }) => {
         text={aboutPage.text2}
       />
 
-      <Carousel images={aboutPage.imgCarusel} 
+      <Carousel
+        images={aboutPage.imgCarusel}
         title={aboutPage.title3}
         text={aboutPage.text3}
         buttonText="Hitta hit"
@@ -65,8 +66,16 @@ const About = ({ aboutPage, contactInfo }) => {
       <SocialMedia
         className="social-media"
         icons={[
-          { url: "/icons/instagram-black.png", altText: "Instagram icon" },
-          { url: "/icons/facebook-black.png", altText: "Facebook icon" },
+          {
+            url: "/icons/instagram-white.png",
+            altText: "Instagram icon",
+            link: "https://www.instagram.com/gundlagardscafe/",
+          },
+          {
+            url: "/icons/facebook-white.png",
+            altText: "Facebook icon",
+            link: "https://www.facebook.com/gundlagardscafe",
+          },
         ]}
         text="Följ oss på sociala medier!"
       />
