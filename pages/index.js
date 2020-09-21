@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import styled from "styled-components";
 
 import colors from "../config/colors";
+import device from "../config/device";
+import texture from "../config/texture";
 import Hero from "../components/Hero";
 import ContactInfo from "../components/ContactInfo";
 import SocialMedia from "../components/SocialMedia";
 import Post from "../components/Post";
 import Button from "../components/Button";
 import { fetchEntries } from "../pages/api/Contentful";
-import device from "../config/device";
 
 const Home = ({ contactInfo, landingPage }) => {
   useEffect(() => {
@@ -28,6 +29,7 @@ const Home = ({ contactInfo, landingPage }) => {
     <Container>
       <Hero
         fullScreen={true}
+        addOverlay={true}
         imageLandscapeUrl={landingPage.heroLandscape.fields.file.url}
         imagePortraitUrl={landingPage.heroPortrait.fields.file.url}
         altText={landingPage.heroPortrait.fields.description}
@@ -98,8 +100,16 @@ const Home = ({ contactInfo, landingPage }) => {
       <SocialMedia
         className="social-media"
         icons={[
-          { url: "/icons/instagram-black.png", altText: "Instagram icon" },
-          { url: "/icons/facebook-black.png", altText: "Facebook icon" },
+          {
+            url: "/icons/instagram-black.png",
+            altText: "Instagram icon",
+            link: "https://www.instagram.com/gundlagardscafe/",
+          },
+          {
+            url: "/icons/facebook-black.png",
+            altText: "Facebook icon",
+            link: "https://www.facebook.com/gundlagardscafe",
+          },
         ]}
         text="Följ oss på sociala medier!"
       />
@@ -140,7 +150,7 @@ const Container = styled.div`
   }
 
   .contact {
-    background-color: palevioletred;
+    ${texture}
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -157,6 +167,10 @@ const Container = styled.div`
         padding: 0;
         text-align: center;
         width: 80%;
+
+        h2 {
+          text-align: center;
+        }
       }
 
       .weatherwidget-io {

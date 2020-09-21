@@ -10,7 +10,7 @@ const Footer = ({ footerData }) => {
     <Container>
       <img
         className="logo"
-        src="./icons/logo.svg"
+        src="./icons/logo.png"
         alt="Gundla's logotype, an black outlined sunflower in a white circle."
       />
       <h2>Gundla Gårdscafé</h2>
@@ -25,8 +25,16 @@ const Footer = ({ footerData }) => {
       <SocialMedia
         className="footer-icon-container"
         icons={[
-          { url: "/icons/instagram-white.png", altText: "Instagram icon" },
-          { url: "/icons/facebook-white.png", altText: "Facebook icon" },
+          {
+            url: "/icons/instagram-white.png",
+            altText: "Instagram icon",
+            link: "https://www.instagram.com/gundlagardscafe/",
+          },
+          {
+            url: "/icons/facebook-white.png",
+            altText: "Facebook icon",
+            link: "https://www.facebook.com/gundlagardscafe",
+          },
         ]}
       />
     </Container>

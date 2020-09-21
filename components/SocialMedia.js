@@ -8,7 +8,9 @@ const SocialMedia = ({ text, icons, className }) => (
     <p>{text}</p>
     <div>
       {icons.map((icon, index) => (
-        <img className="icon" src={icon.url} key={index} alt={icon.altText} />
+        <a href={icon.link} key={index}>
+          <img className="icon" src={icon.url} alt={icon.altText} />
+        </a>
       ))}
     </div>
   </Container>
@@ -28,8 +30,9 @@ const Container = styled.div`
   }
 
   .icon {
-    margin: 24px 8px 8px;
-    width: 44px;
+    cursor: pointer;
+    margin: 24px 12px 8px;
+    width: 32px;
   }
 
   @media ${device.laptop} {

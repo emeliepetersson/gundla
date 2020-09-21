@@ -10,71 +10,78 @@ import Carousel from "../components/Carousel";
 
 import { fetchEntries } from "../pages/api/Contentful";
 
-function Catering({cateringPage, cateringMenuArrayOfObjects}) {
+function Catering({ cateringPage, cateringMenuArrayOfObjects }) {
+  return (
+    <Container>
+      <Hero
+        className={"catering-hero-img-container"}
+        imageLandscapeUrl={cateringPage.heroLandscape.fields.file.url}
+        imagePortraitUrl={cateringPage.heroPortrait.fields.file.url}
+      />
 
-    return (
-        <Container>
-          <Hero className={"catering-hero-img-container"}
-            imageLandscapeUrl={cateringPage.heroLandscape.fields.file.url}
-            imagePortraitUrl={cateringPage.heroPortrait.fields.file.url}
-          />
+      <Post
+        className="catering-hero-text-container"
+        title={cateringPage.title1}
+        text={cateringPage.text1}
+      />
 
-          <Post className="catering-hero-text-container"
-            title={cateringPage.title1}
-            text={cateringPage.text1}
-          />
+      <PostMenu menuData={cateringMenuArrayOfObjects} />
 
-          <PostMenu 
-          menuData={cateringMenuArrayOfObjects}
-          />
+      <div className="catering-order-button-container">
+        <Button>Beställ här</Button>
+      </div>
 
-          <div className="catering-order-button-container">
-            <Button>Beställ här</Button>
-          </div>
-          
-          <Carousel className="catering-carousel"
-             images={cateringPage.imgCarusel}
-             title={cateringPage.title2}
-             text={cateringPage.text2}
-          />
+      <Carousel
+        className="catering-carousel"
+        images={cateringPage.imgCarusel}
+        title={cateringPage.title2}
+        text={cateringPage.text2}
+      />
 
-          <SocialMedia className="catering-Social-media-container"
-            text={cateringPage.title3}
-            icons={[
-              { url: "/icons/instagram-black.png", altText: "Instagram icon" },
-              { url: "/icons/facebook-black.png", altText: "Facebook icon" },
-            ]}
-          />
-        </Container>
-    );
+      <SocialMedia
+        className="catering-Social-media-container"
+        text={cateringPage.title3}
+        icons={[
+          {
+            url: "/icons/instagram-black.png",
+            altText: "Instagram icon",
+            link: "https://www.instagram.com/gundlagardscafe/",
+          },
+          {
+            url: "/icons/facebook-black.png",
+            altText: "Facebook icon",
+            link: "https://www.facebook.com/gundlagardscafe",
+          },
+        ]}
+      />
+    </Container>
+  );
+}
+
+export default Catering;
+
+export const getStaticProps = async () => {
+  const cateringPageRes = await fetchEntries("cateringpage");
+  const cateringPageResponse = await cateringPageRes.map((i) => {
+    return i.fields;
+  });
+
+  const cateringPage = cateringPageResponse[0];
+
+  const cateringMenuRes = await fetchEntries("cateringMenu");
+  const cateringMenuResponse = await cateringMenuRes.map((i) => {
+    return i.fields;
+  });
+
+  const cateringMenuArrayOfObjects = cateringMenuResponse;
+
+  return {
+    props: {
+      cateringPage,
+      cateringMenuArrayOfObjects,
+    },
   };
-  
-  export default Catering;
-
-  export const getStaticProps = async () => {
-  
-    const cateringPageRes = await fetchEntries("cateringpage");
-    const cateringPageResponse = await cateringPageRes.map((i) => {
-      return i.fields;
-    });
-  
-    const cateringPage = cateringPageResponse[0];
-
-    const cateringMenuRes = await fetchEntries("cateringMenu");
-    const cateringMenuResponse = await cateringMenuRes.map((i) => {
-      return i.fields;
-    });
-  
-    const cateringMenuArrayOfObjects = cateringMenuResponse;
-  
-    return {
-      props: {
-        cateringPage,
-        cateringMenuArrayOfObjects,
-      },
-    };
-  };
-  
+};
 
 const Container = styled.div`
   display: flex;
@@ -90,12 +97,12 @@ const Container = styled.div`
     h2 {
       text-align: center;
     }
-    div{
+    div {
       padding: 48px 35px 0px;
     }
   }
 
-  .catering-order-button-container{
+  .catering-order-button-container {
     min-height: 203px;
     display: flex;
     flex-direction: column;
@@ -113,17 +120,17 @@ const Container = styled.div`
     padding-bottom: 42px;
   }
 
-@media ${device.laptop}{
-  .catering-hero-text-container {
-    h2 {
+  @media ${device.laptop} {
+    .catering-hero-text-container {
+      h2 {
+      }
+      div {
+      }
     }
-    div{
-    }
-  }
 
-  .catering-order-button-container{
-    min-height: 300px;
-  }
+    .catering-order-button-container {
+      min-height: 300px;
+    }
 
   .catering-Social-media-container {
     min-height: 300px;
@@ -131,5 +138,4 @@ const Container = styled.div`
     padding-top: 0px;
     padding-bottom: 0px;
   }
-}
 `;

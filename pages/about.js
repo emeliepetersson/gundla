@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 import colors from "../config/colors";
+import texture from "../config/texture";
+import device from "../config/device";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
 import SocialMedia from "../components/SocialMedia";
 import ContactInfo from "../components/ContactInfo";
 import Carousel from "../components/Carousel";
 import { fetchEntries } from "../pages/api/Contentful";
-import device from "../config/device";
 
 const About = ({ aboutPage, contactInfo }) => {
   return (
@@ -28,22 +29,12 @@ const About = ({ aboutPage, contactInfo }) => {
         text={aboutPage.text2}
       />
 
-      <Carousel images={aboutPage.imgCarusel} 
+      <Carousel
+        images={aboutPage.imgCarusel}
         title={aboutPage.title3}
         text={aboutPage.text3}
         buttonText="Hitta hit"
       />
-
-      {/* <div className="carousel-container">
-        <Carousel images={aboutPage.imgCarusel} />
-
-        <Post
-          className="location"
-          title={aboutPage.title3}
-          text={aboutPage.text3}
-          buttonText="Hitta hit"
-        />
-      </div> */}
 
       <div className="contact-container">
         <Post
@@ -64,8 +55,16 @@ const About = ({ aboutPage, contactInfo }) => {
       <SocialMedia
         className="social-media"
         icons={[
-          { url: "/icons/instagram-black.png", altText: "Instagram icon" },
-          { url: "/icons/facebook-black.png", altText: "Facebook icon" },
+          {
+            url: "/icons/instagram-black.png",
+            altText: "Instagram icon",
+            link: "https://www.instagram.com/gundlagardscafe/",
+          },
+          {
+            url: "/icons/facebook-black.png",
+            altText: "Facebook icon",
+            link: "https://www.facebook.com/gundlagardscafe",
+          },
         ]}
         text="Följ oss på sociala medier!"
       />
@@ -104,25 +103,16 @@ const Container = styled.div`
     background-color: cornflowerblue;
   }
 
-  .carousel-container {
-    background-color: palevioletred;
-
-    .location {
-      padding-bottom: 108px;
-    }
-    .content.only-text {
-      h2 {
-        text-align: left;
-      }
-    }
-  }
-
   .contact-container {
-    background-color: khaki;
+    ${texture}
 
     .questions {
       padding: 16px 0 70px;
       text-align: center;
+
+      h2 {
+        text-align: center;
+      }
     }
 
     .contact-info {
@@ -131,7 +121,9 @@ const Container = styled.div`
   }
 
   @media ${device.laptop} {
-    .intro,
+    .intro {
+      padding: 137px;
+    }
     .who-we-are,
     .location {
       padding-bottom: 75px;
