@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 import colors from "../config/colors";
@@ -9,10 +9,11 @@ const Hero = ({
   imagePortraitUrl,
   imageLandscapeUrl,
   showIcon = false,
+  addOverlay = false,
   text,
   altText,
 }) => (
-  <Container fullScreen={fullScreen}>
+  <Container fullScreen={fullScreen} addOverlay={addOverlay}>
     <picture>
       <source media={device.laptop} srcSet={imageLandscapeUrl} />
       <source
@@ -23,6 +24,7 @@ const Hero = ({
         media={device.mobileL}
         srcSet={`${imagePortraitUrl}?w=550&h=550`}
       />
+
       <img className="background-image" src={imagePortraitUrl} alt={altText} />
     </picture>
     {text && <h1>{text}</h1>}
@@ -68,6 +70,12 @@ const Container = styled.div`
       width: 50px;
     }
   }
+
+  ${(props) =>
+    props.addOverlay &&
+    css`
+      background-color: rgba(0, 0, 0, 0.5);
+    `}
 
   @keyframes bounce {
     0% {
