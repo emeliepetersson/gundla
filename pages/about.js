@@ -28,7 +28,13 @@ const About = ({ aboutPage, contactInfo }) => {
         text={aboutPage.text2}
       />
 
-      <div className="carousel-container">
+      <Carousel images={aboutPage.imgCarusel} 
+        title={aboutPage.title3}
+        text={aboutPage.text3}
+        buttonText="Hitta hit"
+      />
+
+      {/* <div className="carousel-container">
         <Carousel images={aboutPage.imgCarusel} />
 
         <Post
@@ -37,7 +43,7 @@ const About = ({ aboutPage, contactInfo }) => {
           text={aboutPage.text3}
           buttonText="Hitta hit"
         />
-      </div>
+      </div> */}
 
       <div className="contact-container">
         <Post
