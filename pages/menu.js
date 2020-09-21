@@ -6,7 +6,6 @@ import Device from "../config/device";
 import Post from "../components/Post";
 import FoodMenu from "../components/FoodMeny";
 
-
 const Menu =({menuPage,menu})=> {
     
   
@@ -77,21 +76,21 @@ export default Menu
   div{
      width:100%;
   }
-  h2{
+  .menu-req .content{
+    padding:48px 0px 0px;
     text-align:center;
   }
-  
   .menu-lux{
     padding-bottom:120px;
-    h2{
-      text-align:left;
-    }
+    
   }
 
   
    @media ${Device.laptop} {
      .menu-lux .content{
         padding-top:7.5%;
+        padding-right:0px;
+        width:50%;
       }
     }
   
@@ -107,10 +106,13 @@ export default Menu
   .allergy-text {
       padding:2px;
         .content{  
+            text-align:center;
             width:100%;
+            padding:48px 0px 0px
         }
   }
       @media ${Device.laptop} {
+        align-self:center;
         padding-left:10%;
         p{
           text-align:left;
@@ -121,15 +123,30 @@ export default Menu
     
   ` 
 const AllergyLogos = styled.div`
+
+ padding:30px 0px;
+ width:100%;
  display:flex;
-    flex-direction:row;
-    justify-content:center;
-  
+ justify-content: center;
+
     div{
-        padding:30px;
-        text-align:center;
+       position:relative;
+        padding:0px 27px;
+        height:55px;
+        width:auto;
+        p{
+          position:absolute;
+          bottom:0px;
+          left:0px;
+          text-align:center;
+          width:100%;
+        }
+     
         img{
-          padding-bottom:2.5px;
+          display:block;
+          margin:0 auto;
+          padding-bottom:5px;
+          
         }
     }
 `

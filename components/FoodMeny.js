@@ -34,7 +34,7 @@ const ContainerMenu = styled.div`
         width:100%;
         flex-direction: row;
         padding:75px 9% 75px 9%;
-        
+      
     }
 
     
@@ -51,10 +51,12 @@ const FoodInfo = styled.div`
         border-right:1px solid black;
         padding-right:10%;
         padding-top:5%;
-        
-        p{
+          h2,p{
             max-width:300px;
             margin:0 auto;
+        }
+        h2{
+            text-align:left;
         }
      
     }
