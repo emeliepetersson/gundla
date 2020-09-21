@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Device from "../config/device";
-import Color from "../config/colors";
+import colors from "../config/colors";
 import PropTypes from "prop-types";
 import {documentToReactComponents } from '@contentful/rich-text-react-renderer';
 const FoodMenu =({theMenu})=>{ 
@@ -21,9 +21,9 @@ const FoodMenu =({theMenu})=>{
 }
 
 const ContainerMenu = styled.div`
-    background:${Color.lightGrey};
+    background:${colors.lightBlue};
     width:100%;
-    padding:40px 9% 100px 9%;
+    padding:62px 10% 62px 10%;
     display:flex;
     flex-direction: column;
     text-align:center;
@@ -31,16 +31,17 @@ const ContainerMenu = styled.div`
         padding:10px 0px;
     }
      @media ${Device.laptop} {
+         padding:92px 10% 92px 10%;
         width:100%;
         flex-direction: row;
-        padding:75px 9% 75px 9%;
+       
       
     }
 
     
 `
 const FoodInfo = styled.div`
-   "border-bottom":1px solid ${Color.lightBlack};
+   border-bottom:1px solid ${colors.lightBlack};
   
     padding-bottom:42px;
     width:100%;
@@ -48,7 +49,8 @@ const FoodInfo = styled.div`
      text-align:left;   
     }
       @media ${Device.laptop} {
-        border-right:1px solid black;
+         border-bottom:0px solid ${colors.lightBlack};  
+        border-right:1px solid ${colors.lightBlack};
         padding-right:10%;
         padding-top:5%;
           h2,p{

@@ -7,7 +7,7 @@ import device from "../config/device";
 const InfoBadge =({text,checkSide})=>{
    
     return(
-    <BadgeContainer checkSide={checkSide}>
+        <BadgeContainer checkSide={checkSide} tabIndex="0" >
         <p>
          {text}
         </p>
@@ -16,29 +16,35 @@ const InfoBadge =({text,checkSide})=>{
 }
 const BadgeContainer = styled.div`
     position:relative;
-    width:100px;
-    height:100px;
+    min-width:97px;
+    width:97px;
+    min-height:97px;
+    height:97px;
     border-radius:50%;
-  
     font-weight:bold;
     display:flex;
     justify-content:center;
     align-items:center;
-    align-self:center;
+   
     
     color:${props =>props.color || colors.white};
     background:${props => props.bg || colors.green};
 
-    top:-55px;
+   top:-50px;
     left:-16px;
     margin-left:auto;
     p{
-        font-size:12px;
+        align-self:center;
+        font-size:14px;
     }
     @media ${device.laptop} { 
       top:2px;
       left:0; 
-          margin:${(props) => props.checkSide === true ?  "0px 16px 0px auto":"0px auto 0px -16px"};
+          margin :0px ${
+            (props) => props.checkSide === true ? 
+            "10% 0px auto":
+            "auto 0px -20%"
+        };
      
          
        }
