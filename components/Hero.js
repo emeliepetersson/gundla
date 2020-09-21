@@ -42,6 +42,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   height: ${(props) => (props.fullScreen ? "100vh" : "50vh")};
+  margin-top: ${(props) => (props.fullScreen ? "0" : "60px")};
   width: 100vw;
   position: relative;
   color: ${colors.white};
@@ -87,6 +88,10 @@ const Container = styled.div`
     100% {
       transform: translateY(6px);
     }
+  }
+
+  @media ${device.laptop} {
+    margin-top: ${(props) => (props.fullScreen ? "0" : "70px")};
   }
 `;
 
