@@ -2,6 +2,7 @@ import { Spin as Hamburger } from 'hamburger-react';
 import Link from "next/link";
 import styled from "styled-components";
 import device from "../config/device";
+import colors from "../config/colors";
 
 const HamburgerMenu = () => {
     const [isOpen, setOpen] = React.useState(false);
@@ -44,7 +45,7 @@ const HamburgerMenu = () => {
 };
 
 const Container = styled.div`
-    background: #000000;
+    background: ${colors.black};
     width: 100%;
     display: flex;
     position: fixed;

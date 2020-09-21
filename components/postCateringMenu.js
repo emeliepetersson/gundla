@@ -20,7 +20,7 @@ const PostCateringMenu = ({menuData}) => {
         <Container>
             {sortedArray && sortedArray.map((menu, index) => {
                 return(
-                    <div className="catering-menu-container" style={index % 2 === 0 ? {backgroundColor: '#E5E5E5'} : {backgroundColor: '#ffffff'}} key={index}>
+                    <div className="catering-menu-container" style={index % 2 === 0 ? {backgroundColor: colors.lightBlue} : {backgroundColor: colors.white}} key={index}>
                         <div className="catering-menu">
                             <div>
                                 <h2>{menu.titleCateringMenu}</h2>
