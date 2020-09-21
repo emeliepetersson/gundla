@@ -18,8 +18,10 @@ const BadgeContainer = styled.div`
     position:relative;
     min-width:97px;
     width:97px;
+
     min-height:97px;
     height:97px;
+
     border-radius:50%;
     font-weight:bold;
     display:flex;
