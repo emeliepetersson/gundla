@@ -121,7 +121,9 @@ const Container = styled.div`
   }
 
   @media ${device.laptop} {
-    .intro,
+    .intro {
+      padding: 137px;
+    }
     .who-we-are,
     .location {
       padding-bottom: 75px;
