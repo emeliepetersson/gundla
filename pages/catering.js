@@ -43,12 +43,12 @@ function Catering({ cateringPage, cateringMenuArrayOfObjects }) {
         text={cateringPage.title3}
         icons={[
           {
-            url: "/icons/instagram-white.png",
+            url: "/icons/instagram-black.png",
             altText: "Instagram icon",
             link: "https://www.instagram.com/gundlagardscafe/",
           },
           {
-            url: "/icons/facebook-white.png",
+            url: "/icons/facebook-black.png",
             altText: "Facebook icon",
             link: "https://www.facebook.com/gundlagardscafe",
           },
