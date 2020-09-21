@@ -30,7 +30,7 @@ const BadgeContainer = styled.div`
     color:${props =>props.color || colors.white};
     background:${props => props.bg || colors.green};
 
-   top:-50px;
+   top:-51px;
     left:-16px;
     margin-left:auto;
     p{

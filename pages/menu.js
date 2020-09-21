@@ -5,15 +5,13 @@ import { fetchEntries } from "../pages/api/Contentful";
 import Device from "../config/device";
 import Post from "../components/Post";
 import FoodMenu from "../components/FoodMeny";
-
+import Textures from "../config/texture"
 const Menu =({menuPage,menu})=> {
     
   
     return (
       
         <Container>
-         <br>
-         </br> 
        
         <Hero 
           imagePortraitUrl={menuPage.heroDesktop.fields.file.url}
@@ -111,7 +109,7 @@ export default Menu
   `;
 
 const Wrapper = styled.div`
-      background:${colors.lightGrey};
+      ${Textures}
       padding:48px 10% 64px 10%;
       .allergy-text .content{
         padding-top:48px;
@@ -164,9 +162,6 @@ const Wrapper = styled.div`
   `;
 
   const AllergyContainer = styled.div`
-    .hello{
-     
-    }
     
       @media ${Device.laptop} {
         align-self:center;

@@ -109,7 +109,7 @@ export const getStaticProps = async () => {
           border:10px solid black;
         }
         .content{
-          max-width:500px;
+          max-width:450px;
           width:70%;
            p,h2{
             text-align:left;

@@ -90,14 +90,15 @@ const EventContainer = styled.div`
     }
 
   .event-image {
-      height:auto;
+ 
       overflow: hidden;
         .image-size{
           overflow:visible;
            width:100%;
            height:100%;
+           display:flex;
            img{
-             width:102%;
+             width:100%;
              object-fit:cover;
               ${(props) => props.imgStyle};
             }
@@ -113,15 +114,12 @@ const EventContainer = styled.div`
   
 
     .event-image{  
-
       max-height:450px;
       max-width:50%;
-      background:green;
+
       .image-size{ 
         display:flex;
-       
         min-width:570px;
-       background:red;
       
       }
      .image-size img{
@@ -133,7 +131,7 @@ const EventContainer = styled.div`
    
    }
 `;
-// 
+
 const EventInfo = styled.div`
   position:relative; 
   display:flex;
@@ -170,7 +168,6 @@ const EventInfo = styled.div`
 
 const BadgePosition = styled.div`
   position:absolute;
-
   width:100%;
   overflow: visible;
   height:1px;
