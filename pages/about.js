@@ -36,17 +36,6 @@ const About = ({ aboutPage, contactInfo }) => {
         buttonText="Hitta hit"
       />
 
-      {/* <div className="carousel-container">
-        <Carousel images={aboutPage.imgCarusel} />
-
-        <Post
-          className="location"
-          title={aboutPage.title3}
-          text={aboutPage.text3}
-          buttonText="Hitta hit"
-        />
-      </div> */}
-
       <div className="contact-container">
         <Post
           className="questions"
@@ -114,25 +103,16 @@ const Container = styled.div`
     background-color: cornflowerblue;
   }
 
-  .carousel-container {
-    background-color: palevioletred;
-
-    .location {
-      padding-bottom: 108px;
-    }
-    .content.only-text {
-      h2 {
-        text-align: left;
-      }
-    }
-  }
-
   .contact-container {
     ${texture}
 
     .questions {
       padding: 16px 0 70px;
       text-align: center;
+
+      h2 {
+        text-align: center;
+      }
     }
 
     .contact-info {
