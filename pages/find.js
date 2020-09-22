@@ -6,7 +6,7 @@ import colors from "../config/colors";
 import ContactInfo from "../components/ContactInfo";
 import Map from "../components/Map";
 import Device from "../config/device";
-
+import Textures from "../config/texture"
 
 
 function Find({find,contactInfo}) {
@@ -96,15 +96,23 @@ export const getStaticProps = async () => {
 
 const Container = styled.div`
     width:100%;
+    overflow:hidden;
     .access,.animal{
         .content{
             min-height:300px;
         }
       
     }
+    .hero-text, .find-car, .access ,.travel, .animal{
+        padding-bottom:0;
+    } 
+    .content{
+        padding:48px 10% 64px 10%;
+    }
     
    @media ${Device.laptop} {
         .hero-text{
+             padding:140px 10.1% 140px 10.1%;
                 .content{
                     min-width:543px;
                     h2{
@@ -119,34 +127,40 @@ const Container = styled.div`
                 }
             }
             .find-car,.access,.travel, .animal{
-                 
+                   padding:75px 10% 75px 10%;
                 .content{
                     height:100%;
                     padding-top:0;
                     display:flex;
                     justify-content:center;
                     align-self:center;
+                    padding:0;
                 }
             }
             .find-car,.animal{
-                background:${colors.lightGrey};
+                background:${colors.lightBlue};
                 flex-direction:row-reverse;
                 .content{
           
                     padding-left:0;
-                    padding-right:130px;
+                    padding-right:7.5%;
                 }
-         }
-            
+            } 
+            .access,.travel{
+                .content{
+                     padding-left:7.5%;
+                }
+            }            
 
 
-
+        
         }
          
 
     }
 `;
 const ContactContainer = styled.div`
+    background:${colors.lightBlue};
     display:flex;
     flex-direction:column;
     .map-info{
@@ -154,7 +168,7 @@ const ContactContainer = styled.div`
         padding-top:75px;
     }
        
-    background:${colors.lightGrey};
+   
     .map{
         height:406px;
         iframe{
@@ -162,6 +176,7 @@ const ContactContainer = styled.div`
         }
     }
     @media ${Device.laptop} {
+       
         padding:75px 10%;
 
         .map-info, .map{
@@ -175,6 +190,6 @@ const ContactContainer = styled.div`
          }  
         
        flex-direction:row;
-       flex-basis:auto;
+     
     }
 `;
