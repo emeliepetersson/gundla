@@ -57,9 +57,7 @@ const HamburgerMenu = () => {
 };
 
 const Container = styled.div`
-    background: ${colors.black};
-    width: 100%;
-  background: #000000;
+  background: ${colors.black};
   width: 100%;
   display: flex;
   justify-content: space-between;
