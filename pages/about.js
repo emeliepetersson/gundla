@@ -110,6 +110,12 @@ const Container = styled.div`
 
   .who-we-are {
     background-color: ${colors.greenBackground};
+
+    .content {
+      p:nth-child(2) {
+        padding-bottom: 25px;
+      }
+    }
   }
 
   .contact-container {
