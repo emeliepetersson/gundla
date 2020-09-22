@@ -8,9 +8,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    scroll-behavior: smooth;
+    font-family: 'Noto Sans', sans-serif;
   }
   main{
     overflow:hidden;
@@ -24,19 +22,25 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  h1, h2 {
+    font-family: 'Noto Serif', serif;
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+
   p, h3 {
-    font-size: 16px;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  p {
+    font-weight: 400;
   }
 
   h2, p, h3 {
     margin: 0;
   }
 
-  h2 {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-  }
   button {
     border: none;
     margin: 0;
@@ -50,7 +54,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: normal;
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
-    
     -webkit-appearance: none;
 }
 &::-moz-focus-inner {

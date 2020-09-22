@@ -110,12 +110,12 @@ const Container = styled.div`
     align-items: center;
   }
 
-  .catering-carousel {
-    background: #f5f5f5;
+  .catering-carousel{
+    background: ${colors.lightBlue};
   }
   .catering-Social-media-container {
     min-height: 203px;
-    background: #ffffff;
+    background: ${colors.white};
     padding-top: 55px;
     padding-bottom: 42px;
   }
@@ -132,11 +132,9 @@ const Container = styled.div`
       min-height: 300px;
     }
 
-    .catering-Social-media-container {
-      min-height: 300px;
-      background: #e5e5e5;
-      padding-top: 0px;
-      padding-bottom: 0px;
-    }
+  .catering-Social-media-container {
+    min-height: 300px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 `;

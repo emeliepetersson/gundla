@@ -94,62 +94,67 @@ export const getStaticProps = async () => {
 };
 
 const Container = styled.div`
-  .intro {
-    padding-bottom: 150px;
+  .intro,
+  .who-we-are,
+  .contact-container {
+    padding-bottom: 64px;
+
+    p {
+      margin-top: 1px;
+    }
+
+    button {
+      margin-top: 32px;
+    }
   }
 
   .who-we-are {
-    padding-bottom: 108px;
-    background-color: cornflowerblue;
+    background-color: ${colors.greenBackground};
+
+    .content {
+      p:nth-child(2) {
+        padding-bottom: 25px;
+      }
+    }
   }
 
   .contact-container {
     ${texture}
 
     .questions {
-      padding: 16px 0 70px;
+      padding: 16px 0 34px;
       text-align: center;
 
       h2 {
         text-align: center;
       }
     }
-
-    .contact-info {
-      padding-bottom: 180px;
-    }
   }
 
   @media ${device.laptop} {
     .intro {
       padding: 137px;
+
+      .content {
+        width: 35%;
+      }
     }
-    .who-we-are,
-    .location {
+
+    .who-we-are {
       padding-bottom: 75px;
+      .content {
+        padding-left: 87px;
+        padding-top: 0;
+        margin: auto 0;
+        width: 42%;
+      }
     }
 
     .who-we-are {
       flex-direction: row-reverse;
 
       .content {
-        padding: 106px 130px 0 0;
-      }
-    }
-
-    .carousel-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .location {
-        padding: 106px 0 0 130px;
-      }
-
-      .content.only-text {
-        width: 50%;
-        margin: 0;
-        padding: 0;
+        padding: 0 87px 0 0;
       }
     }
 
@@ -164,8 +169,8 @@ const Container = styled.div`
         border-right: 1px solid ${colors.dark};
 
         .content.only-text {
-          padding: 90px 0;
-          width: 55%;
+          padding: 141px 0;
+          width: 70%;
 
           button {
             align-self: center;
