@@ -29,7 +29,11 @@ const Layout = ({ children, title, footerData }) => (
         type="image/png"
         sizes="32x32"
       />
-      <link rel="apple-touch-icon" href="/apple-icon.png"></link>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif&display=swap"
+        rel="stylesheet"
+      />
+      <link rel="apple-touch-icon" href="/apple-icon.png" />
       <meta name="theme-color" content="#317EFB" />
     </Head>
     <Nav />

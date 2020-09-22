@@ -15,7 +15,7 @@ const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
         </div>
       )}
       <div className={`content ${imageUrl ? "" : "only-text"}`}>
-        <h2>{title}</h2>
+        {title && <h2>{title}</h2>}
         {text && documentToReactComponents(text)}
         {buttonText && <Button>{buttonText}</Button>}
       </div>

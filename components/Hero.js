@@ -27,7 +27,7 @@ const Hero = ({
 
       <img className="background-image" src={imagePortraitUrl} alt={altText} />
     </picture>
-    {text && <h1>{text}</h1>}
+    {text && <h2>{text}</h2>}
     {showIcon && (
       <a className="icon" href="#scroll-to">
         <img src="/icons/down-arrow.png" alt="Arrow pointing down" />
@@ -57,9 +57,10 @@ const Container = styled.div`
     z-index: -1;
   }
 
-  h1 {
+  h2 {
     text-align: center;
     margin-bottom: 100px;
+    width: 60%;
   }
 
   .icon {
@@ -96,6 +97,12 @@ const Container = styled.div`
 
   @media ${device.laptop} {
     margin-top: ${(props) => (props.fullScreen ? "0" : "70px")};
+
+    h2 {
+      text-align: center;
+      margin-bottom: 0;
+      width: 100%;
+    }
   }
 `;
 
