@@ -12,7 +12,9 @@ const GlobalStyle = createGlobalStyle`
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     scroll-behavior: smooth;
   }
-
+  main{
+    overflow:hidden;
+  }
   a {
     color: inherit;
     text-decoration: none;

@@ -39,12 +39,12 @@ const Event =({eventPage,event})=> {
           <PostEvent 
             imageUrl={e.ImageEvent.fields.file.url}
             altText={e.ImageEvent.fields.description}
-                imageSize={e.ImageEvent.fields.file.details.image}
+            imageSize={e.ImageEvent.fields.file.details.image}
             title={e.eventTitle}
             text={e.eventText} 
             young={e.eventYoung}
             index ={i}
-         
+            key={i}
             //optinal
             price={e.eventPrice}
             date={e.eventDate}
