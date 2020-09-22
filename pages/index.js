@@ -145,8 +145,19 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  .intro {
-    padding-bottom: 120px;
+  .intro,
+  .contact,
+  .event,
+  .catering {
+    padding-bottom: 64px;
+
+    p {
+      margin-top: 1px;
+    }
+
+    button {
+      margin-top: 32px;
+    }
   }
 
   .contact {
@@ -154,7 +165,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 16px 0 170px;
+    padding: 0 0 64px;
     width: 100%;
     position: relative;
 
@@ -180,31 +191,29 @@ const Container = styled.div`
 
       button {
         position: absolute;
-        bottom: 170px;
+        bottom: 64px;
       }
     }
 
     .contact-info {
-      padding-bottom: 130px;
+      padding-bottom: 112px;
     }
   }
 
-  .event {
-    padding-bottom: 120px;
-  }
-
   .catering {
-    background-color: blanchedalmond;
-    padding-bottom: 120px;
-  }
-
-  .social-media {
-    background-color: peachpuff;
+    background-color: ${colors.greenBackground};
   }
 
   @media ${device.laptop} {
-    .intro {
-      padding-bottom: 75px;
+    .intro,
+    .event,
+    .catering {
+      .content {
+        padding-left: 87px;
+        padding-top: 0;
+        margin: auto 0;
+        width: 42%;
+      }
     }
 
     .contact {
@@ -214,7 +223,7 @@ const Container = styled.div`
 
       .wrapper {
         border-right: 1px solid ${colors.dark};
-        padding: 60px 0;
+        padding: 98px 0;
 
         .text {
           width: 100%;
@@ -239,16 +248,12 @@ const Container = styled.div`
         padding: 0;
       }
     }
-    .event,
-    .catering {
-      padding-bottom: 75px;
-    }
 
     .catering {
       flex-direction: row-reverse;
 
       .content {
-        padding: 106px 130px 0 0;
+        padding: 0 87px 0 0;
       }
     }
   }
