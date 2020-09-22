@@ -36,8 +36,8 @@ const HamburgerMenu = () => {
         <Link href="/about">
           <a onClick={() => setOpen(false)}>Om oss</a>
         </Link>
-        <Link href="/menu">
-          <a onClick={() => setOpen(false)}>Meny</a>
+        <Link href="/eat">
+          <a onClick={() => setOpen(false)}>Äta</a>
         </Link>
         <Link href="/event">
           <a onClick={() => setOpen(false)}>Evenemang</a>
@@ -80,13 +80,9 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     h1 {
-      font-family: Noto Serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 22px;
+      font-size: 1em;
       text-align: center;
-      color: #ffffff;
+      color: ${colors.white};
     }
   }
 
@@ -123,7 +119,7 @@ const Container = styled.div`
       font-family: Noto Serif;
       font-style: normal;
       font-weight: 500;
-      font-size: 24px;
+      font-size: 1.5em;
       line-height: 33px;
       text-align: center;
       color: #ffffff;
@@ -145,7 +141,7 @@ const Container = styled.div`
 
     .nav-header-container {
       h1 {
-        font-size: 18px;
+        font-size: 1.125em;
         line-height: 25px;
       }
     }
