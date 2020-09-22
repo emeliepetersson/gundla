@@ -75,7 +75,11 @@ const Container = styled.div`
   ${(props) =>
     props.addOverlay &&
     css`
-      background-color: rgba(0, 0, 0, 0.5);
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 42.86%,
+        rgba(0, 0, 0, 0) 64.9%
+      );
     `}
 
   @keyframes bounce {
