@@ -134,7 +134,6 @@ const Container = styled.div`
 
   .catering-Social-media-container {
     min-height: 300px;
-    background: ${colors.lightBlue};
     padding-top: 0px;
     padding-bottom: 0px;
   }

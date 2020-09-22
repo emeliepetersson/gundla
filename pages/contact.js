@@ -99,7 +99,7 @@ const Container = styled.div`
   .contact-form-container {
     width: 100%;
     padding: 48px 38px 64px;
-    background: ${colors.lightBlue};
+    background: ${colors.greenBackground};
 
     .contact-form-text  {
       padding-top: 174px;
@@ -148,7 +148,7 @@ const Container = styled.div`
   @media ${device.laptop} {
     .contact-form-container {
       padding: 150px 143px 100px;
-      background: ${colors.lightBlue};
+      background: ${colors.greenBackground};
       display: flex;
       flex-direction: row;
 

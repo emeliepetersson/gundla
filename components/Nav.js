@@ -36,8 +36,8 @@ const HamburgerMenu = () => {
         <Link href="/about">
           <a onClick={() => setOpen(false)}>Om oss</a>
         </Link>
-        <Link href="/menu">
-          <a onClick={() => setOpen(false)}>Meny</a>
+        <Link href="/eat">
+          <a onClick={() => setOpen(false)}>Äta</a>
         </Link>
         <Link href="/event">
           <a onClick={() => setOpen(false)}>Evenemang</a>
@@ -58,8 +58,6 @@ const HamburgerMenu = () => {
 
 const Container = styled.div`
   background: ${colors.black};
-  width: 100%;
-  background: #000000;
   width: 100%;
   display: flex;
   justify-content: space-between;

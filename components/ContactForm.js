@@ -16,7 +16,7 @@ function ContactForm() {
     <Container>
       <h2>Kontaktformulär</h2>
 
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="typ" className="form-first-label">
             Vad gäller det?
@@ -70,6 +70,36 @@ function ContactForm() {
             field="message"
             errors={state.errors}
           />
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
+        </div>
+
+        <div>
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+          />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
+        </div>
+
+        <div>
+          <label htmlFor="phone">Telefonnummer</label>
+          <input id="phone" type="tel" name="phone"/>
+          <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+        </div>
+
+        <div>
+          <label htmlFor="message">Meddelande</label>
+          <div className="container-textarea">
+            <textarea id="message" name="message" rows="1" required />
+          </div>
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+          />
         </div>
 
         <div>
@@ -84,7 +114,7 @@ function ContactForm() {
 export default ContactForm;
 
 const Container = styled.div`
-  background: ${colors.lightBlue};
+  background: ${colors.greenBackground};
   width: 100%;
   max-width: 576px;
   display: flex;
@@ -130,39 +160,39 @@ const Container = styled.div`
         height: 48px;
         padding-left: 28px;
         margin-bottom: 32px;
-        background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png)
-          no-repeat right #ffffff;
+        background: url("./icons/arrow-down-select.png") no-repeat right #ffffff;
         -webkit-appearance: none;
         background-position-x: 260px;
       }
 
       select:focus {
-        outline: none;
+        outline-color: ${colors.inputBorderColor};
+
       }
 
       input {
-        background: ${colors.lightBlue};
+        background: ${colors.greenBackground};
         border: 0px;
         border-bottom: 1px solid ${colors.inputBorderColor};
         margin-bottom: 32px;
       }
 
       input:focus {
-        outline: none;
+        outline-color: ${colors.inputBorderColor};
       }
 
       .container-textarea {
         margin-bottom: 48px;
       }
       textarea {
-        background: ${colors.lightBlue};
+        background: ${colors.greenBackground};
         resize: none;
         border: none;
         border-bottom: 1px solid ${colors.inputBorderColor};
       }
 
       textarea:focus {
-        outline: none;
+        outline-color: ${colors.inputBorderColor};
       }
     }
   }
