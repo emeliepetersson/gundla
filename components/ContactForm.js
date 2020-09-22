@@ -37,6 +37,38 @@ function ContactForm() {
             type="name"
             name="name"
             required
+            autoComplete="autocomplete_off_hack_xfr4!k"
+          />
+          <ValidationError prefix="Name" field="name" errors={state.errors} />
+        </div>
+
+        <div>
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            autoComplete="autocomplete_No_More_yesyes"
+          />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
+        </div>
+
+        <div>
+          <label htmlFor="phone">Telefonnummer</label>
+          <input id="phone" type="tel" name="phone" required />
+          <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+        </div>
+
+        <div>
+          <label htmlFor="message">Meddelande</label>
+          <div className="container-textarea">
+            <textarea id="message" name="message" rows="1" required />
+          </div>
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
           />
           <ValidationError prefix="Name" field="name" errors={state.errors} />
         </div>
