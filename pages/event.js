@@ -38,6 +38,7 @@ const Event = ({ eventPage, event }) => {
               text={e.eventText}
               young={e.eventYoung}
               index={i}
+              key={i}
               //optinal
               price={e.eventPrice}
               date={e.eventDate}
@@ -79,9 +80,8 @@ export const getStaticProps = async () => {
 const Container = styled.div`
   width: 100%;
   overflow: hidden;
-  .event-sub {
-    text-align: center;
-  }
+  margin-top:-2px;
+ 
   .event-sub {
     background: ${colors.lightGrey};
 
@@ -113,8 +113,6 @@ const Container = styled.div`
     .event-sub .content button {
       align-self: center;
     }
-    .event-sub {
-      ${Textures}
-    }
+   
   }
 `;

@@ -35,11 +35,16 @@ const BadgeContainer = styled.div`
     font-size: 0.875em;
   }
   @media ${device.laptop} {
+    min-width: 112px;
+    width: 112px;
+
+    min-height: 112px;
+    height: 112px;
     top: 2px;
     left: 0;
     margin: 0px
       ${(props) =>
-        props.checkSide === true ? "10% 0px auto" : "auto 0px -20%"};
+        props.checkSide === true ? "10% 0px auto" : "auto 0px -23%"};
   }
 `;
 InfoBadge.propTypes = {

@@ -21,7 +21,7 @@ const FoodMenu =({theMenu})=>{
 }
 
 const ContainerMenu = styled.div`
-    background:${colors.lightBlue};
+    background:${colors.greenBackground};
     width:100%;
     padding:62px 10% 62px 10%;
     display:flex;
@@ -31,7 +31,7 @@ const ContainerMenu = styled.div`
         padding:10px 0px;
     }
      @media ${Device.laptop} {
-         padding:92px 10% 92px 10%;
+        padding:92px 10% 92px 10%;
         width:100%;
         flex-direction: row;
        
