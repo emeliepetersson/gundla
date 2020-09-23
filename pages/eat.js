@@ -130,9 +130,9 @@ const Wrapper = styled.div`
     .allergy-text {
       .content,
       only-text {
-        margin: 0px;
+        margin: 1px;
         width: 100%;
-
+        
         button {
           align-self: center;
         }
