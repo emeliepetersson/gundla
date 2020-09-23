@@ -1,12 +1,21 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Link from "next/link";
 
 import Button from "./Button";
 import Image from "./Image";
 import device from "../config/device";
 
-const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
+const Post = ({
+  altText,
+  buttonText,
+  imageUrl,
+  title,
+  text,
+  className,
+  link,
+}) => {
   return (
     <Container className={className}>
       {imageUrl && (
@@ -17,7 +26,11 @@ const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
       <div className={`content ${imageUrl ? "" : "only-text"}`}>
         {title && <h2>{title}</h2>}
         {text && documentToReactComponents(text)}
-        {buttonText && <Button>{buttonText}</Button>}
+        {buttonText && (
+          <Link href={`/${link}`}>
+            <Button>{buttonText}</Button>
+          </Link>
+        )}
       </div>
     </Container>
   );

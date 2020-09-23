@@ -5,109 +5,103 @@ import { fetchEntries } from "./api/Contentful";
 import Device from "../config/device";
 import Post from "../components/Post";
 import FoodMenu from "../components/FoodMeny";
-import Textures from "../config/texture"
-const Eat =({menuPage,menu})=> {
-    
-  
-    return (
-      
-        <Container>
-       
-        <Hero 
-          imagePortraitUrl={menuPage.heroDesktop.fields.file.url}
-          imageLandscapeUrl={menuPage.heroMobile.fields.file.url}
-          altText={menuPage.heroMobile.fields.description}
-        /> 
+import Textures from "../config/texture";
+const Eat = ({ menuPage, menu }) => {
+  return (
+    <Container>
+      <Hero
+        imagePortraitUrl={menuPage.heroDesktop.fields.file.url}
+        imageLandscapeUrl={menuPage.heroMobile.fields.file.url}
+        altText={menuPage.heroMobile.fields.description}
+      />
 
-           <FoodMenu
-              theMenu={menu}
-              border={"border-right"}
-           />
-        
+      <FoodMenu theMenu={menu} border={"border-right"} />
+
+      <Post
+        className={"menu-lux"}
+        imageUrl={menuPage.ImageLuxury.fields.file.url}
+        altText={menuPage.ImageLuxury.fields.description}
+        title={menuPage.titleLuxury}
+        text={menuPage.textLuxury}
+        buttonText={"Till catering"}
+        link="catering"
+      />
+
+      <Wrapper>
         <Post
-          className={"menu-lux"}
-          imageUrl={menuPage.ImageLuxury.fields.file.url}
-          altText={menuPage.ImageLuxury.fields.description}
-          title={menuPage.titleLuxury}
-          text={menuPage.textLuxury}
-          buttonText={"Till catering"}
-        /> 
+          className="menu-req"
+          title={menuPage.titleRequests}
+          text={menuPage.textRequests}
+          buttonText={"Kontakta"}
+          link="contact"
+        />
 
-        <Wrapper>
-            <Post
-              className="menu-req"
-              title={menuPage.titleRequests}
-              text={menuPage.textRequests}
-              buttonText={"Kontakta"}
-            /> 
-         
-          <AllergyContainer >
-            <Post
-              className="allergy-text"
-              title={menuPage.titleAllergy}
-              text={menuPage.textAllergy}
-            />
+        <AllergyContainer>
+          <Post
+            className="allergy-text"
+            title={menuPage.titleAllergy}
+            text={menuPage.textAllergy}
+          />
           <AllergyLogos>
-         
-                {menuPage.logos.map((L,index) =>{
-                  return(
-                  <div key={index} tabIndex="0">
-                    <img 
-                        src={L.fields.file.url}
-                        alt={L.fields.description}
-                        />
-                        <p>{L.fields.title}</p>
-                  </div>
-                )})
-                }
-            </AllergyLogos >
-          </AllergyContainer>
-          </Wrapper>
-        </Container>
+            {menuPage.logos.map((L, index) => {
+              return (
+                <div key={index} tabIndex="0">
+                  <img src={L.fields.file.url} alt={L.fields.description} />
+                  <p>{L.fields.title}</p>
+                </div>
+              );
+            })}
+          </AllergyLogos>
+        </AllergyContainer>
+      </Wrapper>
+    </Container>
+  );
+};
+export default Eat;
 
-    )
-  }
-export default Eat
-
-  const Container = styled.div`
-
+const Container = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  ,div  {
-     width:100%;  
-     .image-container{
-      max-height:500px;
-      
+
+  div {
+    width: 100%;
+    .image-container {
+      max-height: 500px;
+    }
+  }
+  .menu-lux,
+  .menu-req,
+  .content,
+  .only-text,
+  .allergy-text {
+    padding: 0;
+  }
+  .menu-lux .content {
+    padding: 48px 10% 64px 10%;
+  }
+  .menu-req .content,
+  .allergy-text .content {
+    text-align: center;
+  }
+  @media ${Device.laptop} {
+    .menu-lux,
+    .menu-req,
+    .only-text,
+    .allergy-text {
+      padding: 75px 10% 75px 10%;
+      .content {
+        padding: 0;
       }
+    }
   }
- .menu-lux , .menu-req , .content, .only-text, .allergy-text {
-   padding:0;
- }
- .menu-lux .content{
-   padding:48px 10% 64px 10%;
- }
-  .menu-req .content, .allergy-text .content{
-    text-align:center;
+  .menu-lux .content {
+    padding-left: 12.09%;
+    min-width: 50%;
+    align-self: center;
   }
-   @media ${Device.laptop} {
-    .menu-lux , .menu-req , .only-text, .allergy-text {
-      padding:75px 10% 75px 10%;
-          .content{
-              padding:0;
-            
-              }    
-            }
-        }
-        .menu-lux .content{
-          padding-left:12.09%;
-          min-width:50%;;
-          align-self:center;
-        }
-    
-  
-  `;
+`;
 
 const Wrapper = styled.div`
   ${Textures}
@@ -153,8 +147,7 @@ const Wrapper = styled.div`
       padding-bottom: 107px;
     }
     .menu-req .content,
-    .allergy-text
-    .content {
+    .allergy-text .content {
       h2,
       p {
         text-align: center;
@@ -163,28 +156,25 @@ const Wrapper = styled.div`
   }
 `;
 
-  const AllergyContainer = styled.div`
-    
-      @media ${Device.laptop} {
-        align-self:center;
-        padding-left:12%;
-        min-width:50%;
-        max-width:350px;
-          
-          padding-top:107px;
-          padding-bottom:107px;
-      
-         .allergy-text .content {
-           padding-top:0;
-           p,h2{
-              padding:2px;
-           }
-         }
-        
-      
+const AllergyContainer = styled.div`
+  @media ${Device.laptop} {
+    align-self: center;
+    padding-left: 12%;
+    min-width: 50%;
+    max-width: 350px;
+
+    padding-top: 107px;
+    padding-bottom: 107px;
+
+    .allergy-text .content {
+      padding-top: 0;
+      p,
+      h2 {
+        padding: 2px;
       }
-    
-  ` 
+    }
+  }
+`;
 const AllergyLogos = styled.div`
   position: relative;
   padding-top: 34px;
@@ -216,7 +206,6 @@ const AllergyLogos = styled.div`
   }
   @media ${Device.laptop} {
     max-width: 400px;
-    
   }
 `;
 
@@ -224,22 +213,20 @@ export const getStaticProps = async () => {
   const resMenuPage = await fetchEntries("menySida");
 
   const responseMenuPage = await resMenuPage.map((i) => {
-    return i.fields
-  })
+    return i.fields;
+  });
   const menuPage = responseMenuPage[0];
 
   const resMenu = await fetchEntries("meny");
   const responseMenu = await resMenu.map((i) => {
-    return i.fields
-  })
+    return i.fields;
+  });
   const menu = responseMenu[0];
 
   return {
-
     props: {
       menuPage,
-      menu
-    }
+      menu,
+    },
   };
-
-}
+};
