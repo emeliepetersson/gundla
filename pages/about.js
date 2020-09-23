@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import colors from "../config/colors";
 import texture from "../config/texture";
+import sunflowerBg from "../config/sunflowerBackground";
 import device from "../config/device";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
@@ -106,6 +107,10 @@ const Container = styled.div`
     button {
       margin-top: 32px;
     }
+  }
+
+  .intro {
+    ${sunflowerBg}
   }
 
   .who-we-are {
