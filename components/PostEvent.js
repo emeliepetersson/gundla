@@ -6,7 +6,7 @@ import Image from "./Image";
 import device from "../config/device";
 import colors from "../config/colors";
 import Button from "./Button";
-import { BLOCKS } from "@contentful/rich-text-types";
+import options from "../config/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const PostEvent = ({
@@ -30,18 +30,11 @@ const PostEvent = ({
   const imgStyle = imgPosition();
   
   let checkSide = (index%2 === 1? true: false)
-  const [isOpen, setOpen] = React.useState(false);
-  const options = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p tabIndex="0">{children}</p>
-      ),
-    },
-  };
+ 
   return (
     <EventContainer imgStyle={imgStyle} checkSide={checkSide}>
       <div className="event-image">
-        <Image imageUrl={imageUrl} altText={altText} tabIndex="0" />
+        <Image imageUrl={imageUrl} altText={altText} />
       </div>
       <EventInfo checkSide={checkSide}>
         {young && (
@@ -51,10 +44,10 @@ const PostEvent = ({
         )}
         <div className="event-post-text">
           <h2 tabIndex="0">{title || ""}</h2>
-          {documentToReactComponents(text) || ""}
-          <Link href="/home">
+          {documentToReactComponents(text, options) || ""}
+        
             <Button>Boka billjet</Button>
-          </Link>
+       
         </div>
       </EventInfo>
     </EventContainer>
@@ -64,27 +57,30 @@ const PostEvent = ({
 
 const EventContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: center;    
   flex-direction: column;
-  text-align: left;
-  *:focus {
-    outline: 2px solid ${colors.blue};
+  text-align: left; 
+  .event-image img:focus{
+    .event-image{
+      border:
+    }
   }
-
   .event-image {
-    overflow: hidden;
-    border:1px solid green;
+    
+  
     position: relative;
     min-height: 406px;
     max-height: 550px;
     max-width: 576px;
     position: relative;
     width: 100%;
+    background:transparent;
 
     img {
       position: absolute;
       width: 100%;
       object-fit: cover;
+    
       ${(props) => props.imgStyle.pos}
     }
   }
