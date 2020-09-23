@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: 'Noto Sans', sans-serif;
+    scroll-behavior: smooth;
   }
   main{
     overflow:hidden;

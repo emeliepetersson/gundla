@@ -1,6 +1,8 @@
+import Link from "next/link";
 import styled from "styled-components";
 import colors from "../config/colors";
 import device from "../config/device";
+import sunflowerBg from "../config/sunflowerBackground";
 import Hero from "../components/Hero";
 import SocialMedia from "../components/SocialMedia";
 import PostMenu from "../components/postCateringMenu";
@@ -28,7 +30,9 @@ function Catering({ cateringPage, cateringMenuArrayOfObjects }) {
       <PostMenu menuData={cateringMenuArrayOfObjects} />
 
       <div className="catering-order-button-container">
-        <Button>Beställ här</Button>
+        <Link href="/contact">
+          <Button>Beställ här</Button>
+        </Link>
       </div>
 
       <Carousel
@@ -93,6 +97,7 @@ const Container = styled.div`
     min-height: 50vh;
     text-align: start;
     padding-bottom: 40px;
+    ${sunflowerBg}
 
     h2 {
       text-align: center;

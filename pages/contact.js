@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { fetchEntries } from "../pages/api/Contentful";
 import colors from "../config/colors";
 import device from "../config/device";
+import sunflowerBg from "../config/sunflowerBackground";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
 import ContactForm from "../components/ContactForm";
@@ -76,6 +77,7 @@ const Container = styled.div`
   .contact-hero-text-container {
     min-height: 50vh;
     text-align: start;
+    ${sunflowerBg}
 
     h2 {
       margin-top: 33px;

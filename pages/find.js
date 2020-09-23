@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Hero from "../components/Hero";
 import Post from "../components/Post";
 import colors from "../config/colors";
+import sunflowerBg from "../config/sunflowerBackground";
 import ContactInfo from "../components/ContactInfo";
 import Map from "../components/Map";
 import Device from "../config/device";
@@ -64,30 +65,29 @@ function Find({find,contactInfo}) {
     );
 }
 
-export default Find
+export default Find;
 
 export const getStaticProps = async () => {
-    const contactInfoRes = await fetchEntries("visitingInfo");
-    const contactInfoResponse = await contactInfoRes.map((i) => {
-        return i.fields;
-    });
-    const contactInfo = contactInfoResponse[0];
+  const contactInfoRes = await fetchEntries("visitingInfo");
+  const contactInfoResponse = await contactInfoRes.map((i) => {
+    return i.fields;
+  });
+  const contactInfo = contactInfoResponse[0];
 
-    const findRes = await fetchEntries("hittaOss");
-    const findResponse = await findRes.map((i) => {
-        return i.fields;
-    });
+  const findRes = await fetchEntries("hittaOss");
+  const findResponse = await findRes.map((i) => {
+    return i.fields;
+  });
 
-    const find = findResponse[0];
+  const find = findResponse[0];
 
-    return {
-        props: {
-            contactInfo,
-            find,
-        },
-    };
+  return {
+    props: {
+      contactInfo,
+      find,
+    },
+  };
 };
-
 
 const Container = styled.div`
     width:100%;
@@ -111,6 +111,9 @@ const Container = styled.div`
     .hero-text, .find-car, .access ,.travel, .animal{
         padding-bottom:0;
     } 
+    .hero-text {
+${sunflowerBg}
+    }
     .content{
         padding:48px 10% 64px 10%;
     }
@@ -166,36 +169,34 @@ const Container = styled.div`
     }
 `;
 const ContactContainer = styled.div`
-    background:${colors.lightBlue};
-    display:flex;
-    flex-direction:column;
-    .map-info{
-        padding-bottom:97px;
-        padding-top:75px;
-    }
-       
-   
-    .map{
-        height:406px;
-        iframe{
-             min-height:100%;
-        }
-    }
-    @media ${Device.laptop} {
-       
-        padding:75px 10%;
+  background: ${colors.lightBlue};
+  display: flex;
+  flex-direction: column;
+  .map-info {
+    padding-bottom: 97px;
+    padding-top: 75px;
+  }
 
-        .map-info, .map{
-                width:50%;
-                padding:0;
-            }
-         .map-info{
-             padding:0px;
-             padding-top:0px;
-             margin:0;
-         }  
-        
-       flex-direction:row;
-     
+  .map {
+    height: 406px;
+    iframe {
+      min-height: 100%;
     }
+  }
+  @media ${Device.laptop} {
+    padding: 75px 10%;
+
+    .map-info,
+    .map {
+      width: 50%;
+      padding: 0;
+    }
+    .map-info {
+      padding: 0px;
+      padding-top: 0px;
+      margin: 0;
+    }
+
+    flex-direction: row;
+  }
 `;

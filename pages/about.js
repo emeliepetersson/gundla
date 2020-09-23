@@ -35,6 +35,7 @@ const About = ({ aboutPage, contactInfo }) => {
         title={aboutPage.title3}
         text={aboutPage.text3}
         buttonText="Hitta hit"
+        link="find"
       />
 
       <div className="contact-container">
@@ -43,6 +44,7 @@ const About = ({ aboutPage, contactInfo }) => {
           title={aboutPage.title4}
           text={aboutPage.text4}
           buttonText="Kontakta oss"
+          link="contact"
         />
 
         <ContactInfo

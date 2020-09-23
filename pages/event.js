@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Hero from "../components/Hero";
 import colors from "../config/colors";
 import Textures from "../config/texture";
+import sunflowerBg from "../config/sunflowerBackground";
 import device from "../config/device";
 import { fetchEntries } from "../pages/api/Contentful";
 import Post from "../components/Post";
@@ -50,6 +51,7 @@ const Event = ({ eventPage, event }) => {
         className={"event-sub"}
         text={eventPage.textInfo}
         buttonText={"Kontakta oss"}
+        link="contact"
       />
     </Container>
   );
@@ -80,8 +82,16 @@ export const getStaticProps = async () => {
 const Container = styled.div`
   width: 100%;
   overflow: hidden;
-  margin-top:-2px;
- 
+
+  .hero-event {
+    ${sunflowerBg}
+  }
+
+  .event-sub {
+    text-align: center;
+  }
+  margin-top: -2px;
+
   .event-sub {
     background: ${colors.lightGrey};
 
@@ -113,6 +123,5 @@ const Container = styled.div`
     .event-sub .content button {
       align-self: center;
     }
-   
   }
 `;
