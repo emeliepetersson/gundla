@@ -1,5 +1,5 @@
 import Link from "next/link";
-import InfoBadge from "./InfoBadge"
+import InfoBadge from "./InfoBadge";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Image from "./Image";
@@ -10,32 +10,32 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const PostEvent = ({
-                   altText,imageUrl,imageSize,
-                   title,text,
-                   price,
-                   date,young,
-                   index
-                  })=>{
-
-  const imgPosition = ()=>{
-    if(imageSize.width / imageSize.height < 0.7){
+  altText,
+  imageUrl,
+  imageSize,
+  title,
+  text,
+  price,
+  date,
+  young,
+  index,
+}) => {
+  const imgPosition = () => {
+    if (imageSize.width / imageSize.height < 0.7) {
       return {
         pos: `object-position:0% ${40}%;`,
       };
     }
-    return"";
+    return "";
   };
-    
-    
+
   const imgStyle = imgPosition();
-  
-  let checkSide = (index%2 === 1? true: false)
+
+  let checkSide = index % 2 === 1 ? true : false;
   const [isOpen, setOpen] = React.useState(false);
   const options = {
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p tabIndex="0">{children}</p>
-      ),
+      [BLOCKS.PARAGRAPH]: (node, children) => <p tabIndex="0">{children}</p>,
     },
   };
   return (
@@ -52,15 +52,14 @@ const PostEvent = ({
         <div className="event-post-text">
           <h2 tabIndex="0">{title || ""}</h2>
           {documentToReactComponents(text) || ""}
-          <Link href="/home">
-            <Button>Boka billjet</Button>
+          <Link href="/contact#form">
+            <Button>Boka biljett</Button>
           </Link>
         </div>
       </EventInfo>
     </EventContainer>
   );
-}
-
+};
 
 const EventContainer = styled.div`
   display: flex;
@@ -124,7 +123,7 @@ const EventInfo = styled.div`
     }
   }
  @media ${device.laptop} { 
-     padding${(props) => props.checkSide ? "-left: 7.6%" : "-right:7.6%"};
+     padding${(props) => (props.checkSide ? "-left: 7.6%" : "-right:7.6%")};
       
       min-height:450px;
       min-width:400px;
@@ -137,33 +136,28 @@ const EventInfo = styled.div`
    
      }
     }
-`
-
-
-
+`;
 
 const BadgePosition = styled.div`
-  position:absolute;
-  width:100%;
+  position: absolute;
+  width: 100%;
   overflow: visible;
-  height:1px;
-  padding:0px;
-  top:0px;
-
- 
+  height: 1px;
+  padding: 0px;
+  top: 0px;
 `;
 PostEvent.propTypes = {
-    altText: PropTypes.string,
-    imageUrl: PropTypes.string,
-    imageSize:PropTypes.object,
-    title: PropTypes.string,
-    text: PropTypes.object,
-    young:PropTypes.bool,
-    index:PropTypes.number,
-    price: PropTypes.number,
-    date: PropTypes.any,
+  altText: PropTypes.string,
+  imageUrl: PropTypes.string,
+  imageSize: PropTypes.object,
+  title: PropTypes.string,
+  text: PropTypes.object,
+  young: PropTypes.bool,
+  index: PropTypes.number,
+  price: PropTypes.number,
+  date: PropTypes.any,
 };
-export default PostEvent
+export default PostEvent;
 
 /* function for writing out date for event
 const editDate = (date) => {
