@@ -39,6 +39,7 @@ const Event = ({ eventPage, event }) => {
               text={e.eventText}
               young={e.eventYoung}
               index={i}
+              key={i}
               //optinal
               price={e.eventPrice}
               date={e.eventDate}
@@ -88,6 +89,8 @@ const Container = styled.div`
   .event-sub {
     text-align: center;
   }
+  margin-top:-2px;
+ 
   .event-sub {
     background: ${colors.lightGrey};
 
@@ -119,8 +122,6 @@ const Container = styled.div`
     .event-sub .content button {
       align-self: center;
     }
-    .event-sub {
-      ${Textures}
-    }
+   
   }
 `;

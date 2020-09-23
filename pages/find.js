@@ -7,59 +7,62 @@ import sunflowerBg from "../config/sunflowerBackground";
 import ContactInfo from "../components/ContactInfo";
 import Map from "../components/Map";
 import Device from "../config/device";
-import Textures from "../config/texture";
+import Textures from "../config/texture"
 
-function Find({ find, contactInfo }) {
-  return (
-    <Container>
-      <Hero
-        imagePortraitUrl={find.heroDesktop.fields.file.url}
-        imageLandscapeUrl={find.heroMobile.fields.file.url}
-        altText={find.heroMobile.fields.description}
-      />
-      <Post className="hero-text" title={find.title} text={find.text} />
-      <ContactContainer>
-        <ContactInfo
-          className="map-info"
-          adress={contactInfo.adress}
-          postcode={contactInfo.postcode}
-          openingHours={contactInfo.openingHours}
+
+function Find({find,contactInfo}) {
+
+    return (
+      <Container>
+        <Hero
+          imagePortraitUrl={find.heroDesktop.fields.file.url}
+          imageLandscapeUrl={find.heroMobile.fields.file.url}
+          altText={find.heroMobile.fields.description}
         />
-        <Map className="map" />
-      </ContactContainer>
-      <Post
-        className="travel"
-        imageUrl={find.imageTravel.fields.file.url}
-        altText={find.imageTravel.fields.description}
-        title={find.titleTravel}
-        text={find.textTravel}
-        buttonText={"Till Västtrafik"}
-      />
+        <picture></picture>
+        <Post className="hero-text" title={find.title} text={find.text} />
+        <ContactContainer>
+          <ContactInfo
+            className="map-info"
+            adress={contactInfo.adress}
+            postcode={contactInfo.postcode}
+            openingHours={contactInfo.openingHours}
+          />
+          <Map className="map" />
+        </ContactContainer>
+        <Post
+          className="travel"
+          imageUrl={find.imageTravel.fields.file.url}
+          altText={find.imageTravel.fields.description}
+          title={find.titleTravel}
+          text={find.textTravel}
+          buttonText={"Till Västtrafik"}
+        />
 
-      <Post
-        className="find-car"
-        imageUrl={find.imageCar.fields.file.url}
-        altText={find.imageCar.fields.description}
-        title={find.titleCar}
-        text={find.textCar}
-      />
+        <Post
+          className="find-car"
+          imageUrl={find.imageCar.fields.file.url}
+          altText={find.imageCar.fields.description}
+          title={find.titleCar}
+          text={find.textCar}
+        />
 
-      <Post
-        className="access"
-        imageUrl={find.imageAccess.fields.file.url}
-        altText={find.imageAccess.fields.description}
-        title={find.titleAccess}
-        text={find.textAccess}
-      />
-      <Post
-        className="animal"
-        imageUrl={find.imageAnimal.fields.file.url}
-        altText={find.imageAnimal.fields.description}
-        title={find.titleAnimal}
-        text={find.textAnimal}
-      />
-    </Container>
-  );
+        <Post
+          className="access"
+          imageUrl={find.imageAccess.fields.file.url}
+          altText={find.imageAccess.fields.description}
+          title={find.titleAccess}
+          text={find.textAccess}
+        />
+        <Post
+          className="animal"
+          imageUrl={find.imageAnimal.fields.file.url}
+          altText={find.imageAnimal.fields.description}
+          title={find.titleAnimal}
+          text={find.textAnimal}
+        />
+      </Container>
+    );
 }
 
 export default Find;
@@ -89,6 +92,16 @@ export const getStaticProps = async () => {
 const Container = styled.div`
     width:100%;
     overflow:hidden;
+    & picture:first-child{
+
+        img{
+            object-position: 0% 74%;
+            
+        }
+
+    }
+
+     
     .access,.animal{
         .content{
             min-height:300px;
@@ -108,6 +121,7 @@ ${sunflowerBg}
    @media ${Device.laptop} {
         .hero-text{
              padding:140px 10.1% 140px 10.1%;
+
                 .content{
                     min-width:543px;
                     h2{
@@ -133,17 +147,17 @@ ${sunflowerBg}
                 }
             }
             .find-car,.animal{
-                background:${colors.lightBlue};
+                background:${colors.greenBackground};
                 flex-direction:row-reverse;
                 .content{
           
                     padding-left:0;
-                    padding-right:7.5%;
+                    padding-right:7.7%;
                 }
             } 
             .access,.travel{
                 .content{
-                     padding-left:7.5%;
+                     padding-left:7.7%;
                 }
             }            
 

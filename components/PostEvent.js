@@ -1,4 +1,4 @@
-import Post from "./Post";
+import Link from "next/link";
 import InfoBadge from "./InfoBadge"
 import styled from "styled-components";
 import PropTypes from "prop-types";
@@ -6,6 +6,7 @@ import Image from "./Image";
 import device from "../config/device";
 import colors from "../config/colors";
 import Button from "./Button";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const PostEvent = ({
@@ -16,120 +17,95 @@ const PostEvent = ({
                    index
                   })=>{
 
-  const imgStyling = ()=>{
+  const imgPosition = ()=>{
     if(imageSize.width / imageSize.height < 0.7){
-      return{
-      margin: `margin-top:-${10 + ((imageSize.height / 1000) * 2)}%`,
-      }
+      return {
+        pos: `object-position:0% ${40}%;`,
+      };
     }
     return"";
   };
     
     
-  const imgStyle = imgStyling();
-
+  const imgStyle = imgPosition();
+  
   let checkSide = (index%2 === 1? true: false)
-   
-  return(
-    <EventContainer 
-          imgStyle={imgStyle}
-          checkSide={checkSide} 
-          >
-      <div className="event-image" tabIndex="0">
-        <div className="image-size">
-          <Image
-         
-            imageUrl={imageUrl}
-            altText={altText}
-        
-            />
-        </div>
+  const [isOpen, setOpen] = React.useState(false);
+  const options = {
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <p tabIndex="0">{children}</p>
+      ),
+    },
+  };
+  return (
+    <EventContainer imgStyle={imgStyle} checkSide={checkSide}>
+      <div className="event-image">
+        <Image imageUrl={imageUrl} altText={altText} tabIndex="0" />
       </div>
-      <EventInfo 
-      checkSide={checkSide} >
-      { young &&
+      <EventInfo checkSide={checkSide}>
+        {young && (
           <BadgePosition>
-          <InfoBadge text={"För de små!"} checkSide={checkSide} />
-      </BadgePosition>
-      }
-        <div tabIndex="0" className="event-post-text">
-
-            <h2>{title || ""}</h2>
-            {documentToReactComponents(text) || ""}
-            <Button>
-              Boka billjet
-            </Button>
-      </div>
+            <InfoBadge text={"För de små!"} checkSide={checkSide} />
+          </BadgePosition>
+        )}
+        <div className="event-post-text">
+          <h2 tabIndex="0">{title || ""}</h2>
+          {documentToReactComponents(text) || ""}
+          <Link href="/home">
+            <Button>Boka billjet</Button>
+          </Link>
+        </div>
       </EventInfo>
     </EventContainer>
-    
-  )
+  );
 }
 
 
 const EventContainer = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align:left;
-    *:focus {
-   outline:2px solid ${colors.blue};
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  *:focus {
+    outline: 2px solid ${colors.blue};
   }
-    ,.event-image{
-         width: 100%;
-    }
-    .event-image{
-      position:relative;
-      max-height:550px;
-    }
-   
-   .image-size .img-size img{
-       
-       position:absolute;
-      
-    }
 
   .event-image {
- 
-      overflow: hidden;
-        .image-size{
-          overflow:visible;
-           width:100%;
-           height:100%;
-           display:flex;
-           img{
-             width:100%;
-             object-fit:cover;
-              ${(props) => props.imgStyle};
-            }
-          }
-      
+    overflow: hidden;
+    border:1px solid green;
+    position: relative;
+    min-height: 406px;
+    max-height: 550px;
+    max-width: 576px;
+    position: relative;
+    width: 100%;
 
-     }
-
-  @media ${device.laptop} { 
-    padding:75px 10%;
-    background:${ (props) => props.checkSide ? colors.white :colors.lightBlue };
-    flex-direction: ${ (props) => props.checkSide ? "row" :"row-reverse"};
-  
-
-    .event-image{  
-      max-height:450px;
-      max-width:50%;
-
-      .image-size{ 
-        display:flex;
-        min-width:570px;
-      
-      }
-     .image-size img{
-        min-width:100%;
-        ${(props) => props.imgStyle.margin};
-        transition:0.2s ease;
-      }
+    img {
+      position: absolute;
+      width: 100%;
+      object-fit: cover;
+      ${(props) => props.imgStyle.pos}
     }
-   
-   }
+  }
+
+  @media ${device.laptop} {
+    padding: 75px 10%;
+    background: ${(props) =>
+      props.checkSide ? colors.white : colors.greenBackground};
+    flex-direction: ${(props) => (props.checkSide ? "row" : "row-reverse")};
+
+    .event-image {
+ 
+      min-height:450px;
+       max-width: 576px;
+      img {
+    
+        width:100%;
+        transition: 0.2s ease;
+      
+    }
+  }
 `;
 
 const EventInfo = styled.div`

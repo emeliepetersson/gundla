@@ -10,7 +10,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Noto Sans', sans-serif;
   }
-
+  main{
+    overflow:hidden;
+  }
   a {
     color: inherit;
     text-decoration: none;
