@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import colors from "../config/colors";
 import device from "../config/device";
@@ -29,7 +30,9 @@ function Catering({ cateringPage, cateringMenuArrayOfObjects }) {
       <PostMenu menuData={cateringMenuArrayOfObjects} />
 
       <div className="catering-order-button-container">
-        <Button>Beställ här</Button>
+        <Link href="/contact">
+          <Button>Beställ här</Button>
+        </Link>
       </div>
 
       <Carousel

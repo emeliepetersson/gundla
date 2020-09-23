@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 import colors from "../config/colors";
 import device from "../config/device";
@@ -43,6 +44,7 @@ const Home = ({ contactInfo, landingPage }) => {
         title={landingPage.title1}
         text={landingPage.text1}
         buttonText="Till vår meny!"
+        link="eat"
         imageUrl={landingPage.image1.fields.file.url}
         altText={landingPage.image1.fields.description}
       />
@@ -67,8 +69,9 @@ const Home = ({ contactInfo, landingPage }) => {
             data-textcolor="#000000"
             data-mooncolor="#febc2f"
           ></a>
-
-          <Button>Hitta hit</Button>
+          <Link href="/find">
+            <Button>Hitta hit</Button>
+          </Link>
         </div>
 
         <ContactInfo
@@ -82,6 +85,7 @@ const Home = ({ contactInfo, landingPage }) => {
       <Post
         className="event"
         buttonText="Se alla evenemang"
+        link="event"
         imageUrl={landingPage.image3.fields.file.url}
         altText={landingPage.image3.fields.description}
         title={landingPage.title3}
@@ -91,6 +95,7 @@ const Home = ({ contactInfo, landingPage }) => {
       <Post
         className="catering"
         buttonText="Till catering"
+        link="catering"
         imageUrl={landingPage.image4.fields.file.url}
         altText={landingPage.image4.fields.description}
         title={landingPage.title4}

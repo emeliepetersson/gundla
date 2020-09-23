@@ -51,6 +51,7 @@ const Event = ({ eventPage, event }) => {
         className={"event-sub"}
         text={eventPage.textInfo}
         buttonText={"Kontakta oss"}
+        link="contact"
       />
     </Container>
   );
@@ -89,8 +90,8 @@ const Container = styled.div`
   .event-sub {
     text-align: center;
   }
-  margin-top:-2px;
- 
+  margin-top: -2px;
+
   .event-sub {
     background: ${colors.lightGrey};
 
@@ -122,6 +123,5 @@ const Container = styled.div`
     .event-sub .content button {
       align-self: center;
     }
-   
   }
 `;
