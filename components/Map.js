@@ -9,11 +9,10 @@ const mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d${zoom}!2d
 const Map =({className})=> {
   
     return (
-        <MapContainer className={className} >
-          <iframe src={mapSrc}>
-          </iframe>
-        </MapContainer>
-    )
+      <MapContainer className={className} tabIndex="0">
+        <iframe src={mapSrc}></iframe>
+      </MapContainer>
+    );
   
     }
 

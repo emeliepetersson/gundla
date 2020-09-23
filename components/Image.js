@@ -5,6 +5,7 @@ import device from "../config/device";
 
 const Image = ({ imageUrl, altText, className }) => (
   <Img
+    tabIndex="0"
     className={`lazyload ${className}`}
     data-src={imageUrl}
     alt={altText}

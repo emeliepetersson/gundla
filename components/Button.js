@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 
 const Button = styled.button`
   border: 2px solid ${colors.green};
-  outline-color: ${"black"};
   font-weight: bold;
   font-size: ${(props) => props.fontSize || 1}em;
   width: ${(props) => props.width || 300}px;
@@ -26,11 +25,7 @@ const Button = styled.button`
     transform: scale(0.95, 0.95);
     color: ${colors.white};
   }
-  &:focus {
-    outline-color: ${colors.blue};
-    outline-style: solid;
-    outline-width: 2px;
-  }
+ 
 `;
 Button.propTypes = {
   fontSize: PropTypes.number,

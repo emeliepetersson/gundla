@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Link from "next/link";
-
+import options from "../config/richTextOptions";
 import Button from "./Button";
 import Image from "./Image";
 import device from "../config/device";
@@ -24,8 +24,8 @@ const Post = ({
         </div>
       )}
       <div className={`content ${imageUrl ? "" : "only-text"}`}>
-        {title && <h2>{title}</h2>}
-        {text && documentToReactComponents(text)}
+        {title && <h2 tabIndex="0">{title}</h2>}
+        {text && documentToReactComponents(text, options)}
         {buttonText && (
           <Link href={`/${link}`}>
             <Button>{buttonText}</Button>
