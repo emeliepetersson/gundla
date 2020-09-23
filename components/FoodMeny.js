@@ -2,17 +2,18 @@ import styled from "styled-components";
 import Device from "../config/device";
 import colors from "../config/colors";
 import PropTypes from "prop-types";
+import options from "../config/richTextOptions"
 import {documentToReactComponents } from '@contentful/rich-text-react-renderer';
 const FoodMenu =({theMenu})=>{ 
    
     return(
         <ContainerMenu>
             <FoodInfo>
-                { documentToReactComponents(theMenu.menyInfo) }
+                { documentToReactComponents(theMenu.menyInfo,options) }
             </FoodInfo>
             
             <Food >
-                {documentToReactComponents(theMenu.meny)}
+                {documentToReactComponents(theMenu.meny,options)}
             </Food>
         </ContainerMenu>
    )

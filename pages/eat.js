@@ -51,7 +51,7 @@ const Eat =({menuPage,menu})=> {
          
                 {menuPage.logos.map((L,index) =>{
                   return(
-                  <div key={index}>
+                  <div key={index} tabIndex="0">
                     <img 
                         src={L.fields.file.url}
                         alt={L.fields.description}
@@ -191,7 +191,7 @@ const AllergyLogos = styled.div`
   width: 100%;
   display: flex;
   min-width: 50%;
-  max-width: 350px;
+
   justify-content: center;
 
   p {
@@ -215,8 +215,8 @@ const AllergyLogos = styled.div`
     }
   }
   @media ${Device.laptop} {
-    filter: invert(42%) sepia(34%) saturate(374%) hue-rotate(48deg)
-      brightness(89%) contrast(98%);
+    max-width: 400px;
+    
   }
 `;
 

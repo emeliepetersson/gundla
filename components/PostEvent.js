@@ -1,4 +1,4 @@
-import Post from "./Post";
+import Link from "next/link";
 import InfoBadge from "./InfoBadge"
 import styled from "styled-components";
 import PropTypes from "prop-types";
@@ -6,6 +6,7 @@ import Image from "./Image";
 import device from "../config/device";
 import colors from "../config/colors";
 import Button from "./Button";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const PostEvent = ({
@@ -29,44 +30,38 @@ const PostEvent = ({
   const imgStyle = imgPosition();
   
   let checkSide = (index%2 === 1? true: false)
-   
-  return(
-    <EventContainer 
-          imgStyle={imgStyle}
-          checkSide={checkSide} 
-          >
-      <div className="event-image" tabIndex="0">
-      
-          <Image
-         
-            imageUrl={imageUrl}
-            altText={altText}
-        
-            />
-
+  const [isOpen, setOpen] = React.useState(false);
+  const options = {
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <p tabIndex="0">{children}</p>
+      ),
+    },
+  };
+  return (
+    <EventContainer imgStyle={imgStyle} checkSide={checkSide}>
+      <div className="event-image">
+        <Image imageUrl={imageUrl} altText={altText} tabIndex="0" />
       </div>
-      <EventInfo 
-      checkSide={checkSide} >
-      { young &&
+      <EventInfo checkSide={checkSide}>
+        {young && (
           <BadgePosition>
-          <InfoBadge text={"För de små!"} checkSide={checkSide} />
-      </BadgePosition>
-      }
-        <div tabIndex="0" className="event-post-text">
-
-            <h2>{title || ""}</h2>
-            {documentToReactComponents(text) || ""}
-            <Button>
-              Boka billjet
-            </Button>
-      </div>
+            <InfoBadge text={"För de små!"} checkSide={checkSide} />
+          </BadgePosition>
+        )}
+        <div className="event-post-text">
+          <h2 tabIndex="0">{title || ""}</h2>
+          {documentToReactComponents(text) || ""}
+          <Link href="/home">
+            <Button>Boka billjet</Button>
+          </Link>
+        </div>
       </EventInfo>
     </EventContainer>
-    
-  )
+  );
 }
 
-// ${(props) => props.imgStyle.margin};
+
 const EventContainer = styled.div`
   display: flex;
   align-items: center;
