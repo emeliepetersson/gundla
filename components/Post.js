@@ -15,6 +15,7 @@ const Post = ({
   text,
   className,
   link,
+  externalLink,
 }) => {
   return (
     <Container className={className}>
@@ -26,10 +27,15 @@ const Post = ({
       <div className={`content ${imageUrl ? "" : "only-text"}`}>
         {title && <h2>{title}</h2>}
         {text && documentToReactComponents(text)}
-        {buttonText && (
+        {buttonText && link && (
           <Link href={`/${link}`}>
             <Button>{buttonText}</Button>
           </Link>
+        )}
+        {buttonText && externalLink && (
+          <a href={externalLink}>
+            <Button>{buttonText}</Button>
+          </a>
         )}
       </div>
     </Container>
