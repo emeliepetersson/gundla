@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
+import colors from "./colors";
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -61,6 +62,9 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     padding: 0;
 }
+ *:focus{
+   outline:3px solid ${colors.blue};
+ }
 `;
 
 export default GlobalStyle;
