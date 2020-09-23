@@ -57,7 +57,7 @@ const HamburgerMenu = () => {
 };
 
 const Container = styled.div`
-  background: ${colors.black};
+  background-color: ${colors.blackBackground};
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -98,7 +98,7 @@ const Container = styled.div`
   }
 
   nav {
-    background-color: #000000;
+    background-color: ${colors.blackBackground};
     z-index: 100;
     position: fixed;
     right: 0;

@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import Parallax from "react-rellax";
 
 import colors from "../config/colors";
 import device from "../config/device";
@@ -14,19 +15,25 @@ const Hero = ({
   altText,
 }) => (
   <Container fullScreen={fullScreen} addOverlay={addOverlay}>
-    <picture>
-      <source media={device.laptop} srcSet={imageLandscapeUrl} />
-      <source
-        media={device.tablet}
-        srcSet={`${imageLandscapeUrl}?w=1050&h=1050`}
-      />
-      <source
-        media={device.mobileL}
-        srcSet={`${imagePortraitUrl}?w=550&h=550`}
-      />
+    <Parallax speed={-5} className="parallax">
+      <picture>
+        <source media={device.laptop} srcSet={imageLandscapeUrl} />
+        <source
+          media={device.tablet}
+          srcSet={`${imageLandscapeUrl}?w=1050&h=1050`}
+        />
+        <source
+          media={device.mobileL}
+          srcSet={`${imagePortraitUrl}?w=550&h=550`}
+        />
 
-      <img className="background-image" src={imagePortraitUrl} alt={altText} />
-    </picture>
+        <img
+          className="background-image"
+          src={imagePortraitUrl}
+          alt={altText}
+        />
+      </picture>
+    </Parallax>
     {text && <h2>{text}</h2>}
     {showIcon && (
       <a className="icon" href="#scroll-to">
@@ -46,20 +53,24 @@ const Container = styled.div`
   width: 100vw;
   position: relative;
   color: ${colors.white};
+  overflow: hidden;
+
+  .parallax {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+  }
 
   .background-image {
-    position: absolute;
-    top: 0;
-    right: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
   }
 
   h2 {
     text-align: center;
-    margin-bottom: 100px;
+    position: absolute;
+    top: 40%;
     width: 60%;
   }
 
@@ -100,8 +111,8 @@ const Container = styled.div`
 
     h2 {
       text-align: center;
-      margin-bottom: 0;
       width: 100%;
+      top: 50%;
     }
   }
 `;

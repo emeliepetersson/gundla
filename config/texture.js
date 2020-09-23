@@ -1,5 +1,5 @@
 const Texture = `background-image: url("./images/texture.jpg");
-background-repeat: none;
+background-repeat: no-repeat;
 background-position: center;
 background-size: cover;`;
 

@@ -49,7 +49,7 @@ export default Footer;
 
 const Container = styled.footer`
   color: ${colors.white};
-  background-color: #0a0a0a;
+  background-color: ${colors.blackBackground};
   padding-top: 60px;
   padding-bottom: 85px;
   display: flex;
