@@ -5,7 +5,7 @@ import device from "../config/device";
 
 const SocialMedia = ({ text, icons, className }) => (
   <Container className={className}>
-    <p>{text}</p>
+    {text !== undefined && <p tabIndex="0">{text}</p>}
     <div>
       {icons.map((icon, index) => (
         <a href={icon.link} key={index}>

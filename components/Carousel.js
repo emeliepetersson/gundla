@@ -3,6 +3,7 @@ import ImageGallery from "react-image-gallery";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import options from "../config/richTextOptions";
 import Button from "./Button";
 import device from "../config/device";
 
@@ -32,8 +33,8 @@ const Carousel = ({ images, className, buttonText, title, text, link }) => {
       )}
       <div className="carousel-content-container">
         <div>
-          {title && <h2>{title}</h2>}
-          {text && documentToReactComponents(text)}
+          {title && <h2 tabIndex="0">{title}</h2>}
+          {text && documentToReactComponents(text, options)}
         </div>
         {buttonText && (
           <Link href={`/${link}`}>

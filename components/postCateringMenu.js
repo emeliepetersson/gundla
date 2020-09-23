@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import colors from "../config/colors";
 import device from "../config/device";
+import options from "../config/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const PostCateringMenu = ({ menuData }) => {
@@ -31,14 +32,14 @@ const PostCateringMenu = ({ menuData }) => {
             >
               <div className="catering-menu">
                 <div>
-                  <h2>{menu.titleCateringMenu}</h2>
-                  {documentToReactComponents(menu.textCateringMenu)}
+                  <h2 tabIndex="0">{menu.titleCateringMenu}</h2>
+                  {documentToReactComponents(menu.textCateringMenu, options)}
                 </div>
               </div>
               <div className="catering-div-border"></div>
               <div className="catering-menu-price">
-                <h3>{menu.titlePriceCateringMenu}</h3>
-                <p>{menu.textPriceCateringMenu}</p>
+                <h3 tabIndex="0">{menu.titlePriceCateringMenu}</h3>
+                <p tabIndex="0">{menu.textPriceCateringMenu}</p>
               </div>
             </div>
           );
