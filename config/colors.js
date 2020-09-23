@@ -1,15 +1,11 @@
 export default {
-  primary: "#fc5c65",
-  secondary: "#4ECDC4",
   black: "#000",
   lightBlack: "#4B4B4B",
   white: "#fff",
-  medium: "#6e6969",
-  light: "#f8f4f4",
   dark: "#0c0c0c",
   lightGrey: "#F5F5F5",
-
   inputBorderColor: "#aaaaaa",
+
   //colors from figma
   red: "#AA3D2A",
   brown: "#513A2C",
@@ -22,4 +18,5 @@ export default {
   lightBlue: "#91B7B9",
   purple: "#BA9FA9",
   greenBackground: "#EDF0E8",
+  blackBackground: "#141414",
 };
