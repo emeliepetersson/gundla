@@ -7,7 +7,9 @@ import options from "../config/richTextOptions";
 import Button from "./Button";
 import device from "../config/device";
 
+
 const Carousel = ({ images, className, buttonText, title, text, link }) => {
+  console.log(images);
   const filledArray = images.map((image) => {
     const obj = {
       original: image.fields.file.url,
@@ -21,12 +23,32 @@ const Carousel = ({ images, className, buttonText, title, text, link }) => {
         <div className="carousel-images-container">
           <div className="carousel-images-inner-container">
             <ImageGallery
-              showNav={false}
+              showNav={true}
               showBullets={true}
               showThumbnails={false}
               showPlayButton={false}
               showFullscreenButton={false}
               items={filledArray}
+              renderLeftNav={(onClick, disabled) => {
+                return (
+                <button 
+                disabled={disabled}
+                onClick={onClick}
+                type="button"
+                className="image-gallery-left-nav"
+                aria-label="Previous Slide"
+                ></button>);
+              }}
+              renderRightNav={(onClick, disabled) => {
+                return (
+                <button 
+                disabled={disabled}
+                onClick={onClick}
+                type="button"
+                className="image-gallery-right-nav"
+                aria-label="Previous Slide"
+                ></button>);
+              }}
             />
           </div>
         </div>
@@ -50,7 +72,6 @@ const Container = styled.div`
   width: 100%;
   .carousel-images-container {
     .carousel-images-inner-container {
-      overflow: hidden;
       height: 406px;
       width: 100%;
 
@@ -63,6 +84,22 @@ const Container = styled.div`
         height: 100%;
         width: 100%;
         object-fit: cover;
+      }
+
+      .image-gallery-left-nav {
+        display: none;
+      }
+
+      .image-gallery-right-nav {
+        display: none;
+      }
+
+      .image-gallery-left-nav::before {
+        content: url("/icons/carousel-left-arrow.svg");
+      }
+
+      .image-gallery-right-nav::before {
+        content: url("/icons/carousel-right-arrow.svg");
       }
     }
   }
@@ -92,18 +129,58 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
 
+    .catering-carousel {
+      position: relative;
+    }
+
     .carousel-images-container {
       width: 50%;
       height: 600px;
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      position: relative;
       .carousel-images-inner-container {
-        height: 450px;
-        width: 576px;
+        height: 400px;
+        max-width: 626px;
+        padding-left: 50px;
+        
         .image-gallery-slide > div {
-          height: 450px;
-          width: 576px;
+          height: 400px;
+          width: 100%;
+        }
+        .image-gallery-image {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        .image-gallery-content {
+
+          .image-gallery-slide-wrapper {
+
+            .image-gallery-left-nav {
+              display: inline;
+              position: absolute;
+              z-index: 100;
+              left: -50px;
+            }
+
+            .image-gallery-right-nav {
+              display: inline;
+              position: absolute;
+              z-index: 100;
+              right: -50px;
+            }
+
+            .image-gallery-left-nav::before {
+              content: url("/icons/carousel-left-arrow.svg");
+              }
+              
+            .image-gallery-right-nav::before {
+              content: url("/icons/carousel-right-arrow.svg");
+            }
+          }
         }
       }
     }

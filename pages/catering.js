@@ -19,6 +19,7 @@ function Catering({ cateringPage, cateringMenuArrayOfObjects }) {
         className={"catering-hero-img-container"}
         imageLandscapeUrl={cateringPage.heroLandscape.fields.file.url}
         imagePortraitUrl={cateringPage.heroPortrait.fields.file.url}
+        altText={cateringPage.heroPortrait.fields.description}
       />
 
       <Post
@@ -116,7 +117,7 @@ const Container = styled.div`
   }
 
   .catering-carousel{
-    background: ${colors.lightBlue};
+    background: ${colors.greenBackground};
   }
   .catering-Social-media-container {
     min-height: 203px;

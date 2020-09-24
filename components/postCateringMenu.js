@@ -25,7 +25,7 @@ const PostCateringMenu = ({ menuData }) => {
               className="catering-menu-container"
               style={
                 index % 2 === 0
-                  ? { backgroundColor: colors.lightBlue }
+                  ? { backgroundColor: colors.greenBackground }
                   : { backgroundColor: colors.white }
               }
               key={index}

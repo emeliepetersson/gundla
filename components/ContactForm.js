@@ -156,13 +156,13 @@ const Container = styled.div`
         line-height: 19px;
         background: #ffffff;
         border: none;
-        width: 300px;
+        width: 100%;
         height: 48px;
         padding-left: 28px;
         margin-bottom: 32px;
         background: url("./icons/arrow-down-select.png") no-repeat right #ffffff;
         -webkit-appearance: none;
-        background-position-x: 260px;
+        background-position-x: 95%;
       }
 
       select:focus {
@@ -193,16 +193,6 @@ const Container = styled.div`
 
       textarea:focus {
         outline-color: ${colors.inputBorderColor};
-      }
-    }
-  }
-  @media ${device.laptop} {
-    form {
-      div {
-        .form-select {
-          width: 576px;
-          background-position-x: 545px;
-        }
       }
     }
   }
