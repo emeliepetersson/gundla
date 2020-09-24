@@ -9,11 +9,12 @@ const Footer = ({ footerData }) => {
   return (
     <Container>
       <img
+        tabIndex="0"
         className="logo"
         src="./icons/logo.png"
         alt="Gundla's logotype, an black outlined sunflower in a white circle."
       />
-      <h2>Gundla Gårdscafé</h2>
+      <h2 tabIndex="0">Gundla Gårdscafé</h2>
       <ContactInfo
         className="contact-info"
         adress={footerData.adress}

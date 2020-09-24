@@ -7,6 +7,7 @@ import Hero from "../components/Hero";
 import Post from "../components/Post";
 import ContactForm from "../components/ContactForm";
 import Map from "../components/Map";
+import options from "../config/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 function Contact({ contactPage, contactInfo }) {
@@ -27,15 +28,15 @@ function Contact({ contactPage, contactInfo }) {
           <ContactForm />
         </div>
         <div className="contact-form-text">
-          <h2>{contactPage.title2}</h2>
-          <div>{documentToReactComponents(contactPage.text2)}</div>
+          <h2 tabIndex="0">{contactPage.title2}</h2>
+          <div>{documentToReactComponents(contactPage.text2, options)}</div>
         </div>
       </div>
       <div className="contact-address-info-container">
         <div className="contact-address-info">
-          <h2>{contactPage.title3}</h2>
-          <p>{contactInfo.adress}</p>
-          <p>{contactInfo.postcode}</p>
+          <h2 tabIndex="0">{contactPage.title3}</h2>
+          <p tabIndex="0">{contactInfo.adress}</p>
+          <p tabIndex="0">{contactInfo.postcode}</p>
         </div>
         <Map className="contact-map" />
       </div>

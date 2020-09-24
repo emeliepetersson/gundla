@@ -11,6 +11,7 @@ const HamburgerMenu = () => {
     <Container show={isOpen}>
       <Link href="/">
         <img
+          tabIndex="0"
           className="logo"
           src="./icons/logo.png"
           alt="Gundla's logotype, an black outlined sunflower in a white circle."
@@ -18,7 +19,7 @@ const HamburgerMenu = () => {
       </Link>
 
       <div className="nav-header-container">
-        <h1>Gundla Gårdscafé</h1>
+        <h1 tabIndex="0">Gundla Gårdscafé</h1>
       </div>
       <div className="nav-hamburger-container">
         <Hamburger
@@ -28,6 +29,7 @@ const HamburgerMenu = () => {
           toggled={isOpen}
           toggle={setOpen}
           label="Menu button"
+          tabIndex="0"
         />
       </div>
       <nav>
@@ -97,7 +99,11 @@ const Container = styled.div`
   .hamburger-react {
     z-index: 9999;
   }
-
+  .hamburger-react:focus {
+    div {
+      outline: 2px solid ${colors.blue}
+    }
+  }
   nav {
     background-color: ${colors.blackBackground};
     z-index: 100;

@@ -2,7 +2,7 @@ import { BLOCKS,MARKS } from "@contentful/rich-text-types";
 const options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      console.log(children[0].props);
+     
       if (children[0].props !== undefined && children[0].props){
         return <p tabIndex="0">{children}</p>;
       }

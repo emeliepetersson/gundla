@@ -12,8 +12,8 @@ const ContactInfo = ({
   return (
     <Container className={className}>
       <div className="adress">
-        <h3>{adress}</h3>
-        <p>{postcode}</p>
+        <h3 tabIndex="0">{adress}</h3>
+        <p tabIndex="0">{postcode}</p>
       </div>
       <ul className="opening-hours">
         {openingHours && (
@@ -22,12 +22,17 @@ const ContactInfo = ({
           </li>
         )}
         {openingHours &&
-          openingHours.map((day, index) => <li key={index}>{day}</li>)}
+          openingHours.map((day, index) => (
+            <li tabIndex="0" key={index}>
+              {day}
+            </li>
+          ))}
       </ul>
       {email && phonenumber && (
         <div className="contact">
-          <h3>Kontakta oss</h3>
-          <p>{email}</p> <p>{phonenumber}</p>
+          <h3 tabIndex="0">Kontakta oss</h3>
+          <p tabIndex="0">{email}</p> 
+          <p tabIndex="0">{phonenumber}</p>
         </div>
       )}
     </Container>
