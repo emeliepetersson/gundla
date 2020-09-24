@@ -30,6 +30,7 @@ const HamburgerMenu = () => {
           toggle={setOpen}
           label="Menu button"
           tabIndex="0"
+          hideOutline={false}
         />
       </div>
       <nav>
@@ -99,11 +100,8 @@ const Container = styled.div`
   .hamburger-react {
     z-index: 9999;
   }
-  .hamburger-react:focus {
-    div {
-      outline: 2px solid ${colors.blue}
-    }
-  }
+
+
   nav {
     background-color: ${colors.blackBackground};
     z-index: 100;

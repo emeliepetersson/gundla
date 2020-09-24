@@ -10,27 +10,31 @@ import Map from "../components/Map";
 import options from "../config/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+
+
 function Contact({ contactPage, contactInfo }) {
+
   return (
     <Container>
-      <Hero
-        className="contact-hero-img-container"
-        imageLandscapeUrl={contactPage.heroLandscape.fields.file.url}
-        imagePortraitUrl={contactPage.heroPortrait.fields.file.url}
-      />
-      <Post
-        className="contact-hero-text-container"
-        title={contactPage.title1}
-        text={contactPage.text1}
-      />
-      <div className="contact-form-container">
-        <div className="contact-form-form">
-          <ContactForm />
-        </div>
-        <div className="contact-form-text">
-          <h2 tabIndex="0">{contactPage.title2}</h2>
-          <div>{documentToReactComponents(contactPage.text2, options)}</div>
-        </div>
+      
+        <Hero
+          className="contact-hero-img-container"
+          imageLandscapeUrl={contactPage.heroLandscape.fields.file.url}
+          imagePortraitUrl={contactPage.heroPortrait.fields.file.url}
+        />
+        <Post
+          className="contact-hero-text-container"
+          title={contactPage.title1}
+          text={contactPage.text1}
+        />
+        <div className="contact-form-container" id="form">
+          <div className="contact-form-form">
+            <ContactForm />
+          </div>
+          <div className="contact-form-text">
+            <h2 tabIndex="0">{contactPage.title2}</h2>
+            <div>{documentToReactComponents(contactPage.text2, options)}</div>
+          </div>
       </div>
       <div className="contact-address-info-container">
         <div className="contact-address-info">
