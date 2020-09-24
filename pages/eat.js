@@ -6,6 +6,7 @@ import Device from "../config/device";
 import Post from "../components/Post";
 import FoodMenu from "../components/FoodMeny";
 import Textures from "../config/texture";
+
 const Eat = ({ menuPage, menu }) => {
   return (
     <Container>
@@ -132,7 +133,7 @@ const Wrapper = styled.div`
       only-text {
         margin: 1px;
         width: 100%;
-        
+
         button {
           align-self: center;
         }
