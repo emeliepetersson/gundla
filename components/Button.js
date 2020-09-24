@@ -2,29 +2,26 @@ import styled from "styled-components";
 import colors from "../config/colors";
 import PropTypes from "prop-types";
 
-
-//How to use the button https://styled-components.com/docs/basics#adapting-based-on-props
-
 const Button = styled.button`
-  border: 1px solid ${colors.buttonColor};
-  border-radius: 16px;
+  border: 2px solid ${colors.green};
   font-weight: bold;
-  font-size: ${(props) => props.fontSize || 16}px;
-  width: ${(props) => props.width || 200}px;
+  font-size: ${(props) => props.fontSize || 1}em;
+  width: ${(props) => props.width || 300}px;
   height: ${(props) => props.height || 48}px;
-  color: ${(props) => props.color || colors.black};
-  background: ${(props) => props.bg || colors.buttonColor};
-
-  transition: 0.5s ease;
+  color: ${(props) => props.color || colors.white};
+  background: ${(props) => props.bg || colors.green};
+  border-radius: 3px;
+  transition: 0.2s ease;
   &:hover {
-    background-color: ${colors.medium};
-    border-color: ${colors.medium};
-    color: ${colors.white};
+    background-color: ${colors.lightGreen};
+    border-color: ${colors.lightGreen};
+    color: ${colors.black};
   }
   &:active {
-    background-color: ${colors.white};
-    border-color: ${colors.black};
-    box-shadow: inset 0px 0px 100px 10px ${colors.black};
+    background-color: ${colors.green};
+    border-color: ${colors.green};
+    transform: scale(0.95, 0.95);
+    color: ${colors.white};
   }
 `;
 Button.propTypes = {

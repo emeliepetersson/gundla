@@ -7,22 +7,32 @@ const ContactInfo = ({
   openingHours,
   email,
   phonenumber,
+  className,
 }) => {
   return (
-    <Container>
-      <div>
-        <h3>{adress}</h3>
-        <p>{postcode}</p>
+    <Container className={className}>
+      <div className="adress">
+        <h3 tabIndex="0">{adress}</h3>
+        <p tabIndex="0">{postcode}</p>
       </div>
-      <ul className={"openingHours"}>
-        {openingHours && <h3>Öppettider</h3>}
+      <ul className="opening-hours">
+        {openingHours && (
+          <li>
+            <h3>Öppettider</h3>
+          </li>
+        )}
         {openingHours &&
-          openingHours.map((day, index) => <li key={index}>{day}</li>)}
+          openingHours.map((day, index) => (
+            <li tabIndex="0" key={index}>
+              {day}
+            </li>
+          ))}
       </ul>
       {email && phonenumber && (
-        <div className={"contact"}>
-          <h3>Kontakta oss</h3>
-          <p>{email}</p> <p>{phonenumber}</p>
+        <div className="contact">
+          <h3 tabIndex="0">Kontakta oss</h3>
+          <p tabIndex="0">{email}</p> 
+          <p tabIndex="0">{phonenumber}</p>
         </div>
       )}
     </Container>
@@ -42,6 +52,10 @@ const Container = styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
+
+    li:nth-child(1) {
+      margin: 0;
+    }
   }
 
   p,
@@ -49,7 +63,7 @@ const Container = styled.div`
     margin: 10px 0;
   }
 
-  .openingHours,
+  .opening-hours,
   .contact {
     padding-top: 30px;
   }

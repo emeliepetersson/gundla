@@ -1,11 +1,22 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
+import Link from "next/link";
+import options from "../config/richTextOptions";
 import Button from "./Button";
 import Image from "./Image";
+import device from "../config/device";
 
-const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
+const Post = ({
+  altText,
+  buttonText,
+  imageUrl,
+  title,
+  text,
+  className,
+  link,
+  externalLink,
+}) => {
   return (
     <Container className={className}>
       {imageUrl && (
@@ -13,10 +24,19 @@ const Post = ({ altText, buttonText, imageUrl, title, text, className }) => {
           <Image imageUrl={imageUrl} altText={altText} />
         </div>
       )}
-      <div className="content">
-        <h2>{title}</h2>
-        {text && documentToReactComponents(text)}
-        {buttonText && <Button>{buttonText}</Button>}
+      <div className={`content ${imageUrl ? "" : "only-text"}`}>
+        {title && <h2 tabIndex="0">{title}</h2>}
+        {text && documentToReactComponents(text, options)}
+        {buttonText && link && (
+          <Link href={`/${link}`}>
+            <Button>{buttonText}</Button>
+          </Link>
+        )}
+        {buttonText && externalLink && (
+          <a href={externalLink}>
+            <Button>{buttonText}</Button>
+          </a>
+        )}
       </div>
     </Container>
   );
@@ -30,6 +50,7 @@ const Container = styled.div`
   overflow: hidden;
   width: 100%;
   padding-bottom: 80px;
+  text-align: left;
 
   .image-container {
     position: relative;
@@ -49,13 +70,48 @@ const Container = styled.div`
   }
   .content {
     padding: 48px 37px 0;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 15px;
+    }
 
     p {
-      margin: 32px 0 20px;
+      margin-top: 20px;
     }
 
     button {
-      margin-top: 40px;
+      margin-top: 48px;
+      align-self: center;
+    }
+  }
+
+  @media ${device.laptop} {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 75px 10%;
+
+    .image-container {
+      width: 50%;
+      padding-top: 40%;
+    }
+    .content {
+      padding: 106px 0 0 130px;
+      width: 38%;
+
+      button {
+        align-self: flex-start;
+      }
+    }
+    .content.only-text {
+      width: 40%;
+      padding: 0 0;
+      margin: 0 auto;
+
+      h2 {
+        text-align: left;
+      }
     }
   }
 `;

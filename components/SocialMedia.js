@@ -1,12 +1,21 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+import device from "../config/device";
+
 const SocialMedia = ({ text, icons, className }) => (
   <Container className={className}>
-    <p>{text}</p>
+    {text !== undefined && <p tabIndex="0">{text}</p>}
     <div>
       {icons.map((icon, index) => (
-        <img className="icon" src={icon.url} key={index} alt={icon.altText} />
+        <a href={icon.link} key={index}>
+          <img
+            className="icon"
+            src={icon.url}
+            alt={icon.altText}
+            loading="lazy"
+          />
+        </a>
       ))}
     </div>
   </Container>
@@ -18,6 +27,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  padding: 55px 50px;
 
   p {
     font-weight: bold;
@@ -25,8 +35,13 @@ const Container = styled.div`
   }
 
   .icon {
-    margin: 24px 8px 8px;
-    width: 44px;
+    cursor: pointer;
+    margin: 24px 12px 8px;
+    width: 32px;
+  }
+
+  @media ${device.laptop} {
+    padding: 100px 39%;
   }
 `;
 

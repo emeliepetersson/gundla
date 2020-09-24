@@ -1,26 +1,42 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import Parallax from "react-rellax";
 
 import colors from "../config/colors";
-import Image from "./Image";
+import device from "../config/device";
 
 const Hero = ({
   fullScreen = false,
-  imageUrl,
+  imagePortraitUrl,
+  imageLandscapeUrl,
   showIcon = false,
+  addOverlay = false,
   text,
   altText,
 }) => (
-  <Container fullScreen={fullScreen}>
-    <Image className="background-image" imageUrl={imageUrl} altText={altText} />
-    {text && <h1>{text}</h1>}
-    {showIcon && (
-      <a href="#scroll">
-        <img
-          className="icon"
-          src="/icons/down-arrow.png"
-          alt="Arrow pointing down"
+  <Container fullScreen={fullScreen} addOverlay={addOverlay}>
+    <Parallax speed={-5} className="parallax">
+      <picture>
+        <source
+          media={device.laptop}
+          srcSet={`${imageLandscapeUrl}?w=2050&h=2050`}
         />
+        <source
+          media={device.mobileL}
+          srcSet={`${imagePortraitUrl}?w=550&h=550`}
+        />
+
+        <img
+          className="background-image"
+          src={`${imageLandscapeUrl}?w=2050&h=2050`}
+          alt={altText}
+        />
+      </picture>
+    </Parallax>
+    {text && <h2>{text}</h2>}
+    {showIcon && (
+      <a className="icon" href="#scroll-to">
+        <img src="/icons/down-arrow.png" alt="Arrow pointing down" />
       </a>
     )}
   </Container>
@@ -31,32 +47,51 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: ${(props) => (props.fullScreen ? "100vh" : "50vh")};
+  height: ${(props) => (props.fullScreen ? "100vh" : "60vh")};
+  margin-top: ${(props) => (props.fullScreen ? "0" : "60px")};
   width: 100vw;
   position: relative;
   color: ${colors.white};
+  overflow: hidden;
+
+  .parallax {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+  }
 
   .background-image {
-    position: absolute;
-    top: 0;
-    right: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
   }
 
-  h1 {
+  h2 {
     text-align: center;
-    margin-bottom: 100px;
+    position: absolute;
+    top: 40%;
+    width: 60%;
   }
 
   .icon {
-    width: 50px;
     position: absolute;
     bottom: 50px;
     animation: bounce 1500ms infinite ease-out;
+
+    img {
+      width: 50px;
+    }
   }
+
+  ${(props) =>
+    props.addOverlay &&
+    css`
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 42.86%,
+        rgba(0, 0, 0, 0) 64.9%
+      );
+    `}
 
   @keyframes bounce {
     0% {
@@ -69,11 +104,22 @@ const Container = styled.div`
       transform: translateY(6px);
     }
   }
+
+  @media ${device.laptop} {
+    margin-top: ${(props) => (props.fullScreen ? "0" : "70px")};
+
+    h2 {
+      text-align: center;
+      width: 100%;
+      top: 50%;
+    }
+  }
 `;
 
 Hero.propTypes = {
   fullScreen: PropTypes.bool,
-  imageUrl: PropTypes.string.isRequired,
+  imagePortraitUrl: PropTypes.string.isRequired,
+  imageLandscapeUrl: PropTypes.string.isRequired,
   showIcon: PropTypes.bool,
   text: PropTypes.string,
 };
