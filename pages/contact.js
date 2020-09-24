@@ -17,6 +17,7 @@ function Contact({ contactPage, contactInfo }) {
         className="contact-hero-img-container"
         imageLandscapeUrl={contactPage.heroLandscape.fields.file.url}
         imagePortraitUrl={contactPage.heroPortrait.fields.file.url}
+        altText={contactPage.heroPortrait.fields.description}
       />
       <Post
         className="contact-hero-text-container"
@@ -189,6 +190,10 @@ const Container = styled.div`
         flex-direction: column;
         width: 576px;
         height: 450px;
+
+        h2 {
+          width: 320px;
+        }
       }
 
       .contact-map {
