@@ -48,7 +48,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: ${(props) => (props.fullScreen ? "100vh" : "50vh")};
+  height: ${(props) => (props.fullScreen ? "100vh" : "60vh")};
   margin-top: ${(props) => (props.fullScreen ? "0" : "60px")};
   width: 100vw;
   position: relative;
