@@ -6,7 +6,6 @@ export default {
   lightGrey: "#F5F5F5",
   inputBorderColor: "#aaaaaa",
 
-  //colors from figma
   red: "#AA3D2A",
   brown: "#513A2C",
   orange: "#D99043",

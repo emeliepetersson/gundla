@@ -2,8 +2,6 @@ import styled from "styled-components";
 import colors from "../config/colors";
 import PropTypes from "prop-types";
 
-//How to use the button https://styled-components.com/docs/basics#adapting-based-on-props
-
 const Button = styled.button`
   border: 2px solid ${colors.green};
   font-weight: bold;
@@ -25,7 +23,6 @@ const Button = styled.button`
     transform: scale(0.95, 0.95);
     color: ${colors.white};
   }
- 
 `;
 Button.propTypes = {
   fontSize: PropTypes.number,
