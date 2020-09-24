@@ -165,7 +165,7 @@ const Container = styled.div`
   }
 `;
 const ContactContainer = styled.div`
-  background: ${colors.lightBlue};
+  background: ${colors.greenBackground};
   display: flex;
   flex-direction: column;
   .map-info {
