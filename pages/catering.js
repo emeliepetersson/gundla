@@ -13,7 +13,6 @@ import Carousel from "../components/Carousel";
 import { fetchEntries } from "../pages/api/Contentful";
 
 function Catering({ cateringPage, cateringMenuArrayOfObjects }) {
-  console.log(cateringPage);
   return (
     <Container>
       <Hero
