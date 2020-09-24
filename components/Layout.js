@@ -33,7 +33,7 @@ const Layout = ({ children, title, footerData }) => (
         href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif&display=swap"
         rel="stylesheet"
       />
-      <link rel="apple-touch-icon" href="/logo.png" />
+      <link rel="apple-touch-icon" href="/icons/logo.png" />
       <meta name="theme-color" content="#317EFB" />
     </Head>
     <Nav />
