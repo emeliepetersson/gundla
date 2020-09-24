@@ -27,6 +27,7 @@ const HamburgerMenu = () => {
           Hamburger
           toggled={isOpen}
           toggle={setOpen}
+          label="Menu button"
         />
       </div>
       <nav>

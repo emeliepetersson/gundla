@@ -16,7 +16,11 @@ const ContactInfo = ({
         <p>{postcode}</p>
       </div>
       <ul className="opening-hours">
-        {openingHours && <h3>Öppettider</h3>}
+        {openingHours && (
+          <li>
+            <h3>Öppettider</h3>
+          </li>
+        )}
         {openingHours &&
           openingHours.map((day, index) => <li key={index}>{day}</li>)}
       </ul>
@@ -43,6 +47,10 @@ const Container = styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
+
+    li:nth-child(1) {
+      margin: 0;
+    }
   }
 
   p,
