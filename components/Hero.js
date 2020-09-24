@@ -17,10 +17,9 @@ const Hero = ({
   <Container fullScreen={fullScreen} addOverlay={addOverlay}>
     <Parallax speed={-5} className="parallax">
       <picture>
-        <source media={device.laptop} srcSet={imageLandscapeUrl} />
         <source
-          media={device.tablet}
-          srcSet={`${imageLandscapeUrl}?w=1050&h=1050`}
+          media={device.laptop}
+          srcSet={`${imageLandscapeUrl}?w=2050&h=2050`}
         />
         <source
           media={device.mobileL}
@@ -29,7 +28,7 @@ const Hero = ({
 
         <img
           className="background-image"
-          src={imagePortraitUrl}
+          src={`${imageLandscapeUrl}?w=2050&h=2050`}
           alt={altText}
         />
       </picture>
