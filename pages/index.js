@@ -15,7 +15,7 @@ import { fetchEntries } from "../pages/api/Contentful";
 const Home = ({ contactInfo, landingPage }) => {
   useEffect(() => {
     !(function (d, s, id) {
-      var js,
+      let js,
         fjs = d.getElementsByTagName(s)[0];
       if (!d.getElementById(id)) {
         js = d.createElement(s);
@@ -24,7 +24,7 @@ const Home = ({ contactInfo, landingPage }) => {
         fjs.parentNode.insertBefore(js, fjs);
       }
     })(document, "script", "weatherwidget-io-js");
-  }, []);
+  });
 
   return (
     <Container>
@@ -60,15 +60,19 @@ const Home = ({ contactInfo, landingPage }) => {
           <a
             className="weatherwidget-io"
             href="https://forecast7.com/sv/57d7111d97/gothenburg/"
-            data-font="Roboto"
+            data-font="Noto Sans"
             data-icons="Climacons Animated"
             data-mode="Current"
             data-days="3"
             data-theme="original"
             data-basecolor="rgba(255, 255, 255, 0)"
-            data-textcolor="#000000"
+            data-textcolor="#000"
             data-mooncolor="#febc2f"
+            data-cloudcolor="#f6f6f6"
+            data-cloudfill="#8ba9b3"
+            data-raincolor="#99c9ec"
           ></a>
+
           <Link href="/find">
             <Button>Hitta hit</Button>
           </Link>
