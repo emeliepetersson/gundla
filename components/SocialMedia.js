@@ -9,7 +9,12 @@ const SocialMedia = ({ text, icons, className }) => (
     <div>
       {icons.map((icon, index) => (
         <a href={icon.link} key={index}>
-          <img className="icon" src={icon.url} alt={icon.altText} />
+          <img
+            className="icon"
+            src={icon.url}
+            alt={icon.altText}
+            loading="lazy"
+          />
         </a>
       ))}
     </div>
