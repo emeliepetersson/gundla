@@ -19,7 +19,7 @@ function ContactForm() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="typ" className="form-first-label">
-            Vad gäller det?
+            Vad gäller det?*
           </label>
           <select className="form-select" id="typ" name="typ">
             <option value="Hålla i evenemang">Hålla i evenemang</option>
@@ -31,75 +31,29 @@ function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="name">Namn</label>
-          <input
-            id="name"
-            type="name"
-            name="name"
-            required
-            autoComplete="autocomplete_off_hack_xfr4!k"
-          />
+          <label htmlFor="name">Namn*</label>
+          <input id="name" type="name" name="name" required />
           <ValidationError prefix="Name" field="name" errors={state.errors} />
         </div>
 
         <div>
-          <label htmlFor="email">Email Address</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            required
-            autoComplete="autocomplete_No_More_yesyes"
-          />
+          <label htmlFor="email">E-postadress*</label>
+          <input id="email" type="email" name="email" required />
           <ValidationError prefix="Email" field="email" errors={state.errors} />
         </div>
 
         <div>
           <label htmlFor="phone">Telefonnummer</label>
-          <input id="phone" type="tel" name="phone" required />
+          <input id="phone" type="tel" name="phone" />
           <ValidationError prefix="Phone" field="phone" errors={state.errors} />
         </div>
 
         <div>
-          <label htmlFor="message">Meddelande</label>
+          <label htmlFor="message">Meddelande*</label>
           <div className="container-textarea">
             <textarea id="message" name="message" rows="1" required />
           </div>
-          <ValidationError
-            prefix="Message"
-            field="message"
-            errors={state.errors}
-          />
-          <ValidationError prefix="Name" field="name" errors={state.errors} />
-        </div>
-
-        <div>
-          <label htmlFor="email">Email Address</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            required
-          />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
-        </div>
-
-        <div>
-          <label htmlFor="phone">Telefonnummer</label>
-          <input id="phone" type="tel" name="phone"/>
-          <ValidationError prefix="Phone" field="phone" errors={state.errors} />
-        </div>
-
-        <div>
-          <label htmlFor="message">Meddelande</label>
-          <div className="container-textarea">
-            <textarea id="message" name="message" rows="1" required />
-          </div>
-          <ValidationError
-            prefix="Message"
-            field="message"
-            errors={state.errors}
-          />
+          <ValidationError prefix="Message" field="message" errors={state.errors} />
         </div>
 
         <div>
