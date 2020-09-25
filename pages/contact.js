@@ -10,7 +10,10 @@ import Map from "../components/Map";
 import options from "../config/richTextOptions";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+
+
 function Contact({ contactPage, contactInfo }) {
+
   return (
     <Container>
       <Hero
@@ -24,7 +27,7 @@ function Contact({ contactPage, contactInfo }) {
         title={contactPage.title1}
         text={contactPage.text1}
       />
-      <div className="contact-form-container">
+      <div className="contact-form-container" id="form">
         <div className="contact-form-form">
           <ContactForm />
         </div>

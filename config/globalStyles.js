@@ -58,13 +58,28 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: inherit;
     -webkit-appearance: none;
 }
+*a,button:hover{
+  cursor: pointer;
+}
 &::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
- *:focus{
-   outline:3px solid ${colors.blue};
- }
+
+
+
+    .focus{
+      *:focus{
+        transition: outline-color .2s ease-out;
+        outline:3px solid ${colors.blue};
+      }
+      
+    }
+    .no-focus{
+      *:focus{
+        outline:none;
+      }
+    }
 `;
 
 export default GlobalStyle;
