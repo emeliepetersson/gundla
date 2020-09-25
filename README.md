@@ -59,4 +59,7 @@ yarn dev
 - Maja Saaranen
 - Rebecka Wijk Fagerberg
 
+## License
+See [The MIT License](https://github.com/emeliepetersson/Gundla/blob/master/LICENSE).
+
  
