@@ -4,7 +4,7 @@
 # **Gundla Gårdscafé**  [link](https://gundla.vercel.app/)
 
 A project where webbdevlopers and Digital designers build a website for Gundla Gårdscafé for advertising them and a platform for displaying their events, food they server and catering.
-through the website you can also contact them through a specific form.
+Through the website you can also contact them through a specific form.
   
 <br>
 
@@ -39,10 +39,10 @@ yarn dev
 
 ---------------
 - [Next.js](https://nextjs.org/)
-- [styled-componenets](https://styled-components.com/)
+- [styled-components](https://styled-components.com/)
 - [Contentful](https://www.contentful.com/) as headless cms
 - [Vercel](https://vercel.com/) 
-- [figama](https://www.figma.com/) design tool
+- [figma](https://www.figma.com/) design tool
 - Javascript
 - html/css
 <br>
